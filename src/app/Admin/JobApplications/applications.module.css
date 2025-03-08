@@ -1,0 +1,124 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers vertically */
+  height: 100vh; /* Makes the container full height of the viewport */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #ffffff;
+}
+
+.slugBackLink {
+  display: inline-block;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 8px 16px;
+  background-color: #f4f4f4;
+  text-decoration: none;
+  color: #333;
+  border-radius: 4px;
+}
+
+.slugBackLink:hover {
+  background-color: #ddd;
+}
+
+.searchContainer {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.searchInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.searchInput:focus {
+  border-color: #007bff;
+}
+
+.loader {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  padding: 50px 0;
+}
+
+.applicationList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.applicationItem {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.applicationItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cardHeader h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #007bff;
+}
+
+.badge {
+  background: #28a745;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.coverLetter {
+  max-height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.submitted {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.applicationItem a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.applicationItem a:hover {
+  text-decoration: underline;
+}
+
+.noApplications {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  margin-top: 50px;
+}

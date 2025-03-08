@@ -1,0 +1,166 @@
+.footerContainer {
+  margin-top: 0px;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.controls {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+  border-radius: 10px;
+  z-index: 2;
+  backdrop-filter: blur(5px);
+}
+
+.controlForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Footer Content positioned over the canvas at the bottom */
+.footerContent {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 1;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  /* padding: 0rem; */
+}
+
+/* Address Section */
+.addressSection {
+  max-width: 300px;
+  /* background: rgba(0, 0, 0, 0.3); */
+  padding: 1rem;
+  border-radius: 15px;
+  /* backdrop-filter: blur(5px); */
+}
+
+/* Section Titles */
+.sectionTitle {
+  font-size: 1.5rem;
+  /* margin-bottom: 1.5rem; */
+  color: #fff;
+}
+
+/* Address & Contact Info */
+.address {
+  line-height: 1.8;
+  /* margin-bottom: 1rem; */
+  opacity: 0.9;
+}
+
+.contactInfo {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* CTA Section */
+.ctaSection {
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.ctaButton {
+  background: linear-gradient(45deg, #0E09DC, #1CD1E1);
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(14, 9, 220, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(28, 209, 225, 0.4);
+}
+
+/* Copyright Section */
+.copyright {
+  text-align: center;
+  padding: 1.5rem;
+  /* backdrop-filter: blur(5px); */
+  border-radius: 10px;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 768px) {
+
+  /* Adjust footer content layout for mobile */
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  /* Ensure individual sections stack with appropriate spacing */
+  .addressSection,
+  .ctaSection,
+  .copyright {
+    max-width: 90%;
+    margin: 0 auto 1rem auto;
+  }
+
+  /* Optionally adjust the order if needed (uncomment if desired) */
+  .ctaSection {
+    order: -1;
+  }
+ 
+
+  /* Scale down headings for smaller screens */
+  .sectionTitle {
+    font-size: 1.3rem;
+    color: #000000;
+  }
+
+  .address {
+    color: #000000;
+  }
+
+  .contactInfo {
+    color: #000000;
+  }
+
+  .ctaTitle {
+    color: #000000;
+    font-size: 1.8rem;
+  }
+
+  /* Adjust button size and padding */
+  .ctaButton {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}

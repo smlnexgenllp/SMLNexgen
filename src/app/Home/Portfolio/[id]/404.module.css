@@ -1,0 +1,91 @@
+.page_404 {
+  min-height: 100vh; /* Full viewport height */
+  padding: 80px 20px; /* Adjust padding for smaller screens */
+  background: #fff;
+  font-family: 'Arvo', serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+}
+
+.four_zero_four_bg {
+  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  background-repeat: no-repeat;
+  height: 500px;
+  background-position: center;
+  background-size: contain; /* Ensures image scales properly on smaller screens */
+  width: 100%;
+  max-width: 600px; /* Limits the image width */
+}
+
+.four_zero_four_bg h1 {
+  font-size: 80px;
+  margin: 0;
+}
+
+.contant_box_404 {
+  margin-top: -30px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Button */
+.link_404 {
+  color: #fff !important;
+  padding: 12px 24px;
+  background: #06038D;
+  margin: 20px 0;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.link_404:hover {
+  background: #003d7a;
+  transform: scale(1.05);
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .four_zero_four_bg {
+    height: 300px; /* Reduce image height on smaller screens */
+  }
+
+  .four_zero_four_bg h1 {
+    font-size: 50px; /* Reduce text size */
+  }
+
+  .contant_box_404 {
+    margin-top: -20px;
+    padding: 15px;
+  }
+
+  .link_404 {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .four_zero_four_bg {
+    height: 250px;
+  }
+
+  .four_zero_four_bg h1 {
+    font-size: 40px;
+  }
+
+  .contant_box_404 {
+    margin-top: -15px;
+  }
+
+  .link_404 {
+    font-size: 14px;
+    padding: 8px 18px;
+  }
+}

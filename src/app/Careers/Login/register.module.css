@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700');
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 165vh;
+    background-color: #eeeefb;
+}
+
+.section {
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 48px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 10;
+}
+
+.title {
+    font-size: 44px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: rgba(226, 227, 232, 0.9);
+}
+
+.main {
+    flex: 1;
+    padding: 0 24px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: rgba(48, 48, 50, 0.75);
+    font-size: 16px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.input {
+    display: block;
+    color: hsl(0, 0%, 0%);
+    font-size: 16px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #3d3d40;
+    padding: 8px 0;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input:focus {
+    border-bottom: 1px solid #1a0970;
+}
+
+.boxItem {
+    height: 60px;
+    margin-bottom: 16px;
+}
+
+.formItemTriple {
+    display: flex;
+    align-items: center;
+    padding-top: 6px;
+}
+
+.radioLabel {
+    flex: 1;
+    color: rgba(67, 68, 71, 0.75);
+}
+
+.formItem {
+    flex: 3;
+    text-align: center;
+}
+
+.radioInput {
+    margin: 0 4px;
+}
+
+.submit {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px 48px;
+    margin-top: 32px;
+    border: 2px solid #22228a;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    color: #0f247a;
+    width: 100%;
+    text-align: center;
+}
+
+.submit:hover {
+    background-color: #EDA261;
+    border-color: #EDA261;
+}
+
+.loginOption {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgba(26, 51, 175, 0.75);
+}
+
+.loginLink {
+    color: #EDA261;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 4px;
+    transition: color 0.3s ease;
+}
+
+.loginLink:hover {
+    color: #FFAE75;
+}
+
+.fileInfo {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fileName {
+    color: #6171ed;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fileName:hover {
+    color: #FFAE75;
+}
+
+.resetButton {
+    margin-left: 8px;
+    padding: 8px 16px;
+    border: 1px solid #75759E;
+    border-radius: 4px;
+    background: transparent;
+    color: rgba(29, 29, 30, 0.9);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.resetButton:hover {
+    border-color: #EDA261;
+    color: #EDA261;
+}
+
+.wave {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 820px;
+    height: 750px;
+    margin-top: -600px;
+    margin-left: -400px;
+    background: #1b3a88;
+    border-radius: 40%;
+    animation: shift 20s infinite linear;
+    z-index: -1;
+}
+
+@keyframes shift {
+    from {
+        transform: rotate(360deg);
+    }
+}
+
+.uploadContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.fileInput {
+    display: none;
+}
+
+.uploadButton {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #4f4f55;
+    border-radius: 4px;
+    color: rgba(54, 55, 57, 0.9);
+    font-size: 14px;
+    cursor: pointer;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.uploadButton:hover {
+    border-color: #EDA261;
+    color: #EDA261;
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin: 10px 0; 
+    margin-top: 185px;
+    
+
+    text-align: center;
+  }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        height: 140vh; /* Allow height to adjust based on content */
+        padding: 20px 10px; /* Add some padding around the edges */
+    }
+
+    .section {
+        padding: 24px; /* Reduce padding */
+        max-width: 100%; /* Full width on smaller screens */
+        margin: 0 10px; /* Add small margins */
+        border-radius: 8px; /* Slightly smaller radius */
+    }
+
+    .title {
+        font-size: 32px; /* Reduce title size */
+    }
+
+    .subtitle {
+        font-size: 18px; /* Reduce subtitle size */
+    }
+
+    .main {
+        padding: 0 12px; /* Reduce padding */
+    }
+
+    .boxItem {
+        height: 50px; /* Slightly shorter input boxes */
+        margin-bottom: 12px; /* Reduce spacing */
+    }
+
+    .label {
+        font-size: 14px;
+        padding: 0.7px 0; /* Smaller labels */
+    }
+
+    .input {
+        font-size: 14px; 
+        padding: 0.7px 0;/* Smaller input text */
+    }
+
+    .formItemTriple {
+        flex-direction: column; /* Stack gender options vertically */
+        align-items: flex-start;
+        padding-top: 0;
+    }
+
+    .radioLabel {
+        margin-bottom: 6px; /* Add space below label */
+    }
+
+    .formItem {
+        text-align: left; /* Align radio buttons to the left */
+        width: 100%; /* Full width */
+    }
+
+    .submit {
+        font-size: 16px; /* Smaller button text */
+        padding: 8px 32px; /* Smaller padding */
+        margin-top: 24px; /* Less space above */
+    }
+
+    .loginOption {
+        font-size: 12px; /* Smaller text */
+    }
+
+    .fileInfo {
+        flex-wrap: wrap; /* Allow wrapping if file name is long */
+        gap: 6px; /* Smaller gap */
+    }
+
+    .fileName {
+        font-size: 12px; /* Smaller file name */
+        max-width: 150px; /* Reduce max width */
+    }
+
+    .resetButton,
+    .uploadButton {
+        padding: 6px 12px; /* Smaller buttons */
+        font-size: 12px; /* Smaller text */
+    }
+
+    .wave {
+        width: 600px; /* Smaller wave */
+        height: 600px;
+        margin-top: -450px; /* Adjust position */
+        margin-left: -300px;
+    }
+}
+
+@media (max-width: 480px) {
+    
+  .section {
+        padding: 16px; /* Even less padding for very small screens */
+    }
+
+    .title {
+        font-size: 28px; /* Even smaller title */
+    }
+
+    .subtitle {
+        font-size: 16px; /* Even smaller subtitle */
+    }
+
+    .main {
+        padding: 0 8px; /* Minimal padding */
+    }
+
+    .boxItem {
+        height: 45px; /* Shorter input boxes */
+        margin-bottom: 10px; /* Less spacing */
+    }
+
+    .submit {
+        margin-top: 60px;
+        font-size: 14px; /* Smaller button text */
+        padding: 6px 24px; /* Smaller padding */
+    }
+
+    .wave {
+        width: 400px; /* Even smaller wave */
+        height: 400px;
+        margin-top: -300px; /* Adjust position */
+        margin-left: -200px;
+    }
+}

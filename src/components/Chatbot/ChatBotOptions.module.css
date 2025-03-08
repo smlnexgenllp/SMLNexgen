@@ -1,0 +1,40 @@
+/* Options Container (Light Mode by Default) */
+.optionsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Light Mode Styles for Buttons */
+.optionButton {
+  background-color: #06038d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.optionButton:hover {
+  background-color: #04026a;
+}
+
+/* Dark Mode Styles for Options Container */
+.optionsContainer.darkMode {
+  background-color: #333;
+  color: white;
+}
+
+/* Dark Mode Styles for Buttons */
+.darkMode .optionButton {
+  background-color: #444;
+  color: white;
+  transition: 0.3s;
+}
+
+.darkMode .optionButton:hover {
+  background-color: #555;
+}

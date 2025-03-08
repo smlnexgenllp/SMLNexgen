@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto+Slab:wght@400;700&family=Montserrat:wght@500;700&display=swap');
+
+.container {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, white 0%, #ffffff 100%);
+    color: #333;
+    padding-top: 60px;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
+
+.recruitmentAlert {
+    max-width: 900px;
+    margin: 150px auto 50px;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+   
+    position: relative;
+    overflow: hidden;
+}
+
+
+.recruitmentAlert h2 {
+    color: #c0392b;
+    font-size: 2.5rem;
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+    animation: textPop 0.8s ease-out;
+    position: relative;
+}
+
+.recruitmentAlert h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #c0392b, #e74c3c);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: underlineExpand 1s ease-out;
+}
+
+.recruitmentAlert h3 {
+    color: #2c3e50;
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    margin: 2rem 0 1.2rem;
+   
+    padding-left: 1.2rem;
+    font-weight: 700;
+    
+}
+
+.recruitmentAlert p {
+    line-height: 1.9;
+    margin-bottom: 1.2rem;
+    color: #444;
+    font-size: 1.15rem;
+    font-family: 'Poppins', sans-serif;
+    animation: fadeInUp 1s ease-out;
+}
+
+.recruitmentAlert ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.recruitmentAlert ul li {
+    padding: 1rem 1.5rem;
+    margin: 0.6rem 0;
+    background: rgba(241, 247, 252, 0.542);
+    border-radius: 10px;
+    transition: all 0.4s ease;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    animation: listItemBounce 0.6s ease-out;
+    animation-fill-mode: backwards;
+}
+
+.recruitmentAlert ul li:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.recruitmentAlert ul li:nth-child(even) {
+    animation-delay: 0.3s;
+}
+
+.recruitmentAlert ul li:hover {
+    transform: translateX(10px) scale(1.02);
+    background: rgba(229, 239, 247, 0.652);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.recruitmentAlert ul li strong {
+    color: #2980b9;
+    margin-right: 0.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes textPop {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes underlineExpand {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80px;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes listItemBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .recruitmentAlert {
+        margin: 130px 1.5rem 30px;
+        padding: 2rem;
+    }
+
+    .recruitmentAlert h2 {
+        font-size: 2rem;
+    }
+
+    .recruitmentAlert h3 {
+        font-size: 1.5rem;
+    }
+
+    .recruitmentAlert ul li {
+        font-size: 0.7rem;
+        padding: 0.8rem 1rem;
+    }
+}

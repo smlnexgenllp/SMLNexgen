@@ -1,0 +1,353 @@
+.box {
+  /* CSS Variables scoped to the component */
+  --color: #1e293b;
+  --c1: #fbda61;
+  --c2: #ff5acd;
+  --c3: #2563eb;
+  --gradient: linear-gradient(60deg,
+      var(--c3),
+      var(--c2),
+      var(--c1),
+      var(--c2),
+      var(--c3));
+  --scale-start: 6;
+  --scale-end: 7.5;
+  --hover-offset: 5%;
+  /* 
+    linear easing generator
+    https://linear-easing-generator.netlify.app/
+  */
+  /* prettier-ignore */
+  --ease-elastic: linear(0, 0.186 2.1%, 0.778 7.2%, 1.027 9.7%, 1.133, 1.212, 1.264, 1.292 15.4%,
+      1.296, 1.294, 1.285, 1.269 18.9%, 1.219 20.9%, 1.062 25.8%, 0.995 28.3%,
+      0.944 31.1%, 0.93, 0.921, 0.92 35.7%, 0.926, 0.94 39.7%, 1.001 47%, 1.014,
+      1.021 52.4%, 1.02 56.4%, 1 65.5%, 0.994 70.7%, 1.001 88.4%, 1);
+  --ease-bounce-out: cubic-bezier(0.34, 1.56, 0.64, 1);
+  margin-block: 70vh;
+  margin-left: 400px; 
+}
+
+@media (prefers-reduced-motion) {
+  .box {
+    --scale-start: var(--scale-end);
+    --ease-elastic: ease-out;
+    --ease-bounce-out: ease-out;
+    --hover-offset: 0;
+  }
+}
+
+.text {
+  /* margin-inline: auto; */
+  /* padding-block: 0.2em; */
+  /* max-inline-size: 15ch; */
+  text-wrap: balance;
+  background-image: var(--gradient);
+  background-size: 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 900;
+}
+
+@supports (animation-timeline: view()) {
+  .box {
+    animation: animations_trigger steps(1) both, animations_fade linear both;
+    animation-timeline: view();
+    animation-range: entry 80% contain 40%;
+  }
+
+  .text {
+    animation: animations_popBack 300ms var(--ease-bounce-out) forwards;
+  }
+
+  @container style(--animate: true) {
+    .text {
+      animation: animations_pop 600ms var(--ease-elastic) forwards,
+        animations_textGradient 1s cubic-bezier(0, 0.55, 0.45, 1) forwards;
+    }
+  }
+}
+
+/* Locally scoped keyframes */
+@keyframes animations_fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes animations_trigger {
+  to {
+    --animate: true;
+  }
+}
+
+@keyframes animations_pop {
+  from {
+    scale: var(--scale-start);
+  }
+
+  to {
+    scale: var(--scale-end);
+  }
+}
+
+@keyframes animations_textGradient {
+  100% {
+    background-position: 150% center;
+  }
+}
+
+@keyframes animations_popBack {
+  from {
+    scale: var(--scale-end);
+  }
+
+  to {
+    color: var(--color);
+    scale: var(--scale-start);
+  }
+}
+
+@keyframes animations_hover {
+
+  from,
+  to {
+    translate: 0 calc(var(--hover-offset) * -1);
+  }
+
+  50% {
+    translate: 0 var(--hover-offset);
+  }
+}
+
+/* ///////////////////////////////////////////////////////////////////////// */
+
+/* Scrollbar customization */
+@property --hue {
+  initial-value: 0;
+  syntax: '<number>';
+  inherits: false;
+}
+
+@property --chroma {
+  initial-value: 0;
+  syntax: '<number>';
+  inherits: true;
+}
+
+.localSyncScrollbar {
+  scrollbar-color: oklch(var(--lightness) var(--chroma) var(--hue)) #0000;
+}
+
+@supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
+  .localSyncScrollbar.localAnimate {
+    timeline-scope: --list;
+    scrollbar-color: oklch(var(--lightness) var(--chroma, 0) var(--hue)) #0000;
+    animation-name: change, chroma-on, chroma-off;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-range: entry 50% exit 50%, entry 40% entry 50%, exit 30% exit 40%;
+    animation-timeline: --list;
+  }
+
+  .localSyncScrollbar.localAnimate ul {
+    view-timeline: --list;
+  }
+}
+
+@keyframes change {
+  to {
+    --hue: var(--end);
+  }
+}
+
+@keyframes chroma-on {
+  to {
+    --chroma: 0.3;
+  }
+}
+
+@keyframes chroma-off {
+  to {
+    --chroma: 0;
+  }
+}
+
+.localThemeDark {
+  --lightness: 75%;
+}
+
+.localThemeLight {
+  --lightness: 65%;
+}
+
+.localList {
+  --step: calc((var(--end) - var(--start)) / (var(--count) - 1));
+}
+
+.localListItem:not(:last-of-type) {
+  color: oklch(var(--lightness) var(--base-chroma) calc(var(--start) + (var(--step) * var(--i))));
+}
+
+@supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
+  .localAnimate .localListItem {
+    opacity: 0.2;
+    animation-name: brighten;
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
+    animation-timeline: view();
+  }
+
+  .localAnimate .localListItem:first-of-type {
+    --start-opacity: 1;
+  }
+
+  .localAnimate .localListItem:last-of-type {
+    --brightness: 1;
+    --end-opacity: 1;
+  }
+
+  @keyframes brighten {
+    0% {
+      opacity: var(--start-opacity, 0.2);
+    }
+    50% {
+      opacity: 1;
+      filter: brightness(var(--brightness, 1.2));
+    }
+    100% {
+      opacity: var(--end-opacity, 0.2);
+    }
+  }
+}
+
+/* Layout and positioning */
+.localSectionFirst {
+  --font-level: 6;
+  display: flex;
+  line-height: 1.25;
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 7.5rem;
+}
+
+.localSectionFirst h2 {
+  position: sticky;
+  top: calc(50% - 0.5lh);
+  font-size: inherit;
+  margin: 0;
+  display: inline-block;
+  height: fit-content;
+  font-weight: 600;
+}
+
+.localSectionLast {
+  min-height: 100vh;
+  display: flex;
+  place-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.localSectionLast h2 {
+  --font-level: 6;
+}
+
+.localMain {
+  /* margin-top: -150px; */
+  /* margin-left: 10px; */
+  width: 100%;
+}
+
+.localList {
+  font-weight: 600;
+  padding-inline: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.localSnap {
+  scroll-snap-type: y proximity;
+}
+
+.localSnap .localListItem {
+  scroll-snap-align: center;
+}
+
+.localH2, .localListItem:last-of-type {
+  background: linear-gradient(
+    canvasText 50%,
+    color-mix(in oklch, canvas, canvasText 25%)
+  );
+  background-clip: text;
+  color: #0000;
+}
+
+/* Header styles */
+.localHeader {
+  /* min-height: 100vh; */
+  /* margin-top: -150px; */
+  display: flex;
+  place-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding-inline: 5rem;
+}
+
+/* Utility classes */
+.localFluid {
+  --fluid-min: calc(14px * pow(1.1, var(--font-level, 0)));
+  --fluid-max: calc(20px * pow(1.33, var(--font-level, 0)));
+  --fluid-preferred: calc((var(--fluid-max) - var(--fluid-min)) / (1500px - 375px));
+  --fluid-type: clamp(
+    (var(--fluid-min) / 16) * 1rem,
+    ((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * 375px) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+    (var(--fluid-max) / 16) * 1rem
+  );
+  font-size: var(--fluid-type);
+}
+
+.localSrOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+} 
+
+@media (max-width: 768px) {
+  .box {
+    margin-left: 6rem !important; /* Reduce left margin on mobile */
+  }
+  .localHeader .text {
+    font-size: 5px !important; /* Reduce the size of 'Our services...' */
+  }
+
+  .localSectionFirst {
+    margin-left:-2rem !important; /* Reduce left margin on mobile */
+  }
+
+  .localSectionFirst h2,
+  .localH2 {
+    font-size: 30px !important; /* Reduce the size of the main heading 'we can...' */
+    /* margin-right: 1rem;  */
+    margin-left: -1.5rem !important; /* Reduce left margin on mobile */
+  }
+
+  .localListItem {
+    font-size: 30px !important; /* Smaller list items */
+  }
+
+  .text {
+    font-size: 24px !important; /* Reduce other text sizes */
+  }
+}

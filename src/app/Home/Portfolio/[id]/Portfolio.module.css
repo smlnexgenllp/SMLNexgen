@@ -1,0 +1,81 @@
+.montoyaTextWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -140px;
+  /* Adjust this value to move it up/down */
+}
+
+.container {
+
+  position: relative;
+  z-index: 10;
+  background-color: transparent;
+  /* Ensure visibility */
+  overflow: hidden;
+  width: 85%;
+  /* Reduce width for left & right cut */
+
+
+  margin: -270px auto 0 auto;
+
+
+}
+
+
+.boxColumnWrapper {
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.boxColumn {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  white-space: nowrap;
+  position: relative;
+  will-change: transform;
+}
+
+/* Box styles */
+.box {
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 280px;
+  height: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+  /* Prevent shrinking */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.box.active {
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.boxText {
+  font-size: 12px;
+  color: #666;
+  max-height: 200px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+}
+
+.boximage {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}

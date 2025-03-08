@@ -1,0 +1,782 @@
+.container {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.heading1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.heading2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 25px;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .heading1 {
+    font-size: 1.75rem;
+  }
+
+  .heading2 {
+    font-size: 1.25rem;
+  }
+
+}
+
+.page {
+  --body-bg-color: #e5ecef;
+  /* --theme-bg-color: #fafafb; */
+  --body-font: "Poppins", sans-serif;
+  --body-color: #2f2f33;
+  --active-color: #0162ff;
+  --active-light-color: #e1ebfb;
+  --header-bg-color: #fafafb;
+  --search-border-color: #efefef;
+  --border-color: #d8d8d8;
+  --alert-bg-color: #e8f2ff;
+  --subtitle-color: #83838e;
+  --inactive-color: #f0f0f0;
+  --placeholder-color: #9b9ba5;
+  --time-button: #fc5757;
+  --level-button: #5052d5;
+  --button-color: #fff;
+
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: var(--theme-bg-color);
+  font-family: var(--body-font);
+  font-size: 15px;
+  color: var(--body-color);
+  margin-top: 0px;
+}
+
+.headerShadow {
+  box-shadow: 0 4px 20px rgba(88, 99, 148, 0.17);
+  z-index: 1;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  scroll-behavior: smooth;
+  padding: 30px 40px;
+  overflow: auto;
+}
+
+.wrapper.detailPage .jobOverview {
+  display: flex;
+  animation: slide 0.6s both;
+}
+
+.wrapper.detailPage .searchedBar {
+  display: none;
+}
+
+.wrapper.detailPage .jobCards {
+  display: none;
+}
+
+.searchMenu {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  gap: 5px; /* Reduce the gap between search box and button */
+  height: 56px;
+  background-color: var(--header-bg-color);
+  border-radius: 8px;
+  width: 18.75%;
+  padding-left: 10px; /* Reduce padding */
+}
+
+
+.searchBar {
+  height: 55px;
+  position: relative;
+}
+
+.searchBox {
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56.966 56.966' fill='%230162ff'%3e%3cpath d='M55.146 51.887L41.588 37.786A22.926 22.926 0 0046.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 00.083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 14px;
+  background-position: 0 50%;
+  padding: 0 3px 0 30px;
+  width: 100%; /* Adjust if necessary */
+  max-width: 150px; /* Try reducing this */
+}
+
+.searchBox:focus {
+  outline: none;
+}
+
+.searchBox::placeholder {
+  color: var(--placeholder-color);
+}
+
+.searchButton {
+  background-color: var(--active-color);
+  height: 55px;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0 15px;
+  border-radius: 0 8px 8px 0;
+  color: var(--button-color);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.mainContainer {
+  display: flex;
+  flex-grow: 1;
+  padding-top: 30px;
+}
+
+.searchType {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.alert {
+  background-color: var(--alert-bg-color);
+  padding: 24px 18px;
+  border-radius: 8px;
+}
+
+.alertTitle {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.alertSubtitle {
+  font-size: 13px;
+  color: var(--subtitle-color);
+  line-height: 1.6em;
+  margin-bottom: 20px;
+}
+
+.alert input {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  border-radius: 6px;
+  background-color: var(--header-bg-color);
+  border: none;
+  font-size: 13px;
+}
+
+.alert input::placeholder {
+  color: var(--placeholder-color);
+}
+
+.searchButtons {
+  border: none;
+  color: var(--button-color);
+  background-color: var(--active-color);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 14px;
+  cursor: pointer;
+}
+
+.searchedJobs {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-left: 40px;
+  margin-top: -90px;
+}
+
+.searchedBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideY 0.6s both;
+}
+
+.searchedShow {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.jobCards {
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
+  animation: slideY 0.6s both;
+}
+
+@media screen and (max-width: 1212px) {
+  .jobCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .jobCards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.jobCard {
+  padding: 20px 16px;
+  background-color: var(--header-bg-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.jobCard:hover {
+  transform: scale(1.02);
+}
+
+.jobCard svg {
+  width: 46px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.jobCardHeader {
+  display: flex;
+  align-items: flex-start;
+}
+
+.jobCardTitle {
+  font-weight: 600;
+  margin-top: 16px;
+  font-size: 14px;
+}
+
+.jobCardSubtitle {
+  color: var(--subtitle-color);
+  font-size: 13px;
+  margin-top: 14px;
+  line-height: 1.6em;
+}
+
+.jobDetailButtons {
+  margin-top: 8px;
+}
+
+.detailButton {
+  background-color: var(--active-light-color);
+  color: var(--active-color);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 8px;
+  border-radius: 4px;
+  border: none;
+}
+
+.detailButton + .detailButton {
+  margin-left: 4px;
+}
+
+.cardButtons {
+  padding: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background-color: var(--active-color);
+  color: var(--button-color);
+  float: right;
+  margin-top: -40px;
+  margin-right: 10px;
+}
+
+.menuDot {
+  background-color: var(--placeholder-color);
+  box-shadow: -6px 0 0 0 var(--placeholder-color), 6px 0 0 0 var(--placeholder-color);
+  width: 4px;
+  height: 4px;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: 8px;
+}
+
+.jobOverview {
+  display: none;
+  flex-grow: 1;
+}
+
+.jobOverviewCards {
+  width: 330px;
+  background-color: var(--header-bg-color);
+  border-radius: 8px 0 0 8px;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.jobOverviewCard {
+  padding: 18px 25px;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.jobOverviewCard:hover {
+  background: #2b2ecf;
+}
+
+.jobOverviewCard:hover .jobCardTitle,
+.jobOverviewCard:hover .jobCardSubtitle {
+  color: #fff;
+}
+
+.jobOverviewCard:hover .heart {
+  color: #fff;
+  border-color: #fff;
+}
+
+.jobOverviewCard:hover .heart:hover {
+  fill: red;
+  stroke: red;
+  transform: scale(1.1);
+}
+
+.jobOverviewCard svg {
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.back{
+  align-items: center;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.overviewWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.overviewDetail {
+  flex-grow: 1;
+  margin-left: 16px;
+}
+
+.overviewDetail .jobCardTitle {
+  margin-top: 0;
+}
+
+.overviewDetail .jobCardSubtitle {
+  margin-top: 4px;
+}
+
+.heart {
+  width: 24px;
+  padding: 4px;
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.jobOverviewButtons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.timeButton {
+  background-color: var(--time-button);
+}
+
+.levelButton {
+  background-color: var(--level-button);
+}
+
+.jobStat {
+  background-color: var(--inactive-color);
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--subtitle-color);
+}
+
+.jobDay {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--subtitle-color);
+}
+
+.jobExplain {
+  background-color: var(--header-bg-color);
+  margin-left: 40px;
+  border-radius: 0 8px 8px 0;
+  flex-grow: 1;
+}
+
+.closeBtn {
+  background-color: #f97316; /* Equivalent to bg-orange-500 */
+  color: white; /* Equivalent to text-white */
+  padding: 0.1rem 0.5rem; /* Equivalent to px-4 py-2 */
+  border-radius: 0.5rem; /* Equivalent to rounded-lg */
+  cursor: pointer; /* Equivalent to cursor-pointer */
+  transition: background-color 0.3s ease-in-out; /* Equivalent to transition */
+  width: fit-content; /* Equivalent to w-fit */
+  float: right;
+  margin-bottom: 2px;
+}
+
+.closeBtn:hover {
+  background-color: #dc2626; /* Equivalent to hover:bg-red-600 */
+}
+
+.jobBg {
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+  width: 100%;
+  height: 180px;
+  transition: 0.3s;
+}
+
+.jobLogos {
+  margin-top: -30px;
+  position: relative;
+  margin-bottom: -36px;
+  padding: 0 20px;
+}
+
+.jobLogos svg {
+  width: 66px;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 4px solid var(--header-bg-color);
+}
+
+.jobExplainContent {
+  padding: 50px 25px 30px;
+}
+
+.jobTitleWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.jobTitleWrapper .jobCardTitle {
+  font-size: 20px;
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.jobAction {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.jobAction svg {
+  width: 32px;
+  border: 1px solid var(--border-color);
+  color: var(--subtitle-color);
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.jobAction svg + svg {
+  margin-left: 12px;
+}
+
+.jobSubtitleWrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.posted {
+  color: var(--subtitle-color);
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+
+
+.explainBar {
+  margin-top: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  display: flex;
+  height: 66px;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.explainContents {
+  height: 66px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.explainContents + .explainContents {
+  border-left: 1px solid var(--border-color);
+  padding-left: 16px;
+}
+
+.explainTitle {
+  color: var(--subtitle-color);
+  font-size: 12px;
+  line-height: 40px;
+  white-space: nowrap;
+}
+
+.explainSubtitle {
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: -2px;
+  white-space: nowrap;
+}
+
+.overviewText {
+  margin-top: 30px;
+}
+
+.overviewTextHeader {
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.overviewTextSubheader {
+  font-size: 13px;
+  line-height: 2em;
+}
+
+.overviewTextItem {
+  font-size: 13px;
+  position: relative;
+  display: flex;
+}
+
+.overviewTextItem + .overviewTextItem {
+  margin-top: 20px;
+}
+
+.overviewTextItem:before {
+  content: "";
+  border: 2px solid #61bcff;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+@keyframes slideY {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+}
+
+@keyframes slide {
+  0% {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Container for simplified job cards */
+.simplifiedJobCards {
+  margin-top: 20px;
+  max-height: 400px; /* Adjust based on your layout */
+  overflow-y: auto;
+  padding-right: 5px; /* Space for scrollbar */
+  animation: slideLeft 0.6s ease both; /* Slide in from the left */
+}
+
+/* Individual simplified job card */
+.simplifiedJobCard {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: var(--header-bg-color);
+  transition: transform 0.2s ease, background-color 0.2s ease; /* Smooth transition for scaling and color */
+  border-radius: 6px; /* Rounded corners like jobCard */
+  margin-bottom: 5px; /* Small gap between cards */
+}
+
+/* Hover effect similar to jobCard */
+.simplifiedJobCard:hover {
+  background-color: var(--inactive-color);
+  transform: scale(1.02); /* Slight scale up on hover, matching jobCard */
+}
+
+/* Highlight selected job card */
+.simplifiedJobCard.selected {
+  background-color: var(--active-light-color);
+  transform: scale(1.02); /* Maintain scale when selected for visual feedback */
+}
+
+/* Adjust logo size for simplified cards */
+.simplifiedJobCard .simplifiedLogo svg {
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 6px; /* Match jobCard SVG border-radius */
+  transition: transform 0.2s ease; /* Smooth logo transition */
+}
+
+/* Hover effect on logo within simplified card */
+.simplifiedJobCard:hover .simplifiedLogo svg {
+  transform: scale(1.05); /* Slight logo scale for extra interactivity */
+}
+
+/* Title styling */
+.simplifiedJobCard .jobCardTitle {
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 0;
+  margin-left: 10px;
+  color: var(--body-color);
+  transition: color 0.2s ease; /* Smooth color transition */
+}
+
+/* Change title color on hover */
+.simplifiedJobCard:hover .jobCardTitle {
+  color: var(--active-color); /* Matches active theme on hover */
+}
+
+/* Ensure the last card doesn't have a bottom border */
+.simplifiedJobCard:last-child {
+  border-bottom: none;
+}
+
+/* New slide animation for simplified cards */
+@keyframes slideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px); /* Start off-screen to the left */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* Slide to original position */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Search menu adjustments */
+  .searchMenu {
+    width: 100%;
+    padding: 10px;
+  }
+  .searchBox {
+    max-width: none; /* Remove max-width constraint to allow full expansion */
+  }
+
+  /* Main container stacking */
+  .mainContainer {
+    flex-direction: column;
+  }
+  .searchType {
+    width: 100%;
+  }
+  .searchedJobs {
+    padding-left: 0;
+    /* padding-top: 20px; */
+    margin-top: 40px;
+  }
+
+  /* Job overview in detail view */
+  .jobOverview {
+    flex-direction: column;
+  }
+
+  .jobExplain {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  /* Explain bar stacking */
+  .explainBar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  .explainContents {
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 10px;
+  }
+  .explainContents + .explainContents {
+    margin-top: 10px;
+  }
+
+  .cardButtons {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Search menu stacking */
+  .searchMenu {
+    flex-direction: column;
+    height: auto;
+  }
+  .searchBar {
+    width: 100%;
+  }
+  .searchButton {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  /* Job title wrapper stacking */
+  .jobTitleWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .jobAction {
+    margin-top: 10px;
+    margin-left: 0;
+  }
+}

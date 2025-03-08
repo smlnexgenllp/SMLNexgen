@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Six+Caps&display=swap");
+
+.container {
+  font-family: "Six Caps", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: transparent;
+  color: #06038D;
+  text-align: center;
+  padding: 1rem;
+}
+
+.letter {
+  font-size: 115px;
+  font-weight: lighter;
+  padding: 10px;
+  letter-spacing: -4px;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+
+

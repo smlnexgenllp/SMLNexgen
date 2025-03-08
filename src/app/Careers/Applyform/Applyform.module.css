@@ -1,0 +1,142 @@
+.applicationForm {
+    background: white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.33);
+    margin: 2rem auto;
+    max-width: 90%;
+    margin-top: 130px;
+    margin-bottom: 100px;
+}
+
+.sectionHeader {
+    font-size: 2rem;
+    color: #2563eb;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.sectionHeader::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #f59e0b;
+    border-radius: 2px;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #1f2937;
+}
+
+.formGroup input,
+.formGroup textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submitBtn {
+    background: #1e90ff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.filePreview {
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+.fileActions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 8px;
+    flex-wrap: wrap;
+}
+
+.fileButton {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .applicationForm {
+        padding: 1.5rem;
+    }
+
+    .sectionHeader {
+        font-size: 1.75rem;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .applicationForm {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    .sectionHeader {
+        font-size: 1.5rem;
+    }
+
+    .formGroup input,
+    .formGroup textarea {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .submitBtn {
+        padding: 0.75rem 1rem;
+        width: 100%;
+    }
+
+    .fileButton {
+        padding: 6px 12px;
+        width: 100%;
+    }
+}

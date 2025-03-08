@@ -1,0 +1,66 @@
+.main {
+    width: 1000px; /* Increased to accommodate numpad */
+    height: 400px; /* Adjusted for a more realistic desktop keyboard size */
+    position: relative;
+    cursor: pointer;
+    margin-top: 100px;
+    background-color: #1a1919;
+  }
+  
+  .keyboard {
+    width: 100%;
+    height: 100%;
+    transform: perspective(1000px) rotateX(20deg) rotateZ(-10deg);
+  }
+  
+  .keyboardContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .keys {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .key {
+    height: 40px; /* Adjusted for desktop size */
+    transition: transform 0.1s ease;
+  }
+  
+  .key--down {
+    transform: translateY(2px);
+  }
+  
+  .key__top {
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFB; /* White keys */
+  }
+  
+  .blueKey .key__top {
+    background-color: #A9DFFD; /* Blue keys */
+  }
+  
+  /* Key Widths */
+  .key--w15 { width: 45px; } /* 1.5x standard key width */
+  .key--w2 { width: 60px; } /* 2x standard key width */
+  .key--w25 { width: 75px; } /* 2.5x standard key width */
+  .key--w18 { width: 54px; } /* 1.8x standard key width */
+  .key--w23 { width: 69px; } /* 2.3x standard key width */
+  .key--w27 { width: 81px; } /* 2.7x standard key width */
+  .key--w65 { width: 195px; } /* 6.5x standard key width */
+  
+  .screen {
+    width: 400px; /* Adjusted to fit the design */
+    height: 300px; /* Adjusted to fit the design */
+    background-color: #A9DFFD; /* Blue screen */
+    position: absolute;
+    top: -320px; /* Position above the keyboard */
+    left: 300px; /* Center the screen over the keyboard */
+    box-shadow: 0 0 20px #A9DFFD;
+  }

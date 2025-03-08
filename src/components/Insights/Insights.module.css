@@ -1,0 +1,199 @@
+/* Container that centers the entire component in the viewport */
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+/* Heading style */
+.h1 {
+  font-family: "Six Caps", sans-serif;
+  display: flex;
+  justify-content: center;
+  /* padding: 2rem 0; Adjust padding for spacing */
+  background-color: transparent;
+  color: #06038D;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+/* Container for the carousel (no background) */
+.container {
+  overflow: hidden;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Main carousel styling */
+.card-carousel {
+  --card-width: 80%;
+  --card-max-width: 400px;
+  --card-height: 480px;
+  --carousel-min-width: 600px;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: var(--card-height);
+  min-width: var(--carousel-min-width);
+  transition: filter 0.3s ease;
+  z-index: 1;
+}
+
+/* Transition class when releasing drag */
+.smooth-return {
+  transition: all 0.2s ease;
+}
+
+/* Individual card styles */
+.card {
+  background: rgba(247, 247, 247, 0.968);
+  width: var(--card-width);
+  max-width: var(--card-max-width);
+  text-align: center;
+  padding: 1em;
+  min-width: 250px;
+  height: var(--card-height);
+  position: absolute;
+  margin: 0 auto;
+  color: rgba(0, 0, 0, 0.5);
+  transition: inherit;
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.581);
+  border-radius: 1em;
+  filter: brightness(0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Highlight the centered card */
+.highlight {
+  filter: brightness(1);
+}
+
+/* Visually hidden carousel controller */
+.visuallyhidden {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  color: turquoise;
+  opacity: 0;
+}
+
+.card-controller {
+  /* Additional controller styles if needed */
+}
+
+/* Image container styling */
+.image-container {
+  width: 12em;
+  height: 12em;
+  position: relative;
+  background-size: cover;
+  margin-bottom: 1em;
+  border-radius: 50%;
+  padding: 1em;
+  box-shadow: inset 0px 0px 17px 0px rgba(130, 142, 164, 0.345);
+}
+
+.image-container::after {
+  content: "";
+  display: block;
+  width: 120%;
+  height: 120%;
+  border: solid 3px rgba(0, 0, 0, 0.1);
+  border-radius: 100%;
+  position: absolute;
+  top: calc(-10% - 3px);
+  left: calc(-10% - 3px);
+}
+
+/* Background images for the three cards */
+.card:nth-of-type(1) .image-container {
+  background-image: url("/ai.jpg");
+}
+
+.card:nth-of-type(2) .image-container {
+  background-image: url("/datasecurity.jpg");
+}
+
+.card:nth-of-type(3) .image-container {
+  background-image: url("https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+}
+
+/* New styles for the card information below the image */
+.cardInfo {
+  padding: 1em;
+  /* text-align: justify; */
+  text-align: center;
+}
+
+.meta {
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 0.5em;
+  
+}
+
+.title {
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.description {
+  font-size: 1em;
+  color: #555;
+}
+
+
+/* Responsive tweak */
+@media screen and (max-width: 640px) {
+  .card-carousel {
+    margin-left: calc((100vw - var(--carousel-min-width) - 40px) / 2);
+  }
+}
+
+/* Extra mobile responsive tweaks for screens 480px or less */
+@media screen and (max-width: 480px) {
+  .card-carousel {
+    --card-width: 95%;
+    --card-max-width: 300px;
+    --card-height: 420px;
+    --carousel-min-width: 100%;
+    margin-left: 0;
+  }
+  
+  .card {
+    min-width: auto;
+  }
+  
+  .image-container {
+    width: 10em;
+    height: 10em;
+  }
+  
+  .cardInfo {
+    padding: 0.5em;
+  }
+  
+  .meta {
+    font-size: 0.8em;
+  }
+  
+  .title {
+    font-size: 1em;
+  }
+  
+  .description {
+    font-size: 0.9em;
+  }
+}

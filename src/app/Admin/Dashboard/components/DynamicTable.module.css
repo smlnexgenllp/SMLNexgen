@@ -1,0 +1,167 @@
+.dynamicTableContainer {
+  padding: 20px;
+  max-width: 1300px;
+  margin: 20px auto;
+  overflow-x: auto;
+}
+
+.dynamicTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dynamicTable th,
+.dynamicTable td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.dynamicTable th {
+  background-color: #f4f4f4;
+  cursor: pointer;
+}
+
+.dynamicTable tr:hover {
+  background-color: #f9f9f9;
+}
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.searchInput {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.exportButton {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.exportButton:hover {
+  background-color: #45a049;
+}
+
+.deleteButton {
+  padding: 6px 12px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: #d32f2f;
+}
+
+.sortable {
+  position: relative;
+}
+
+.asc::after {
+  content: ' ↑';
+}
+
+.desc::after {
+  content: ' ↓';
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.paginationControls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.paginationButton {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.paginationButton:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.pageInfo {
+  margin: 0 10px;
+}
+
+.totalCount {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Media Query for devices with a max width of 768px */
+@media screen and (max-width: 768px) {
+  .dynamicTableContainer {
+    padding: 10px;
+    margin: 10px;
+  }
+  
+  .tableHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  .controls {
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+  }
+  
+  .searchInput {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .exportButton,
+  .deleteButton {
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+  .pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .paginationControls {
+    justify-content: center;
+  }
+}

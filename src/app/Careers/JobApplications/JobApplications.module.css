@@ -1,0 +1,148 @@
+.job_app_container {
+  background: linear-gradient(to bottom, #1e3a8a, #3b82f6);
+  padding: 15px; /* Reduced padding for mobile */
+  border-radius: 15px;
+  color: white;
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: 180px; /* Reduced top margin for mobile */
+  margin-bottom: 100px; /* Reduced bottom margin */
+  box-shadow: 0 0px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.job_app_header {
+  margin-bottom: 15px; /* Slightly reduced for mobile */
+}
+
+.job_app_header h1 {
+  font-size: 20px; /* Smaller base font size */
+  margin: 0 0 8px 0;
+}
+
+.job_app_filter_section {
+  margin-bottom: 15px;
+}
+
+.job_app_filter_input {
+  width: 100%;
+  padding: 8px; /* Slightly reduced padding */
+  border: 1px solid #4a5568;
+  border-radius: 4px;
+  background-color: #2d3748;
+  color: white;
+  font-size: 14px;
+}
+
+.job_app_table_container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 10px; /* Reduced padding */
+  color: #2d3748;
+  overflow-x: auto; /* Added for horizontal scrolling on mobile */
+}
+
+.job_app_table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px; /* Smaller base font size */
+  min-width: 500px; /* Ensures table remains scrollable on mobile */
+}
+
+.job_app_table th,
+.job_app_table td {
+  padding: 8px; /* Reduced padding */
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.job_app_table th {
+  background-color: #edf2f7;
+  font-weight: 600;
+}
+
+.job_app_table tr:nth-child(even) {
+  background-color: #f7fafc;
+}
+
+.job_app_table tr:hover {
+  background-color: #e2e8f0;
+}
+
+.job_app_remove_button {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 4px 8px; /* Reduced padding */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px; /* Smaller font */
+  transition: background-color 0.3s;
+}
+
+.job_app_remove_button:hover {
+  background-color: #c53030;
+}
+
+.job_app_footer {
+  margin-top: 15px;
+  text-align: right;
+  font-size: 11px; /* Smaller font */
+  color: #4a5568;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .job_app_container {
+      padding: 10px;
+      margin-top: 160px;
+      margin-bottom: 8 0px;
+  }
+
+  .job_app_header h1 {
+      font-size: 18px;
+  }
+
+  .job_app_filter_input {
+      font-size: 12px;
+      padding: 6px;
+  }
+
+  .job_app_table {
+      font-size: 11px;
+  }
+
+  .job_app_table th,
+  .job_app_table td {
+      padding: 6px;
+  }
+
+  .job_app_remove_button {
+      padding: 3px 6px;
+      font-size: 10px;
+  }
+
+  .job_app_footer {
+      text-align: center; /* Center align on mobile */
+      font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .job_app_container {
+      padding: 8px;
+      margin-top: 180px;
+      border-radius: 10px;
+  }
+
+  .job_app_header h1 {
+      font-size: 16px;
+  }
+
+  .job_app_filter_section {
+      margin-bottom: 10px;
+  }
+
+  .job_app_table_container {
+      padding: 5px;
+  }
+}

@@ -1,0 +1,203 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background 0.3s ease-in-out;
+  --border-size: 3px; /* Glow border thickness */
+  --spotlight-size: 200px; /* Size of the glow spotlight */
+  --base-hue: 220; /* Starting hue for blue-purple (adjust as needed) */
+  --hue-range: 120; /* Range for gradient effect (purple to blue) */
+  --saturation: 80; /* Adjusted saturation for softer glow */
+  --lightness: 60; /* Adjusted lightness for neon effect */
+  --glow-spread: 10px; /* Reduced from 20px to make the glow smaller */
+}
+
+.modalContainer:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modalContainer[data-glow] {
+  --hue: calc(var(--base-hue) + (var(--xp, 0) * var(--hue-range))); /* Dynamic hue based on x-position */
+}
+
+/* Glowing shadow effect using pseudo-elements */
+.modalContainer[data-glow]::before {
+  content: "";
+  position: absolute;
+  width: calc(100% + var(--glow-spread) * 2);
+  height: calc(100% + var(--glow-spread) * 2);
+  top: calc(var(--glow-spread) * -1);
+  left: calc(var(--glow-spread) * -1);
+  border-radius: 24px; /* Match modalContent radius + slight spread */
+  background: radial-gradient(
+    circle at calc(var(--x, 50%) * 1px) calc(var(--y, 50%) * 1px),
+    hsl(var(--hue) calc(var(--saturation) * 1%) calc(var(--lightness) * 1%) / 0.8),
+    hsl(calc(var(--hue) + 60) calc(var(--saturation) * 1%) calc(var(--lightness) * 0.7) / 0.6),
+    transparent 60% /* Reduced from 70% to make the gradient tighter */
+  );
+  filter: blur(8px); /* Reduced from 10px for a smaller, sharper glow */
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.modalContainer[data-glow]::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + var(--glow-spread) * 1.5);
+  height: calc(100% + var(--glow-spread) * 1.5);
+  top: calc(var(--glow-spread) * -0.75);
+  left: calc(var(--glow-spread) * -0.75);
+  border-radius: 22px; /* Slightly smaller than ::before for layering */
+  background: radial-gradient(
+    circle at calc(var(--x, 50%) * 1px) calc(var(--y, 50%) * 1px),
+    hsl(var(--hue) calc(var(--saturation) * 1%) calc(var(--lightness) * 0.7) / 0.6),
+    hsl(calc(var(--hue) + 60) calc(var(--saturation) * 1%) calc(var(--lightness) * 0.5) / 0.4),
+    transparent 50% /* Reduced from 60% to make the gradient tighter */
+  );
+  filter: blur(12px); /* Reduced from 15px for a smaller, sharper glow */
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.modalContainer:hover .modalContainer[data-glow]::before,
+.modalContainer:hover .modalContainer[data-glow]::after {
+  opacity: 1;
+}
+
+/* Modal Content (inner card) */
+.modalContent {
+  background: rgb(245, 245, 245);
+  padding: 20px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s ease-out forwards;
+  transition: transform 0.2s ease; /* Added for smooth mouse movement */
+}
+
+.modalContent.closing {
+  animation: slideOut 0.5s ease-in forwards;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Form Styles */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.formTitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Input fields with underline */
+.inputField,
+.selectField,
+.textAreaField {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  background: transparent;
+}
+
+.inputField:focus,
+.selectField:focus,
+.textAreaField:focus {
+  border-bottom: 2px solid #007bff;
+}
+
+.textAreaField {
+  height: 80px;
+  resize: none;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.submitButton {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.formFooter {
+  margin-top: 10px;
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .modalContent {
+    width: 95%;
+    padding: 15px;
+  }
+  .inputField,
+  .selectField,
+  .textAreaField {
+    font-size: 14px;
+  }
+  .submitButton {
+    font-size: 14px;
+  }
+}

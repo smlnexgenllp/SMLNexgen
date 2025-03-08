@@ -1,0 +1,187 @@
+/* Center the Dashboard */
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  position: relative;
+}
+
+/* Title Styling */
+.dashboardTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Grid Layout */
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+}
+
+/* Box Styling */
+.dashboardBox {
+  width: 250px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hover effect */
+.dashboardBox:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Pop-up hover text */
+.dashboardBox::after {
+  content: attr(data-text);
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show pop-up text on hover */
+.dashboardBox:hover::after {
+  opacity: 1;
+}
+
+/* Logout Button */
+.logoutButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+.logoutButton:hover {
+  background-color: #c9302c;
+}
+
+/* Back Link (not used in this snippet, included for completeness) */
+.backLink {
+  display: inline-block;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  padding: 8px 16px;
+  background-color: #f4f4f4;
+  text-decoration: none;
+  color: #333;
+  border-radius: 4px;
+}
+
+.backLink:hover {
+  background-color: #ddd;
+}
+
+/* Media Query for Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .dashboardContainer {
+    padding: 20px; /* Add padding to avoid edge-to-edge content */
+  }
+
+  .dashboardTitle {
+    font-size: 20px; /* Slightly smaller title */
+    margin-bottom: 20px;
+  }
+
+  .dashboardGrid {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 40px; /* Reduced gap */
+  }
+
+  .dashboardBox {
+    width: 200px; /* Smaller boxes */
+    height: 150px;
+    font-size: 16px;
+  }
+
+  .dashboardBox::after {
+    bottom: -35px; /* Adjust pop-up position for smaller box */
+    font-size: 12px; /* Smaller pop-up text */
+  }
+
+  .logoutButton {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px; /* Smaller padding */
+    font-size: 14px;
+  }
+}
+
+/* Media Query for Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .dashboardContainer {
+    padding: 15px;
+  }
+
+  .dashboardTitle {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .dashboardGrid {
+    gap: 30px; /* Further reduced gap */
+  }
+
+  .dashboardBox {
+    width: 150px; /* Even smaller boxes */
+    height: 120px;
+    font-size: 14px;
+  }
+
+  .dashboardBox::after {
+    bottom: -30px;
+    font-size: 10px; /* Even smaller pop-up text */
+    padding: 4px 8px; /* Reduced padding for pop-up */
+  }
+
+  .logoutButton {
+    top: 5px;
+    right: 5px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .backLink {
+    top: 5px;
+    left: 5px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}

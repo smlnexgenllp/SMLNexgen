@@ -1,0 +1,295 @@
+/* Google Font Import */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap");
+.montoyaTextWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -140px;
+  /* Adjust this value to move it up/down */
+}
+/* Section Styles */
+.section {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  padding-block: min(20vh, 6rem);
+  text-align: center;
+  width: 100%;
+  margin-inline: auto;
+  margin-top: -300px;
+  position: relative;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.section h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+}
+
+.section span,
+.section p,
+.section h3 {
+  letter-spacing: 0.035rem;
+}
+
+.section p {
+  line-height: 1.6;
+  color: #a3a3a3;
+  max-width: 50rem;
+  margin: 0 auto;
+  font-size: clamp(0.9rem, 0.825rem + 0.3vw, 1.2rem);
+}
+
+.section span {
+  /* text-transform: uppercase; */
+  display: block;
+  font-size: 40px;
+  font-weight: 700;
+  color: #06038d;
+  margin-bottom: 30px;
+}
+
+/* .section .heading {
+  color: #06038d;
+} */
+
+.section .blueText {
+  color: #06038d;
+  font-weight: bold;
+}
+
+/* Mission & Vision Section */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timelineItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.circleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #0a3d91;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.contentLeft,
+.contentRight {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 45%;
+  font-size: 18px;
+  color: #333;
+  font-weight: 400;
+  line-height: 1.6;
+  transition: all 0.3s ease-in-out; /* Add transition for smooth effect */
+}
+
+.contentLeft:hover,
+.contentRight:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.7);
+  border: 2px solid rgba(0, 255, 204, 0.7);
+}
+
+.contentLeft {
+  margin-right: 20px;
+}
+
+.contentRight {
+  margin-left: 20px;
+}
+
+/* What We Do Section */
+.whatWeDoSection {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.whatWeDoSection h2 {
+  font-size: 32px;
+  color: #06038D;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.whatWeDoCards {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+  padding-left: 130px;
+  padding-right: 130px;
+}
+
+
+.whatWeDoCard {
+  background: rgba(255, 255, 255, 0.1); /* Transparent background */
+  backdrop-filter: blur(10px); /* Glassmorphism Effect */
+  border-radius: 12px;
+  padding: 20px;
+  width: 28%;
+  border: 2px solid transparent; /* No border initially */
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  box-shadow: 0 4px 10px rgba(120, 120, 222, 0.46);
+}
+.whatWeDoCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.7);
+  border: 2px solid rgba(0, 255, 204, 0.7);
+}
+
+.whatWeDoCard h3 {
+  font-size: 22px;
+  color: #0a3d91;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.whatWeDoCard p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Count-Up Section */
+.countUpSection {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background: transparent;
+}
+
+.countUpItem {
+  flex: 1;
+  padding: 20px;
+  background: transparent;
+  border-radius: 10px;
+  margin: 0 15px;
+}
+
+.countUpItem span {
+  font-size: 36px;
+  font-weight: bold;
+  color: #0a3e91e4;
+}
+
+.countUpItem p {
+  font-size: 18px;
+  color: #333333eb;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+  .section h2 {
+    font-size: 32px;
+  }
+  .section span {
+    font-size: 36px;
+  }
+  .timeline {
+    width: 90%;
+  }
+  .timelineItem {
+    flex-direction: column;
+    text-align: center;
+  }
+  .circleContainer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .circle {
+    width: 100px;
+    height: 100px;
+    font-size: 16px;
+  }
+  .contentLeft,
+  .contentRight {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .whatWeDoCards {
+    flex-direction: column;
+    padding: 0;
+  }
+  .whatWeDoCard {
+    width: 90%;
+    margin: 10px auto;
+  }
+  .countUpSection {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .countUpItem {
+    width: 90%;
+    margin: 10px 0;
+  }
+  .countUpItem span {
+    font-size: 30px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+  .section h2 {
+    font-size: 28px;
+  }
+  .section span {
+    font-size: 32px;
+  }
+  .section p {
+    font-size: 0.9rem;
+  }
+  .whatWeDoSection h2 {
+    font-size: 32px;
+  }
+  .whatWeDoCard h3 {
+    font-size: 20px;
+  }
+  .whatWeDoCard p {
+    font-size: 14px;
+  }
+  .countUpItem span {
+    font-size: 28px;
+  }
+  .countUpItem p {
+    font-size: 16px;
+  }
+}

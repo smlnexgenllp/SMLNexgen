@@ -1,0 +1,155 @@
+/* Main Services Container */
+/* .services {
+  background: #0a0a0a;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+} */
+
+/* Negative Margin for Overlap */
+.negativeMargin {
+  /* margin-top: -600px; */
+  padding: 50px 0;
+}
+
+/* Demo Button Styling */
+.demoButton {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(45deg, #ff00ff, #00ffcc);
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.demoButtonSpan {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  animation: rotateGlow 4s linear infinite;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Services Container */
+.servicesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Services Grid */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Service Card */
+.serviceCard {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #00ffcc;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 204, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.serviceCard:hover::before {
+  opacity: 1;
+}
+
+/* Service Card Header */
+.serviceCardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Service Icon */
+.serviceIcon {
+  font-size: 3rem;
+  margin-right: 20px;
+  filter: drop-shadow(0 0 5px #00ffcc);
+}
+
+/* Service Title */
+.serviceTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #06038D;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+/* Service Description */
+.serviceDescription {
+  font-size: 1rem;
+  color: #06038D;
+  margin-bottom: 20px;
+}
+
+/* Service Button */
+.serviceButton {
+  position: relative;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(45deg, #00ffcc, #ff00ff);
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.serviceButton::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+  animation: rotateGlow 3s linear infinite;
+}

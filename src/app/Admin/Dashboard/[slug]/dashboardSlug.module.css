@@ -1,0 +1,100 @@
+/* dashboardSlug.module.css */
+.slugDashboardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh; /* Use min-height instead of fixed height for content flexibility */
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+  
+  /* Header Styling */
+  .slugHeader {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+  }
+  
+  /* Title Styling */
+  .slugDashboardTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Back Link Styling */
+  .slugBackLink {
+    display: inline-block;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    padding: 8px 16px;
+    background-color: #f4f4f4;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+  }
+  
+  .slugBackLink:hover {
+    background-color: #ddd;
+  }
+  
+  /* Dashboard Content Styling */
+  .slugDashboardContent {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+  }
+  
+  /* dashboardSlug.module.css */
+.loadingState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+  /* Media Query for Tablets (max-width: 768px) */
+  @media (max-width: 768px) {
+    .slugDashboardContainer {
+      padding: 15px;
+    }
+  
+    .slugDashboardTitle {
+      font-size: 20px;
+    }
+  
+    .slugBackLink {
+      top: 10px;
+      left: 10px;
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+  
+    .slugDashboardContent {
+      padding: 15px;
+    }
+  }
+  
+  /* Media Query for Mobile (max-width: 480px) */
+  @media (max-width: 480px) {
+    .slugDashboardContainer {
+      padding: 10px;
+    }
+  
+    .slugDashboardTitle {
+      font-size: 18px;
+    }
+  
+    .slugBackLink {
+      top: 5px;
+      left: 5px;
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  
+    .slugDashboardContent {
+      padding: 10px;
+    }
+  }

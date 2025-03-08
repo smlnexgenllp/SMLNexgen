@@ -1,0 +1,642 @@
+/* Import the font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+/* Base styles for all sections */
+.section {
+  font-family: 'Lato', sans-serif;
+  /* Colors */
+  --ColorDarkA: hsl(0, 0%, 6.472%);
+  --ColorDarkB: hsl(0, 0%, 3.236%);
+  --ColorWhiteA: hsl(0, 0%, 100%);
+  --ColorWhiteB: hsl(0, 0%, 90.292%);
+  /* Perfect Fifth (Base Size 22px) */
+  --FontD: 375.89px;
+  --FontH1: 250.59px;
+  --FontH2: 167.06px;
+  --FontH3: 111.38px;
+  --FontH4: 74.25px;
+  --FontH5: 49.50px;
+  --FontParagraph: 33px;
+  --FontSubtitle: 22px;
+  /* Golden Ratio (Viewport Width 1920px) */
+  --GoldenRatio1: 1920px;
+  --GoldenRatio2: 1186.65px;
+  --GoldenRatio3: 733.41px;
+  --GoldenRatio4: 453.28px;
+  --GoldenRatio5: 280.15px;
+  --GoldenRatio6: 173.15px;
+  --GoldenRatio7: 107.01px;
+  --GoldenRatio8: 66.14px;
+  --GoldenRatio9: 40.88px;
+  --GoldenRatio10: 25.27px;
+
+  height: 100vh;
+  background-size: cover;
+  background: var(--ColorWhiteA);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* .landingPage {
+  background: linear-gradient(to top, #f4a361d3, #87cfebdc) no-repeat center;
+  background-size: cover;
+  opacity: 0.1;
+  border-radius: 30px;
+} */
+
+
+/* Section Content (inside landing page) */
+.sectionContent {
+  position: absolute;
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  text-align: right;
+  right: 55%;
+  cursor: default;
+}
+
+.sectionContent h1 {
+  font-size: var(--FontH3);
+  font-weight: 700;
+  color: var(--ColorDarkA);
+  transition: transform 0.31s ease;
+  transform-origin: right bottom;
+}
+
+.sectionContent h1:hover {
+  transform: scale(1.13);
+}
+
+.sectionContent h1 span {
+  display: block;
+}
+
+.sectionContent p {
+  font-size: var(--FontParagraph);
+  font-weight: 400;
+  color: var(--ColorDarkA);
+  transition: transform 0.31s ease;
+  transform-origin: right center;
+}
+
+.sectionContent p:hover {
+  transform: scale(1.13);
+}
+
+.sectionContent p span {
+  display: block;
+}
+
+/* SML Name Element */
+.smlname {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.smlname p {
+  font-size: var(--FontD);
+  font-weight: 900;
+  background: url("/Careers/careerbg.jpg") no-repeat center;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.31s ease;
+  transform-origin: left;
+}
+
+.smlname p:hover {
+  background-position: top;
+  transform: scale(1.13);
+}
+
+/* Scroll Down */
+.scrollDown {
+  position: absolute;
+  bottom: var(--GoldenRatio7);
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  cursor: default;
+}
+
+.scrollIcon {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 20px solid var(--ColorDarkA);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.scrollIcon:hover {
+  transform: translateY(5px);
+}
+
+/* Optional: Add a simple bounce animation */
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.scrollIcon {
+  animation: bounce 2s infinite;
+}
+
+/* Image Container */
+.imageContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  width: 40%;
+  margin-top: -5vh;
+  /* height: 100%; */
+  /* padding: 20px; */
+  box-sizing: border-box;
+}
+
+/* Image styling */
+.imageContainer img {
+  width: 100%;
+  height: auto;
+  max-height: 80%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* Slide Content */
+.slide {
+  position: absolute;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  left: 0;
+  width: 60%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.slide h1 {
+  font-size: var(--FontH5);
+  font-weight: 700;
+  color: var(--ColorDarkA);
+  text-align: left;
+  
+}
+
+.hire {
+  padding-top: 100px;
+}
+
+.slide p {
+  margin-top: var(--GoldenRatio9);
+  width: 100%;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--ColorDarkA);
+  text-align: justify;
+}
+
+.slide2 {
+  margin-top: -140px;
+}
+.slide3 {
+  margin-top: -140px;
+}
+.slide4 {
+  margin-top: -250px;
+}
+
+/* Alternating Layout for Even Slides */
+.slide2 .imageContainer,
+.slide4 .imageContainer {
+  left: 0;
+  right: auto;
+}
+
+.slide2 .slide,
+.slide4 .slide {
+  right: 0;
+  left: auto;
+  text-align: right;
+}
+
+/* Media Queries */
+@media (max-width: 1920px) {
+  .section {
+    --FontD: 19.578vw;
+    --FontH1: 13.052vw;
+    --FontH2: 8.701vw;
+    --FontH3: 5.801vw;
+    --FontH4: 3.867vw;
+    --FontH5: 2.578vw;
+    --FontParagraph: 1.719vw;
+    --FontSubtitle: 1.146vw;
+    --GoldenRatio1: 100vw;
+    --GoldenRatio2: 61.805vw;
+    --GoldenRatio3: 38.198vw;
+    --GoldenRatio4: 23.608vw;
+    --GoldenRatio5: 14.591vw;
+    --GoldenRatio6: 9.018vw;
+    --GoldenRatio7: 5.573vw;
+    --GoldenRatio8: 3.445vw;
+    --GoldenRatio9: 2.129vw;
+    --GoldenRatio10: 1.316vw;
+  }
+}
+
+/* ============================= */
+/* Employee Testimonials Section */
+/* ============================= */
+
+/* Wrapper for the Testimonials Section */
+.testimonialsSection {
+  padding: 2rem 0;
+  margin-top: -70px;
+  margin-bottom: 100px;
+} 
+
+/* Testimonials Section Container */
+.testimonials {
+  padding: 2rem 0;
+}
+
+/* Section Header */
+.testimonials__sectionHeader {
+  font-size: 2.5rem;
+  color: var(--primary, #2563eb);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.testimonials__sectionHeader::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--accent, #f59e0b);
+  border-radius: 2px;
+}
+
+/* Testimonial Cards Container */
+.testimonials__testimonialSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+  width: 90%;
+}
+
+/* Individual Testimonial Card */
+.testimonials__testimonial {
+  background: var(--ColorWhiteA);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.testimonials__testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonial Heading & Text */
+.testimonials__testimonial h4 {
+  color: var(--primary, #2563eb);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.testimonials__testimonial p {
+  color: var(--ColorDarkA);
+}
+
+/* Employee Name Styling */
+.testimonials__employeeName {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  font-weight: 600;
+}
+
+/* Hiring Process Flow Container */
+.hiringFlow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0rem;
+  margin-top: -1rem;
+  padding-top: 20px;
+}
+
+/* Individual Hiring Step Box */
+.hiringStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0rem;
+  background: var(--ColorWhiteB);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--ColorDarkA);
+  width: 100%;
+  max-width: 250px;
+}
+
+/* Icon Styling */
+.hiringStep i {
+  font-size: 2rem;
+  color: #0078D7; /* Blue to match SMLNEXGEN LLP branding */
+}
+
+/* Text Styling */
+.hiringStep span {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* Blue Connecting Line */
+.connectingLine {
+  width: 2px;
+  height: 30px;
+  background-color: #0078D7; /* Blue connecting lines */
+}
+
+/* Responsive Styles for Testimonials */
+@media (max-width: 768px) {
+  .testimonials__sectionHeader {
+    font-size: 2rem;
+  }
+  
+  .testimonials__testimonialSection {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonials__testimonial {
+    padding: 1.5rem;
+  }
+  
+  .testimonials__testimonial h4 {
+    font-size: 1.1rem;
+  }
+  
+  .testimonials__employeeName {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+  }
+}
+
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .section {
+    height: auto;
+    min-height: 10vh;
+    padding: 20px 0;
+    overflow-y: auto;
+  }
+
+  .sectionContent {
+    position: relative;
+    right: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-top: 150px;
+  }
+
+  .sectionContent h1 {
+    font-size: 4rem !important;
+    text-align: center;
+  }
+
+  .sectionContent p {
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
+
+  .smlname {
+    position: relative;
+    left: 0;
+    height: auto;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .smlname p {
+    font-size: 8rem !important;
+  }
+
+  .scrollDown {
+    position: relative;
+    bottom: auto;
+    margin-top: 40px;
+  }
+
+  .imageContainer {
+    position: static;
+    width: 100%;
+   
+    padding: 50px;
+  }
+
+
+  .slide {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  .slide1,
+  .slide2,
+  .slide3,
+  .slide4 {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .slide2,
+  .slide4 {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .slide h1 {
+    font-size: 2.5rem !important;
+    text-align: center !important;
+  }
+
+  .slide p {
+    font-size: 1rem !important;
+    text-align: center !important;
+    margin-top: 15px;
+  }
+
+  .scrollIcon {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid var(--ColorDarkA);
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionContent h1 {
+    font-size: 3rem !important;
+  }
+
+  .sectionContent p {
+    font-size: 1.2rem !important;
+  }
+
+  .smlname p {
+    font-size: 6rem !important;
+  }
+
+  .slide h1 {
+    font-size: 2rem !important;
+  }
+
+  .scrollIcon {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 12px solid var(--ColorDarkA);
+  }
+}/* Responsive for iPads and Tablets */
+@media (max-width: 1024px) {
+ 
+
+  .section {
+    height: auto;
+    min-height: 10vh;
+    padding: 20px 0;
+    overflow-y: auto;
+  }
+
+  .sectionContent {
+    position: relative;
+    right: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-top: 150px;
+  }
+
+  .sectionContent h1 {
+    font-size: 4rem !important;
+    text-align: center;
+  }
+
+  .sectionContent p {
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
+
+  .smlname {
+    position: relative;
+    left: 0;
+    height: auto;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .smlname p {
+    font-size: 8rem !important;
+  }
+
+  .scrollDown {
+    position: relative;
+    bottom: auto;
+    margin-top: 40px;
+  }
+
+  .imageContainer {
+    position: static;
+    width: 100%;
+   
+    padding: 50px;
+  }
+
+
+  .slide {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  .slide1,
+  .slide2,
+  .slide3,
+  .slide4 {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .slide2,
+  .slide4 {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .slide h1 {
+    font-size: 2.5rem !important;
+    text-align: center !important;
+  }
+
+  .slide p {
+    font-size: 1rem !important;
+    text-align: center !important;
+    margin-top: 15px;
+  }
+
+  .scrollIcon {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid var(--ColorDarkA);
+  }
+}
+
