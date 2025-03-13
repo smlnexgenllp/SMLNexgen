@@ -215,12 +215,7 @@ const CardCarousel = () => {
           } else if (x + rounded < original) {
             if (x + rounded < -this.centerIndex) {
               newX =
-                x +
-                rounded +
-                1 +
-                this.centerIndex -
-                rounded +
-                this.centerIndex;
+                x + rounded + 1 + this.centerIndex - rounded + this.centerIndex;
             }
           }
           this.xScale[newX + rounded] = card;
@@ -236,7 +231,10 @@ const CardCarousel = () => {
           this.container.classList.remove(styles["smooth-return"]);
           const targetXDist = data.x / 150;
           this.currentXDist += (targetXDist - this.currentXDist) * 0.5;
-          xDist = Math.max(-this.centerIndex, Math.min(this.centerIndex, this.currentXDist));
+          xDist = Math.max(
+            -this.centerIndex,
+            Math.min(this.centerIndex, this.currentXDist)
+          );
         } else {
           this.container.classList.add(styles["smooth-return"]);
           xDist = 0;
@@ -305,15 +303,15 @@ const CardCarousel = () => {
             <div className={styles["image-container"]}></div>
             <div className={styles.cardInfo}>
               <p className={styles.meta}>
-                15 Aug 2024 | Tech Innovations | Technology
+              📅 15 Aug 2024 |🔒 Tech Innovations |💼 Technology
               </p>
               <h2 className={styles.title}>
                 How AI is Transforming Industries
               </h2>
               <p className={styles.description}>
-                Discover the latest advancements in AI and how they&apos;re reshaping
-                the landscape across various sectors. From automation to
-                predictive analytics, AI is a game-changer.
+                Discover the latest advancements in AI and how they&apos;re
+                reshaping the landscape across various sectors. From automation
+                to predictive analytics, AI is a game-changer.
               </p>
             </div>
           </div>
@@ -321,10 +319,10 @@ const CardCarousel = () => {
             <div className={styles["image-container"]}></div>
             <div className={styles.cardInfo}>
               <p className={styles.meta}>
-                23 Aug 2024 | Digital Transformation | Business
+              📅 23 Aug 2024 |🔒 Digital Transformation |💼 Business
               </p>
               <h2 className={styles.title}>
-                The Future of Digital Transformation
+                 The Rising Importance of Cybersecurity
               </h2>
               <p className={styles.description}>
                 As businesses increasingly adopt digital strategies, learn about
@@ -337,15 +335,17 @@ const CardCarousel = () => {
             <div className={styles["image-container"]}></div>
             <div className={styles.cardInfo}>
               <p className={styles.meta}>
-                15 Aug 2024 | Tech Innovations | Technology
+                📅 23 Aug 2024 |🔒 Cybersecurity |💼 Business
               </p>
               <h2 className={styles.title}>
                 How AI is Transforming Industries
               </h2>
               <p className={styles.description}>
-                Discover the latest advancements in AI and how they&apos;re reshaping
-                the landscape across various sectors. From automation to
-                predictive analytics, AI is a game-changer.
+                As cyber threats grow more sophisticated, businesses must stay
+                ahead with robust security strategies. Explore the latest trends
+                in cybersecurity, from AI-driven threat detection to zero-trust
+                architecture, and learn how organizations can safeguard their
+                digital assets in an increasingly connected world.
               </p>
             </div>
           </div>

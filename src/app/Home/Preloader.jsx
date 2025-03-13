@@ -56,24 +56,24 @@ const Preloader = () => {
 
   // Enhanced log message sequence with more detailed outputs
   const systemLogs = [
-    { text: 'Analyzing dependencies...', delay: 400, className: 'command' },
-    { text: 'Found 24 dependencies, resolving...', delay: 200, className: 'info' },
-    { text: 'Loading modules...', delay: 300, className: 'command' },
-    { text: 'Core modules loaded successfully', delay: 250, className: 'success' },
-    { text: 'Initializing components...', delay: 300, className: 'command' },
-    { text: '> UI components initialized', delay: 200, className: 'info' },
-    { text: '> Data services initialized', delay: 200, className: 'info' },
-    { text: 'Compiling...', delay: 400, className: 'command' },
-    { text: 'Transpiling TypeScript...', delay: 250, className: 'info' },
-    { text: 'Processing SASS...', delay: 250, className: 'info' },
-    { text: 'Minifying assets...', delay: 250, className: 'info' },
-    { text: 'Compilation successful', delay: 300, className: 'success' },
-    { text: 'Optimizing bundle...', delay: 300, className: 'command' },
-    { text: 'Tree shaking unused code...', delay: 250, className: 'info' },
-    { text: 'Compressing assets...', delay: 250, className: 'info' },
-    { text: 'Build successful', delay: 300, className: 'success' },
-    { text: 'Bundle size: 247.3KB (82.4KB gzipped)', delay: 300, className: 'info' },
-    { text: 'Launching SML NexGen...', delay: 400, className: 'highlight' }
+    { text: 'Analyzing dependencies...', delay: 200, className: 'command' },
+    { text: 'Found 24 dependencies, resolving...', delay: 100, className: 'info' },
+    { text: 'Loading modules...', delay: 150, className: 'command' },
+    { text: 'Core modules loaded successfully', delay: 125, className: 'success' },
+    { text: 'Initializing components...', delay: 150, className: 'command' },
+    { text: '> UI components initialized', delay: 100, className: 'info' },
+    { text: '> Data services initialized', delay: 100, className: 'info' },
+    { text: 'Compiling...', delay: 200, className: 'command' },
+    { text: 'Transpiling TypeScript...', delay: 125, className: 'info' },
+    { text: 'Processing SASS...', delay: 125, className: 'info' },
+    { text: 'Minifying assets...', delay: 125, className: 'info' },
+    { text: 'Compilation successful', delay: 150, className: 'success' },
+    { text: 'Optimizing bundle...', delay: 150, className: 'command' },
+    { text: 'Tree shaking unused code...', delay: 125, className: 'info' },
+    { text: 'Compressing assets...', delay: 125, className: 'info' },
+    { text: 'Build successful', delay: 150, className: 'success' },
+    { text: 'Bundle size: 247.3KB (82.4KB gzipped)', delay: 150, className: 'info' },
+    { text: 'Launching SML NexGen...', delay: 200, className: 'highlight' }
   ];
 
   // Improved auto-scroll function with error handling
