@@ -132,7 +132,7 @@ const Preloader = () => {
           setCodeProgress(Math.floor((currentPos / codeSnippet.length) * 100));
           
           // Variable typing speed for more realism
-          const typingDelay = Math.random() < 0.2 ? 100 : 40; // Occasional pause
+          const typingDelay = Math.random() < 0.2 ? 50 : 20; // Reduced from 100/40 to 50/20
           codeInterval = setTimeout(typeNextChar, typingDelay);
         } else {
           // Move to compilation phase
@@ -167,8 +167,8 @@ const Preloader = () => {
           if (index === systemLogs.length - 1) {
             setTimeout(() => {
               setFadeOut(true);
-              setTimeout(() => setVisible(false), 800);
-            }, 600);
+              setTimeout(() => setVisible(false), 400); // Reduced to 400ms
+            }, 300); // Reduced to 300ms
           }
         }, totalDelay);
       });

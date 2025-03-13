@@ -303,7 +303,7 @@ const CardCarousel = () => {
             <div className={styles["image-container"]}></div>
             <div className={styles.cardInfo}>
               <p className={styles.meta}>
-              📅 15 Aug 2024 |🔒 Tech Innovations |💼 Technology
+                15 Aug 2024 | Tech Innovations | Technology
               </p>
               <h2 className={styles.title}>
                 How AI is Transforming Industries
@@ -319,10 +319,10 @@ const CardCarousel = () => {
             <div className={styles["image-container"]}></div>
             <div className={styles.cardInfo}>
               <p className={styles.meta}>
-              📅 23 Aug 2024 |🔒 Digital Transformation |💼 Business
+                23 Aug 2024 | Digital Transformation | Business
               </p>
               <h2 className={styles.title}>
-                 The Rising Importance of Cybersecurity
+                The Future of Digital Transformation
               </h2>
               <p className={styles.description}>
                 As businesses increasingly adopt digital strategies, learn about
@@ -335,17 +335,15 @@ const CardCarousel = () => {
             <div className={styles["image-container"]}></div>
             <div className={styles.cardInfo}>
               <p className={styles.meta}>
-                📅 23 Aug 2024 |🔒 Cybersecurity |💼 Business
+                23 Aug 2024 | Cybersecurity | Business
               </p>
               <h2 className={styles.title}>
-                How AI is Transforming Industries
+                The Rising Importance of Cybersecurity
               </h2>
               <p className={styles.description}>
-                As cyber threats grow more sophisticated, businesses must stay
-                ahead with robust security strategies. Explore the latest trends
-                in cybersecurity, from AI-driven threat detection to zero-trust
-                architecture, and learn how organizations can safeguard their
-                digital assets in an increasingly connected world.
+                As cyber threats evolve, businesses need strong security.
+                Discover key trends like AI-driven threat detection and
+                zero-trust architecture to protect digital assets.
               </p>
             </div>
           </div>
