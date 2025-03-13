@@ -12,7 +12,7 @@ const menuItems = [
   { title: "Services", icon: <MdBuild />, link: "/Home/Services" },
   { title: "Portfolio", icon: <MdWork />, link: "/Home/Portfolio/1" },
   // { title: "Blog", icon: <MdArticle />, link: "/Home#blog" },
-  // { title: "Careers", icon: <MdEngineering />, link: "/Careers" },
+  { title: "Careers", icon: <MdEngineering />, link: "/Careers" },
   { title: "Contact", icon: <MdEmail />, link: "/Home/Contact" },
 ];
 

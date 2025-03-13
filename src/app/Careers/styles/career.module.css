@@ -1,9 +1,9 @@
 /* Import the font */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
 
 /* Base styles for all sections */
 .section {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   /* Colors */
   --ColorDarkA: hsl(0, 0%, 6.472%);
   --ColorDarkB: hsl(0, 0%, 3.236%);
@@ -15,7 +15,7 @@
   --FontH2: 167.06px;
   --FontH3: 111.38px;
   --FontH4: 74.25px;
-  --FontH5: 49.50px;
+  --FontH5: 49.5px;
   --FontParagraph: 33px;
   --FontSubtitle: 22px;
   /* Golden Ratio (Viewport Width 1920px) */
@@ -38,21 +38,12 @@
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .section.visible {
   opacity: 1;
   transform: translateY(0);
 }
-
-/* .landingPage {
-  background: linear-gradient(to top, #f4a361d3, #87cfebdc) no-repeat center;
-  background-size: cover;
-  opacity: 0.1;
-  border-radius: 30px;
-} */
-
 
 /* Section Content (inside landing page) */
 .sectionContent {
@@ -143,14 +134,14 @@
   border-top: 20px solid var(--ColorDarkA);
   cursor: pointer;
   transition: transform 0.3s ease;
+  animation: bounce 2s infinite;
 }
 
-/* Hover effect */
 .scrollIcon:hover {
   transform: translateY(5px);
 }
 
-/* Optional: Add a simple bounce animation */
+/* Bounce animation */
 @keyframes bounce {
   0%,
   20%,
@@ -167,10 +158,6 @@
   }
 }
 
-.scrollIcon {
-  animation: bounce 2s infinite;
-}
-
 /* Image Container */
 .imageContainer {
   position: absolute;
@@ -180,12 +167,10 @@
   right: 0;
   width: 40%;
   margin-top: -5vh;
-  /* height: 100%; */
-  /* padding: 20px; */
   box-sizing: border-box;
+  margin-right: 30px;
 }
 
-/* Image styling */
 .imageContainer img {
   width: 100%;
   height: auto;
@@ -213,11 +198,11 @@
   font-weight: 700;
   color: var(--ColorDarkA);
   text-align: left;
-  
 }
 
 .hire {
   padding-top: 100px;
+  padding-bottom: 30px;
 }
 
 .slide p {
@@ -229,12 +214,11 @@
   text-align: justify;
 }
 
-.slide2 {
-  margin-top: -140px;
-}
+.slide2,
 .slide3 {
   margin-top: -140px;
 }
+
 .slide4 {
   margin-top: -250px;
 }
@@ -251,6 +235,295 @@
   right: 0;
   left: auto;
   text-align: right;
+}
+
+/* Employee Testimonials Section */
+.testimonialsSection {
+  padding: 2rem 0;
+  margin-top: -40px;
+  margin-bottom: 100px;
+}
+
+.testimonials {
+  padding: 2rem 0;
+}
+
+.testimonials__sectionHeader {
+  font-size: 2.5rem;
+  color: var(--primary, #2563eb);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.testimonials__sectionHeader::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--accent, #f59e0b);
+  border-radius: 2px;
+}
+
+.testimonials__testimonialSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.testimonials__testimonial {
+  background: var(--ColorWhiteA);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.testimonials__testimonial:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.testimonials__testimonial h4 {
+  color: var(--primary, #2563eb);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.testimonials__testimonial p {
+  color: var(--ColorDarkA);
+}
+
+.testimonials__employeeName {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  font-weight: 600;
+}
+
+/* Hiring Process Flow */
+.hiringFlow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0rem;
+  margin-top: -1rem;
+  padding-top: 20px;
+}
+
+.hiringStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0rem;
+  background: var(--ColorWhiteB);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: var(--ColorDarkA);
+  width: 100%;
+  max-width: 250px;
+}
+
+.hiringStep i {
+  font-size: 2rem;
+  color: #0078d7;
+}
+
+.hiringStep span {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.connectingLine {
+  width: 2px;
+  height: 30px;
+  background-color: #0078d7;
+}
+
+/* Career Sections */
+.careerSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 60px;
+}
+
+.contentBox {
+  flex: 1;
+  padding: 30px;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.contentDivider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+  margin-bottom: 30px;
+  border-radius: 2px;
+}
+
+.sectionText {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin-bottom: 30px;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+
+.ctaButton span {
+  margin-right: 10px;
+}
+
+.ctaButton:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(37, 99, 235, 0.3);
+}
+
+.imageBox {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 75%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imageWrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.25);
+}
+
+.sectionImage {
+  object-fit: cover;
+}
+
+/* Benefits List */
+.benefitsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.benefitItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  background-color: #2563eb;
+}
+
+.benefitItem:hover i,
+.benefitItem:hover span {
+  color: white;
+}
+
+.benefitItem i {
+  font-size: 1.5rem;
+  color: #2563eb;
+}
+
+.benefitItem span {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+/* Lifestyle Grid */
+.lifestyleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.lifestyleItem {
+  text-align: center;
+  padding: 25px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.lifestyleItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  background-color: #2563eb;
+}
+
+.lifestyleItem:hover i,
+.lifestyleItem:hover p {
+  color: white;
+}
+
+.lifestyleItem i {
+  font-size: 2rem;
+  color: #2563eb;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.lifestyleItem p {
+  font-weight: 600;
+  color: #1a202c;
+  transition: all 0.3s ease;
 }
 
 /* Media Queries */
@@ -277,156 +550,118 @@
   }
 }
 
-/* ============================= */
-/* Employee Testimonials Section */
-/* ============================= */
-
-/* Wrapper for the Testimonials Section */
-.testimonialsSection {
-  padding: 2rem 0;
-  margin-top: -70px;
-  margin-bottom: 100px;
-} 
-
-/* Testimonials Section Container */
-.testimonials {
-  padding: 2rem 0;
-}
-
-/* Section Header */
-.testimonials__sectionHeader {
-  font-size: 2.5rem;
-  color: var(--primary, #2563eb);
-  text-align: center;
-  margin-bottom: 2rem;
-  position: relative;
-  padding-bottom: 1rem;
-}
-
-.testimonials__sectionHeader::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: var(--accent, #f59e0b);
-  border-radius: 2px;
-}
-
-/* Testimonial Cards Container */
-.testimonials__testimonialSection {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin: 0 auto;
-  width: 90%;
-}
-
-/* Individual Testimonial Card */
-.testimonials__testimonial {
-  background: var(--ColorWhiteA);
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #e5e7eb;
-}
-
-.testimonials__testimonial:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
-
-/* Testimonial Heading & Text */
-.testimonials__testimonial h4 {
-  color: var(--primary, #2563eb);
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-
-.testimonials__testimonial p {
-  color: var(--ColorDarkA);
-}
-
-/* Employee Name Styling */
-.testimonials__employeeName {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e5e7eb;
-  font-weight: 600;
-}
-
-/* Hiring Process Flow Container */
-.hiringFlow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0rem;
-  margin-top: -1rem;
-  padding-top: 20px;
-}
-
-/* Individual Hiring Step Box */
-.hiringStep {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0rem;
-  background: var(--ColorWhiteB);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  color: var(--ColorDarkA);
-  width: 100%;
-  max-width: 250px;
-}
-
-/* Icon Styling */
-.hiringStep i {
-  font-size: 2rem;
-  color: #0078D7; /* Blue to match SMLNEXGEN LLP branding */
-}
-
-/* Text Styling */
-.hiringStep span {
-  font-size: 1.3rem;
-  text-align: center;
-}
-
-/* Blue Connecting Line */
-.connectingLine {
-  width: 2px;
-  height: 30px;
-  background-color: #0078D7; /* Blue connecting lines */
-}
-
-/* Responsive Styles for Testimonials */
-@media (max-width: 768px) {
-  .testimonials__sectionHeader {
-    font-size: 2rem;
+@media (max-width: 1024px) {
+  .section {
+    height: auto;
+    min-height: 10vh;
+    padding: 20px 0;
+    overflow-y: auto;
   }
-  
-  .testimonials__testimonialSection {
-    grid-template-columns: 1fr;
+
+  .sectionContent {
+    position: relative;
+    right: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-top: 150px;
   }
-  
-  .testimonials__testimonial {
-    padding: 1.5rem;
+
+  .sectionContent h1 {
+    font-size: 4rem !important;
+    text-align: center;
   }
-  
-  .testimonials__testimonial h4 {
-    font-size: 1.1rem;
+
+  .sectionContent p {
+    font-size: 1.5rem !important;
+    text-align: center;
   }
-  
-  .testimonials__employeeName {
-    margin-top: 1rem;
-    padding-top: 0.75rem;
+
+  .smlname {
+    position: relative;
+    left: 0;
+    height: auto;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .smlname p {
+    font-size: 8rem !important;
+  }
+
+  .scrollDown {
+    position: relative;
+    bottom: auto;
+    margin-top: 40px;
+  }
+
+  .imageContainer {
+    position: static;
+    width: 100%;
+    padding: 50px;
+  }
+
+  .slide {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-top: 50px;
+  }
+
+  .slide h1 {
+    font-size: 2.5rem !important;
+    text-align: center !important;
+  }
+
+  .slide p {
+    font-size: 1rem !important;
+    text-align: center !important;
+    margin-top: 15px;
+  }
+
+  .scrollIcon {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid var(--ColorDarkA);
+  }
+
+  .container {
+    flex-direction: column !important;
+    gap: 40px;
+  }
+
+  .contentBox,
+  .imageBox {
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .imageWrapper {
+    height: 350px;
+  }
+
+  .sectionTitle {
+    font-size: 2.4rem;
+  }
+
+  .contentDivider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sectionText {
+    text-align: center;
+  }
+
+  .benefitsList,
+  .lifestyleGrid {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-
-/* Mobile Responsive Styles */
 @media (max-width: 768px) {
   .section {
     height: auto;
@@ -475,10 +710,8 @@
   .imageContainer {
     position: static;
     width: 100%;
-   
     padding: 50px;
   }
-
 
   .slide {
     position: static;
@@ -486,21 +719,6 @@
     height: auto;
     padding: 10px;
     margin-top: 50px;
-  }
-
-  .slide1,
-  .slide2,
-  .slide3,
-  .slide4 {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .slide2,
-  .slide4 {
-    flex-direction: column-reverse;
-    text-align: center;
   }
 
   .slide h1 {
@@ -514,10 +732,51 @@
     margin-top: 15px;
   }
 
-  .scrollIcon {
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 16px solid var(--ColorDarkA);
+  .testimonials__sectionHeader {
+    font-size: 2rem;
+  }
+
+  .testimonials__testimonialSection {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials__testimonial {
+    padding: 1.5rem;
+  }
+
+  .testimonials__testimonial h4 {
+    font-size: 1.1rem;
+  }
+
+  .testimonials__employeeName {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+  }
+
+  .careerSection {
+    padding: 60px 0;
+  }
+
+  .container {
+    width: 95%;
+  }
+
+  .contentBox {
+    padding: 20px;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .imageWrapper {
+    height: 300px;
+  }
+
+  .benefitsList,
+  .lifestyleGrid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -543,100 +802,29 @@
     border-right: 6px solid transparent;
     border-top: 12px solid var(--ColorDarkA);
   }
-}/* Responsive for iPads and Tablets */
-@media (max-width: 1024px) {
- 
 
-  .section {
-    height: auto;
-    min-height: 10vh;
-    padding: 20px 0;
-    overflow-y: auto;
+  .careerSection {
+    padding: 40px 0;
   }
 
-  .sectionContent {
-    position: relative;
-    right: 0;
+  .contentBox {
+    padding: 15px;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .sectionText {
+    font-size: 1rem;
+  }
+
+  .imageWrapper {
+    height: 250px;
+  }
+
+  .ctaButton {
     width: 100%;
-    height: auto;
-    text-align: center;
-    margin-top: 150px;
-  }
-
-  .sectionContent h1 {
-    font-size: 4rem !important;
-    text-align: center;
-  }
-
-  .sectionContent p {
-    font-size: 1.5rem !important;
-    text-align: center;
-  }
-
-  .smlname {
-    position: relative;
-    left: 0;
-    height: auto;
     justify-content: center;
-    margin-top: 40px;
-  }
-
-  .smlname p {
-    font-size: 8rem !important;
-  }
-
-  .scrollDown {
-    position: relative;
-    bottom: auto;
-    margin-top: 40px;
-  }
-
-  .imageContainer {
-    position: static;
-    width: 100%;
-   
-    padding: 50px;
-  }
-
-
-  .slide {
-    position: static;
-    width: 100%;
-    height: auto;
-    padding: 10px;
-    margin-top: 50px;
-  }
-
-  .slide1,
-  .slide2,
-  .slide3,
-  .slide4 {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .slide2,
-  .slide4 {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .slide h1 {
-    font-size: 2.5rem !important;
-    text-align: center !important;
-  }
-
-  .slide p {
-    font-size: 1rem !important;
-    text-align: center !important;
-    margin-top: 15px;
-  }
-
-  .scrollIcon {
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 16px solid var(--ColorDarkA);
   }
 }
-

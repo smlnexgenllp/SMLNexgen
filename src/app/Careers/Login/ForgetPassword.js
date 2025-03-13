@@ -1,3 +1,4 @@
+//ForgetPassword.js
 'use client';
 
 import styles from '../Login/register.module.css';

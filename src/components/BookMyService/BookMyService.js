@@ -212,14 +212,14 @@ export default function BookMyService({ onClose }) {
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 required
-                pattern="^\+?[0-9]{10,15}$"
+                pattern="^\+?[0-9]{10,14}$"
                 placeholder="Enter your phone number"
                 className={styles.inputField}
               />
               {errors.phoneNumber && <p className={styles.errorMessage}>{errors.phoneNumber}</p>}
             </label>
             <label>
-              Preferred Date/Time:
+              Preferred Date:
               <input
                 type="date"
                 name="date"

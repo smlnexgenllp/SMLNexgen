@@ -1,93 +1,132 @@
 "use client";
-import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image'; // Import Next.js Image component
-import styles from '../styles/ProfileView.module.css';
+import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import ImageCropper from "./ImageCropper"; // Adjust the import path as needed
+import styles from "../styles/ProfileView.module.css";
 
 const ProfileView = () => {
-  // Define static user data
-  const staticUser = {
-    name: "Dhanush",
-    email: "xyz@gmail.com",
-    phone: "9876543106",
-    address: "123 Main Street, Bangalore, India",
-    gender: "Male",
-    profilePhoto: null, // No initial photo, will use fallback or uploaded image
-  };
-
+  const [user, setUser] = useState(null);
+  const [editedUser, setEditedUser] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [editedUser, setEditedUser] = useState(staticUser);
-  const [newPassword, setNewPassword] = useState('');
-  const fileInputRef = useRef(null); // Reference to the hidden file input
+  const [showCropper, setShowCropper] = useState(false);
+  const fileInputRef = useRef(null);
 
-  // Sync editedUser with staticUser when not editing
+  // Fetch user details on mount
   useEffect(() => {
-    if (!isEditing) {
-      setEditedUser(staticUser);
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser && storedUser.email) {
+      fetch(`http://192.168.0.197:5000/api/users/getUserDetails?email=${storedUser.email}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setUser(data);
+          setEditedUser(data);
+        })
+        .catch((error) => console.error("Error fetching user details:", error));
     }
-  }, [isEditing, staticUser]); // Added staticUser to dependency array
+  }, []);
 
   const handleEdit = () => {
-    setEditedUser(staticUser);
-    setNewPassword('');
+    setEditedUser(user);
     setIsEditing(true);
   };
 
-  const handleSave = () => {
-    // For static data, just update the editedUser state and exit editing
-    console.log("Saved user data:", { ...editedUser, password: newPassword || undefined });
-    setEditedUser({ ...editedUser, password: newPassword || undefined });
-    setIsEditing(false);
-    setNewPassword('');
+  const handleSave = async () => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (!storedUser || !storedUser.id) {
+      return alert("User not logged in");
+    }
+    const formData = new FormData();
+    formData.append("fullName", editedUser.fullName);
+    formData.append("email", editedUser.email);
+    formData.append("phone", editedUser.phone);
+    formData.append("address", editedUser.address);
+    formData.append("gender", editedUser.gender);
+    if (fileInputRef.current.files[0]) {
+      const blob = await fetch(editedUser.profilePic).then(r => r.blob());
+      const file = new File([blob], 'cropped_image.jpg', { type: 'image/jpeg' });
+      formData.append("profilePic", file);
+    }
+
+    try {
+      const response = await fetch(`http://192.168.0.197:5000/api/users/${storedUser.id}`, {
+        method: "PUT",
+        body: formData,
+      });
+      if (response.ok) {
+        const result = await response.json();
+        setUser(result.user);
+        localStorage.setItem("user", JSON.stringify(result.user));
+        setIsEditing(false);
+        window.location.reload();
+      } else {
+        alert("Failed to update user details");
+      }
+    } catch (error) {
+      console.error("Error updating user details:", error);
+      alert("Error updating user details");
+    }
   };
 
   const handleCancel = () => {
     setIsEditing(false);
-    setNewPassword('');
+    setEditedUser(user);
+    setShowCropper(false);
   };
 
-  // Trigger file input when "Choose Photo" is clicked
   const handleChoosePhoto = () => {
     fileInputRef.current.click();
   };
 
-  // Handle file selection and update profile photo
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setEditedUser({ ...editedUser, profilePhoto: reader.result }); // Base64 string
+        setEditedUser({ ...editedUser, profilePic: reader.result });
+        setShowCropper(true);
       };
-      reader.readAsDataURL(file); // Convert image to base64 for preview
+      reader.readAsDataURL(file);
     }
   };
 
-  const displayUser = isEditing ? editedUser : staticUser;
+  const handleCrop = (croppedImage) => {
+    setEditedUser({ ...editedUser, profilePic: croppedImage });
+    setShowCropper(false);
+  };
+
+  const displayUser = isEditing ? editedUser : user;
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className={styles.profileContainer}>
       {/* Header Section */}
       <div className={styles.profileHeader}>
         <div className={styles.headerInfo}>
-          <h2 className={styles.profileName}>{displayUser.name}</h2>
+          <h2 className={styles.profileName}>{displayUser.fullName}</h2>
           <div className={styles.photoContainer}>
             <Image
-              src={displayUser.profilePhoto || '/default-profile.png'} // Fallback image
+              src={displayUser.profilePic || "/default-profile.png"}
               alt="Profile"
-              width={100} // Set a fixed width (adjust as needed)
-              height={100} // Set a fixed height (adjust as needed)
+              width={100}
+              height={100}
               className={styles.profileImage}
             />
             {isEditing && (
-              <button
-                className={styles.choosePhotoButton}
-                onClick={handleChoosePhoto}
-              >
+              <button className={styles.choosePhotoButton} onClick={handleChoosePhoto}>
                 Choose Photo
               </button>
             )}
           </div>
-          {/* Hidden file input */}
+          {showCropper && (
+            <ImageCropper
+              imageSrc={editedUser.profilePic}
+              onCrop={handleCrop}
+              onCancel={() => setShowCropper(false)}
+            />
+          )}
           <input
             type="file"
             ref={fileInputRef}
@@ -106,15 +145,15 @@ const ProfileView = () => {
               <span className={styles.detailLabel}>Name:</span>
               <input
                 className={styles.inputField}
-                value={editedUser.name || ''} // Controlled input
-                onChange={(e) => setEditedUser({ ...editedUser, name: e.target.value })}
+                value={editedUser.fullName || ""}
+                onChange={(e) => setEditedUser({ ...editedUser, fullName: e.target.value })}
               />
             </div>
             <div className={styles.detailItem}>
               <span className={styles.detailLabel}>Email:</span>
               <input
                 className={styles.inputField}
-                value={editedUser.email || ''} // Controlled input
+                value={editedUser.email || ""}
                 onChange={(e) => setEditedUser({ ...editedUser, email: e.target.value })}
               />
             </div>
@@ -122,7 +161,7 @@ const ProfileView = () => {
               <span className={styles.detailLabel}>Phone:</span>
               <input
                 className={styles.inputField}
-                value={editedUser.phone || ''} // Controlled input
+                value={editedUser.phone || ""}
                 onChange={(e) => setEditedUser({ ...editedUser, phone: e.target.value })}
               />
             </div>
@@ -130,7 +169,7 @@ const ProfileView = () => {
               <span className={styles.detailLabel}>Address:</span>
               <input
                 className={styles.inputField}
-                value={editedUser.address || ''} // Controlled input
+                value={editedUser.address || ""}
                 onChange={(e) => setEditedUser({ ...editedUser, address: e.target.value })}
               />
             </div>
@@ -138,7 +177,7 @@ const ProfileView = () => {
               <span className={styles.detailLabel}>Gender:</span>
               <select
                 className={styles.selectField}
-                value={editedUser.gender || ''} // Controlled input
+                value={editedUser.gender || ""}
                 onChange={(e) => setEditedUser({ ...editedUser, gender: e.target.value })}
               >
                 <option value="Male">Male</option>
@@ -146,19 +185,13 @@ const ProfileView = () => {
                 <option value="Other">Other</option>
               </select>
             </div>
-            <div className={styles.detailItem}>
-              <span className={styles.detailLabel}>New Password:</span>
-              <input
-                type="password"
-                className={styles.inputField}
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-                placeholder="Leave blank to keep current"
-              />
-            </div>
           </>
         ) : (
           <>
+            <div className={styles.detailItem}>
+              <span className={styles.detailLabel}>UserId:</span>
+              <p className={styles.detailText}>{displayUser.id}</p>
+            </div>
             <div className={styles.detailItem}>
               <span className={styles.detailLabel}>Email:</span>
               <p className={styles.detailText}>{displayUser.email}</p>
@@ -174,10 +207,6 @@ const ProfileView = () => {
             <div className={styles.detailItem}>
               <span className={styles.detailLabel}>Gender:</span>
               <p className={styles.detailText}>{displayUser.gender}</p>
-            </div>
-            <div className={styles.detailItem}>
-              <span className={styles.detailLabel}>Password:</span>
-              <p className={styles.detailText}>********</p>
             </div>
           </>
         )}

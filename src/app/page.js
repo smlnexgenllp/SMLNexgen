@@ -7,7 +7,5 @@ export default function Home() {
     <main className="block relative w-screen h-screen">
       <RiveHero />
     </main>
-
-
   );
 }

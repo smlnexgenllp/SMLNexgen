@@ -156,6 +156,7 @@ const ContactForm = () => {
                   type="tel"
                   id="phone"
                   placeholder="Phone Number"
+                  pattern="^\+?[0-9]{10,14}$"
                   value={formData.phone}
                   onChange={handleChange}
                   className={styles.formInput}

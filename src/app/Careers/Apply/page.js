@@ -1,3 +1,4 @@
+//Careers/Apply/page.js
 "use client"; // Required for client-side interactivity
 
 import { useState, useRef, useEffect } from "react";
@@ -12,6 +13,7 @@ const Openings = () => {
   const [selectedJob, setSelectedJob] = useState(null);
   const [bgImage, setBgImage] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [alertEmail, setAlertEmail] = useState("");
 
 
   const wrapperRef = useRef(null);
@@ -32,10 +34,42 @@ const Openings = () => {
     fetchJobs();
   }, []);
 
+  const handleJobAlertSubmit = async () => {
+    if (!alertEmail) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+    try {
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://192.168.0.197:5000';
+      const response = await fetch(`${backendUrl}/api/job-alerts`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: alertEmail }),
+      });
+      const result = await response.json();
+      if (response.ok) {
+        alert("Job alert created successfully!");
+        setAlertEmail("");
+      } else {
+        alert(`Error: ${result.message}`);
+      }
+    } catch (error) {
+      console.error("Job alert error:", error);
+      alert("Error creating job alert. Please try again later.");
+    }
+  };
+
+
   // Handle navigation to application form with job ID
   const handleApplyClick = (jobId) => {
-    router.push(`/Careers/Applyform?jobId=${jobId}`);
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      router.push("/Careers/Login");
+    } else {
+      router.push(`/Careers/Applyform?jobId=${jobId}`);
+    }
   };
+
 
   // Compute filtered jobs based on search input
   const searchWords = searchTerm.trim().toLowerCase().split(/\s+/);
@@ -105,8 +139,13 @@ const Openings = () => {
                 <div className={styles.alertSubtitle}>
                   Create a job alert now and never miss a job
                 </div>
-                <input type="text" placeholder="Enter Email" />
-                <button className={styles.searchButtons}>
+                <input
+                  type="email"
+                  placeholder="Enter Email"
+                  value={alertEmail}
+                  onChange={(e) => setAlertEmail(e.target.value)}
+                />
+                <button className={styles.searchButtons} onClick={handleJobAlertSubmit}>
                   Create Job Alerts
                 </button>
               </div>
@@ -277,7 +316,7 @@ const Openings = () => {
                             </div>
                           ))}
                       </div>
-                      <button className={styles.cardButtons} onClick={handleApplyClick}>
+                      <button className={styles.cardButtons} onClick={() => handleApplyClick(selectedJob.id)}>
                         Apply Now
                       </button>
                     </div>

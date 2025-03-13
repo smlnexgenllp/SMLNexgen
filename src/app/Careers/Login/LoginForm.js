@@ -1,12 +1,14 @@
+//LoginForm.js
+
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './register.module.css'; // Assuming this is the correct stylesheet
-import ForgotPasswordForm from '../Login/ForgetPassword'; // Adjust path if needed
+import styles from './register.module.css';
+import ForgotPasswordForm from '../Login/ForgetPassword';
 
 const LoginForm = ({ setShowLogin }) => {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
-  const [email, setEmail] = useState('');
+  const [userIdOrEmail, setUserIdOrEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
@@ -15,17 +17,21 @@ const LoginForm = ({ setShowLogin }) => {
     setError(null);
 
     const endpoints = [
-      'http://localhost:5000/api/users/login',
       'http://192.168.0.197:5000/api/users/login',
+      'http://localhost:5000/api/users/login',
     ];
 
-    const loginData = { email, password };
+    // Determine if input is email or user ID based on '@' presence
+    const loginData = userIdOrEmail.includes('@')
+      ? { email: userIdOrEmail, password }
+      : { id: userIdOrEmail, password };
 
     for (const url of endpoints) {
       try {
         const res = await fetch(url, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
+          credentials: 'include', // Include cookies if using session
           body: JSON.stringify(loginData),
         });
 
@@ -36,19 +42,17 @@ const LoginForm = ({ setShowLogin }) => {
           throw new Error(data.message || `Login failed at ${url}`);
         }
 
-        // Save user session (can be localStorage, context, or cookies)
+        // Save user session
         localStorage.setItem('user', JSON.stringify(data.user));
-
+        
         // Redirect on successful login
         window.location.href = '/Careers/Apply';
-        return; // Exit loop on success
+        return;
       } catch (err) {
         console.error(`Error with ${url}:`, err.message);
         if (url === endpoints[endpoints.length - 1]) {
-          // If this was the last endpoint, set the error
-          setError('Login failed on all servers: ' + err.message);
+          setError('Login failed: ' + err.message);
         }
-        // Continue to the next endpoint if not the last one
       }
     }
   };
@@ -66,13 +70,13 @@ const LoginForm = ({ setShowLogin }) => {
           <main className={styles.main}>
             <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.boxItem}>
-                <label className={styles.label}>Email Address</label>
+                <label className={styles.label}>User ID or Email Address</label>
                 <input
-                  type="email"
+                  type="text"
                   className={styles.input}
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your User ID or email"
+                  value={userIdOrEmail}
+                  onChange={(e) => setUserIdOrEmail(e.target.value)}
                   required
                 />
               </div>
@@ -81,7 +85,7 @@ const LoginForm = ({ setShowLogin }) => {
                 <input
                   type="password"
                   className={styles.input}
-                  placeholder="Enter your password"
+                  placeholder="Your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required

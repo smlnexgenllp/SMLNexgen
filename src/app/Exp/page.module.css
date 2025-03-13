@@ -1,3 +1,42 @@
+.tour_button {
+    display: flex;
+    justify-content: center;
+    width: 12%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    margin-bottom: -70px;
+    padding: 8px 16px;
+    font-weight: 500;
+    color: white;
+    background-color: #18181b;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.tour_button:hover {
+    background-color: #27272a;
+}
+
+/* Tablet Screens (768px and below) */
+@media (max-width: 768px) {
+    .tour_button {
+
+        color: white !important;    
+        background-color: #18181b !important;
+    }
+}
+
+/* Mobile Screens (480px and below) */
+@media (max-width: 480px) {
+    .tour_button {
+        width: 50%; /* Make the button fill more space */
+        margin-top: 80px;
+        padding: 12px 24px; 
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
 .home {
     --static: rgba(225, 225, 225, 0.5);
     --static4: rgba(225, 225, 225, 0.2);
@@ -102,7 +141,7 @@
 }
 
 .toolbar {
-    position: fixed;
+    position: fixed !important;
     bottom: 3em;
     display: flex;
     flex-direction: row;
@@ -207,18 +246,23 @@
 }
 
 @keyframes highlight {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0px) scale(1);
         transition: all 0.4s cubic-bezier(.47, 1.64, .41, .8);
     }
+
     25% {
         transform: translate(0, -15px) scale(1);
         transition: all 0.4s cubic-bezier(.47, 1.64, .41, .8);
     }
+
     50% {
         transform: translate(0, 0px) scale(1);
         transition: all 0.4s cubic-bezier(.47, 1.64, .41, .8);
     }
+
     75% {
         transform: translate(0, -7px) scale(1);
         transition: all 0.4s cubic-bezier(.47, 1.64, .41, .8);
@@ -519,28 +563,36 @@
     .home {
         margin: 0 5%;
     }
-    .option > div,
-    .option > label {
+
+    .option>div,
+    .option>label {
         font-size: 14px;
     }
+
     .toolbar {
         bottom: 2em;
     }
+
     .home h1 {
         font-size: 32px;
     }
+
     .home h2 {
         font-size: 24px;
     }
+
     .subtitle {
         font-size: 20px;
     }
+
     .home h3 {
         font-size: 20px;
     }
+
     .home p {
         font-size: 16px;
     }
+
     .sub {
         font-size: 14px;
     }
@@ -550,82 +602,105 @@
     .home {
         gap: 2em;
     }
+
     .hero {
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .part1-cards {
         flex-direction: column;
         gap: 2em;
     }
+
     .part1-card {
         width: 100%;
     }
+
     .part2 {
         flex-direction: column;
     }
+
     .part2-left {
         width: 100%;
     }
+
     .part2-right {
         width: 100%;
     }
+
     .toolbar {
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .nav {
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .main {
         margin: 3% 5%;
         width: 100%;
     }
+
     .footer-cols {
         flex-direction: column;
     }
+
     .footer-col {
         width: 100%;
     }
+
     .footer {
         padding: 3em;
     }
+
     .hero-text {
         width: 100%;
     }
+
     .hero-img {
         width: 70%;
     }
+
     .mondrian {
         height: auto;
     }
+
     .hero {
         flex-direction: column-reverse;
         align-items: center;
     }
+
     .logoface {
         width: 30px;
     }
+
     .hero-cta {
         flex-direction: column;
     }
+
     .primary-button,
     .secondary-button {
         text-align: center;
     }
+
     .menu {
         display: none;
     }
+
     .rolloutbutton {
         display: flex !important;
         padding: 0.5em 5em;
     }
+
     .toolbar {
         flex-direction: column;
         align-self: flex-end;
         bottom: 1em;
     }
+
     .rollout {
         display: none !important;
     }
@@ -635,9 +710,11 @@
     .step {
         width: 100%;
     }
+
     .part2 {
         gap: 1em;
     }
+
     .part2-right {
         gap: 1em;
     }
@@ -659,6 +736,6 @@
     display: flex;
 }
 
-.rotate > svg {
+.rotate>svg {
     transform: rotate(180deg);
 }

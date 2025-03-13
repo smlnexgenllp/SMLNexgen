@@ -1,11 +1,12 @@
 "use client";
 import { useEffect } from "react";
+// import CareerSections from './CareerSections'; // Import the new component
 import styles from "./styles/career.module.css";
 import Image from "next/image";
 
 const ScrollIcon = () => {
   const handleClick = () => {
-    const target = document.getElementById("slide");
+    const target = document.getElementById("growth-section");
     if (target) {
       target.scrollIntoView({ behavior: "smooth" });
     }
@@ -60,62 +61,146 @@ export default function Home() {
         </div>
       </div>
 
-      <div className={`${styles.slide1} ${styles.section}`}>
-        <div id="slide" className={styles.slide}>
-          <h1>Lets Grow Together!</h1>
-          <p>
-            At SML NexGen, we believe in pushing boundaries and creating
-            next-generation solutions that drive innovation. We are a team of
-            passionate professionals committed to excellence, creativity, and
-            continuous learning. If you’re looking for an exciting career where
-            your ideas matter, your skills are valued, and your growth is
-            prioritized, you’ve come to the right place.
-          </p>
+      <section
+        className={`${styles.careerSection} ${styles.section}`}
+        id="growth-section"
+      >
+        <div className={styles.container}>
+          <div className={styles.contentBox}>
+            <h2 className={styles.sectionTitle}>Let&apos;s Grow Together</h2>
+            <div className={styles.contentDivider}></div>
+            <p className={styles.sectionText}>
+              At SML NexGen, we believe in pushing boundaries and creating
+              next-generation solutions that drive innovation. We are a team of
+              passionate professionals committed to excellence, creativity, and
+              continuous learning. If you&apos;re looking for an exciting career
+              where your ideas matter, your skills are valued, and your growth
+              is prioritized, you&apos;ve come to the right place.
+            </p>
+            <div className={styles.ctaButton}>
+              <span>Explore Opportunities</span>
+              <i className="fas fa-arrow-right"></i>
+            </div>
+          </div>
+          <div className={styles.imageBox}>
+            <div className={styles.imageWrapper}>
+              <Image
+                src="/grow.jpg"
+                alt="Grow Together"
+                width={600}
+                height={400}
+                className={styles.sectionImage}
+              />
+            </div>
+          </div>
         </div>
-        <div id="ImageContainer" className={styles.imageContainer}>
-          <Image src="/grow.jpg" alt="Grow Together" width={500} height={300} />
-        </div>
-      </div>
+      </section>
 
-      <div className={`${styles.slide2} ${styles.section}`}>
-        <div id="ImageContainer" className={styles.imageContainer}>
-          <Image src="/Careers/why.png" alt="Why SMLNEXGEN" width={500} height={300} />
+      {/* Why SML Section */}
+      <section
+        className={`${styles.careerSection} ${styles.section} ${styles.altSection}`}
+        id="why-section"
+      >
+        <div className={styles.container}>
+          <div className={styles.imageBox}>
+            <div className={styles.imageWrapper}>
+              <Image
+                src="/Careers/why.png"
+                alt="Why SMLNEXGEN"
+                width={600}
+                height={400}
+                className={styles.sectionImage}
+              />
+            </div>
+          </div>
+          <div className={styles.contentBox}>
+            <h2 className={styles.sectionTitle}>Why SMLNEXGEN?</h2>
+            <div className={styles.contentDivider}></div>
+            <p className={styles.sectionText}>
+              Life at SML NexGen is about innovation, teamwork, and growth. We
+              work together to create a space where everyone can succeed. We
+              welcome new ideas and support each other as a team. Learning is
+              important to us, so we offer training, workshops, and mentorship.
+              Hard work is always appreciated and rewarded. We value diversity
+              because different ideas make us better. We also make time for fun
+              with team outings and activities. With flexible work options, we
+              help maintain a good work-life balance, making SML NexGen a great
+              place to work.
+            </p>
+            <div className={styles.benefitsList}>
+              <div className={styles.benefitItem}>
+                <i className="fas fa-rocket"></i>
+                <span>Innovation</span>
+              </div>
+              <div className={styles.benefitItem}>
+                <i className="fas fa-users"></i>
+                <span>Teamwork</span>
+              </div>
+              <div className={styles.benefitItem}>
+                <i className="fas fa-graduation-cap"></i>
+                <span>Growth</span>
+              </div>
+              <div className={styles.benefitItem}>
+                <i className="fas fa-balance-scale"></i>
+                <span>Work-Life Balance</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="slide" className={styles.slide}>
-          <h1>Why SMLNEXGEN?</h1>
-          <p>
-            Life at SML NexGen is about innovation, teamwork, and growth. We
-            work together to create a space where everyone can succeed. We
-            welcome new ideas and support each other as a team. Learning is
-            important to us, so we offer training, workshops, and mentorship.
-            Hard work is always appreciated and rewarded. We value diversity
-            because different ideas make us better. We also make time for fun
-            with team outings and activities. With flexible work options, we
-            help maintain a good work-life balance, making SML NexGen a great
-            place to work.
-          </p>
-        </div>
-      </div>
+      </section>
 
-      <div className={`${styles.slide3} ${styles.section}`}>
-        <div id="slide" className={styles.slide}>
-          <h1>Life at SMLNEXGEN</h1>
-          <p>
-            At SML NexGen, we focus on innovation, teamwork, and growth. We
-            welcome new ideas and use the latest technology to stay ahead.
-            Working together is key to our success, helping everyone do their
-            best. We support learning through training, workshops, and
-            mentorship to help careers grow. Hard work is always noticed, and we
-            celebrate achievements. We value diversity, as different ideas bring
-            creativity. Our workplace is fun with team outings and activities.
-            With flexible work options, we ensure a good work-life balance,
-            making SML NexGen a great place to grow and succeed.
-          </p>
+      {/* Life at SML Section */}
+      <section
+        className={`${styles.careerSection} ${styles.section}`}
+        id="life-section"
+      >
+        <div className={styles.container}>
+          <div className={styles.contentBox}>
+            <h2 className={styles.sectionTitle}>Life at SMLNEXGEN</h2>
+            <div className={styles.contentDivider}></div>
+            <p className={styles.sectionText}>
+              At SML NexGen, we focus on innovation, teamwork, and growth. We
+              welcome new ideas and use the latest technology to stay ahead.
+              Working together is key to our success, helping everyone do their
+              best. We support learning through training, workshops, and
+              mentorship to help careers grow. Hard work is always noticed, and
+              we celebrate achievements. We value diversity, as different ideas
+              bring creativity. Our workplace is fun with team outings and
+              activities. With flexible work options, we ensure a good work-life
+              balance, making SML NexGen a great place to grow and succeed.
+            </p>
+            <div className={styles.lifestyleGrid}>
+              <div className={styles.lifestyleItem}>
+                <i className="fas fa-lightbulb"></i>
+                <p>Creative Environment</p>
+              </div>
+              <div className={styles.lifestyleItem}>
+                <i className="fas fa-hands-helping"></i>
+                <p>Supportive Culture</p>
+              </div>
+              <div className={styles.lifestyleItem}>
+                <i className="fas fa-chart-line"></i>
+                <p>Career Growth</p>
+              </div>
+              <div className={styles.lifestyleItem}>
+                <i className="fas fa-puzzle-piece"></i>
+                <p>Challenging Projects</p>
+              </div>
+            </div>
+          </div>
+          <div className={styles.imageBox}>
+            <div className={styles.imageWrapper}>
+              <Image
+                src="/Careers/life3.png"
+                alt="Life of SMLNexGen"
+                width={600}
+                height={400}
+                className={styles.sectionImage}
+              />
+            </div>
+          </div>
         </div>
-        <div id="ImageContainer" className={styles.imageContainer}>
-          <Image src="/Careers/life3.png" alt="Life of SMLNexGen" width={500} height={300} />
-        </div>
-      </div>
+      </section>
 
       {/* Employee Testimonials Section */}
       <div className={`${styles.testimonialsSection} ${styles.section}`}>
@@ -126,52 +211,56 @@ export default function Home() {
           <div className={styles.testimonials__testimonialSection}>
             <div className={styles.testimonials__testimonial}>
               <h4>
-                <i className="fas fa-quote-left"></i> Dream Team &amp; Cloud
-                Excellence
+                <i className="fas fa-quote-left"></i> Career Development
               </h4>
               <p>
-                &quot;Joining Entrivis was the best decision of my career. The
-                culture fosters innovation and collaboration, and the projects
-                are cutting-edge.&quot;
+                &quot;Joining as a fresh graduate, I&apos;ve grown exponentially in
+                my first year. The supportive team and clear career paths have
+                been invaluable!&quot;
               </p>
               <p className={styles.testimonials__employeeName}>
-                Alejandro M., Cloud Architect
+                Elavarasan., Developer
               </p>
             </div>
 
             <div className={styles.testimonials__testimonial}>
               <h4>
-                <i className="fas fa-quote-left"></i> Growth &amp; Innovation
+                <i className="fas fa-quote-left"></i> Inclusive Leadership &amp;
+                Impactful HR
               </h4>
               <p>
-                &quot;As a certified AWS expert, Entrivis offered me the opportunity
-                to work on large-scale cloud optimization projects.&quot;
+                &quot;The company&apos;s leadership is approachable and truly values
+                HR&apos;s perspective. It&apos;s empowering to have my voice heard and
+                contribute meaningfully to the organization&apos;s success.&quot;
               </p>
               <p className={styles.testimonials__employeeName}>
-                Mei Ling, Senior Cloud Negotiator
+                Paramaleshwari., Talent Acquisition
               </p>
             </div>
 
             <div className={styles.testimonials__testimonial}>
               <h4>
-                <i className="fas fa-quote-left"></i> Empowering Environment
+                <i className="fas fa-quote-left"></i> Supportive Growth
               </h4>
               <p>
-                &quot;Working with Entrivis has provided me with the flexibility to
-                work remotely while still contributing to exciting cloud and AI
-                projects.&quot;
+                &quot;In my time as an admin, I&apos;ve experienced tremendous
+                growth, thanks to an incredibly supportive and patient team.
+                Their guidance has helped me develop valuable new skills.&quot;
               </p>
-              <p className={styles.testimonials__employeeName}>
-                Laila A., Software Developer
-              </p>
+              <p className={styles.testimonials__employeeName}>Siva., Admin</p>
             </div>
           </div>
         </section>
       </div>
 
-      <div className={`${styles.slide4} ${styles.section}`} id="target-section">
+      <div className={`${styles.slide4} ${styles.section}`}>
         <div id="ImageContainer" className={styles.imageContainer}>
-          <Image src="/hiring.jpg" alt="Hiring Process" width={500} height={300} />
+          <Image
+            src="/hiring.jpg"
+            alt="Hiring Process"
+            width={600}
+            height={400}
+          />
         </div>
 
         <div id="slide" className={styles.slide}>

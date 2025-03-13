@@ -22,7 +22,8 @@ const AppointmentForm = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.fullName.trim()) newErrors.fullName = "Full Name is required.";
+    if (!formData.fullName.trim())
+      newErrors.fullName = "Full Name is required.";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required.";
     } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
@@ -34,7 +35,8 @@ const AppointmentForm = () => {
       newErrors.phoneNumber = "Enter a valid phone number (10-13 digits).";
     }
     if (!formData.date.trim()) newErrors.date = "Date and time are required.";
-    if (!formData.selectedService) newErrors.selectedService = "Please select a service.";
+    if (!formData.selectedService)
+      newErrors.selectedService = "Please select a service.";
     if (!formData.reason.trim()) newErrors.reason = "Reason is required.";
 
     setErrors(newErrors);
@@ -48,9 +50,12 @@ const AppointmentForm = () => {
       const now = new Date();
       const istOffset = 5.5 * 60 * 60 * 1000; // IST is UTC+5:30 in milliseconds
       const istTime = new Date(now.getTime() + istOffset);
-      
+
       // Format the date and time as "YYYY-MM-DD HH:MM:SS"
-      const submissionDate = istTime.toISOString().slice(0, 19).replace("T", " "); // e.g., "2025-03-05 11:55:00"
+      const submissionDate = istTime
+        .toISOString()
+        .slice(0, 19)
+        .replace("T", " "); // e.g., "2025-03-05 11:55:00"
 
       // Create a new object with formData and the submission date
       const dataToSubmit = {
@@ -58,18 +63,19 @@ const AppointmentForm = () => {
         submissionDate,
       };
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://192.168.0.197:5000'; // Replace with your backend IP
+        const backendUrl =
+          process.env.NEXT_PUBLIC_BACKEND_URL || "http://192.168.0.197:5000"; // Replace with your backend IP
         const response = await fetch(`${backendUrl}/api/book-service`, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(dataToSubmit),
         });
 
         const responseData = await response.json();
         if (response.ok) {
-          alert('Appointment booked successfully!');
+          alert("Appointment booked successfully!");
           setFormData({
             fullName: "",
             email: "",
@@ -83,8 +89,8 @@ const AppointmentForm = () => {
           alert(`Error submitting appointment: ${responseData.message}`);
         }
       } catch (error) {
-        console.error('Fetch error:', error);
-        alert('Error submitting appointment. Please try again later.');
+        console.error("Fetch error:", error);
+        alert("Error submitting appointment. Please try again later.");
       }
     }
   };
@@ -102,7 +108,9 @@ const AppointmentForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.fullName && <p className={styles.errorMessage}>{errors.fullName}</p>}
+          {errors.fullName && (
+            <p className={styles.errorMessage}>{errors.fullName}</p>
+          )}
         </label>
         <label>
           Email Address:
@@ -113,7 +121,9 @@ const AppointmentForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.email && <p className={styles.errorMessage}>{errors.email}</p>}
+          {errors.email && (
+            <p className={styles.errorMessage}>{errors.email}</p>
+          )}
         </label>
         <label>
           Phone Number:
@@ -123,13 +133,15 @@ const AppointmentForm = () => {
             value={formData.phoneNumber}
             onChange={handleChange}
             required
-            pattern="^\+?[0-9]{10,13}$"
+            pattern="^\+?[0-9]{10,14}$"
             placeholder="Enter your phone number"
           />
-          {errors.phoneNumber && <p className={styles.errorMessage}>{errors.phoneNumber}</p>}
+          {errors.phoneNumber && (
+            <p className={styles.errorMessage}>{errors.phoneNumber}</p>
+          )}
         </label>
         <label>
-          Preferred Date/Time:
+          Preferred Date:
           <input
             type="date"
             name="date"
@@ -150,10 +162,15 @@ const AppointmentForm = () => {
             <option value="">Select a Service</option>
             <option value="Web Development">Web Development</option>
             <option value="App Development">App Development</option>
-            <option value="Custom Software">Custom Software</option>
-            <option value="IT Support">IT Support</option>
+            <option value="Software Development">Software Development</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Business Automation">Business Automation</option>
+            <option value="Business Solutions">Business Solutions</option>
+            <option value="Other Services">Other Services</option>
           </select>
-          {errors.selectedService && <p className={styles.errorMessage}>{errors.selectedService}</p>}
+          {errors.selectedService && (
+            <p className={styles.errorMessage}>{errors.selectedService}</p>
+          )}
         </label>
         <label>
           Reason for Appointment:
@@ -163,7 +180,9 @@ const AppointmentForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.reason && <p className={styles.errorMessage}>{errors.reason}</p>}
+          {errors.reason && (
+            <p className={styles.errorMessage}>{errors.reason}</p>
+          )}
         </label>
         <button type="submit">Submit Appointment</button>
       </form>

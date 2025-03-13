@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
           as="fetch"
           crossOrigin="anonymous"
         />
-        <link rel="preload" href="/bg-video.mp4" as="video" type="video/mp4" />
+        {/* <link rel="preload" href="/bg-video.mp4" as="video" type="video/mp4" /> */}
         <link
           href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"
           rel="stylesheet"

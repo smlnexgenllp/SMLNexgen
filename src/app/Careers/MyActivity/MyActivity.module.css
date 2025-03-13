@@ -1,21 +1,23 @@
+/* styles/MyActivity.module.css */
+
 .job_app_container {
   background: linear-gradient(to bottom, #1e3a8a, #3b82f6);
-  padding: 15px; /* Reduced padding for mobile */
+  padding: 15px;
   border-radius: 15px;
   color: white;
   max-width: 90%;
   margin: 0 auto;
-  margin-top: 180px; /* Reduced top margin for mobile */
-  margin-bottom: 100px; /* Reduced bottom margin */
+  margin-top: 180px;
+  margin-bottom: 100px;
   box-shadow: 0 0px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .job_app_header {
-  margin-bottom: 15px; /* Slightly reduced for mobile */
+  margin-bottom: 15px;
 }
 
 .job_app_header h1 {
-  font-size: 20px; /* Smaller base font size */
+  font-size: 20px;
   margin: 0 0 8px 0;
 }
 
@@ -25,7 +27,7 @@
 
 .job_app_filter_input {
   width: 100%;
-  padding: 8px; /* Slightly reduced padding */
+  padding: 8px;
   border: 1px solid #4a5568;
   border-radius: 4px;
   background-color: #2d3748;
@@ -36,21 +38,21 @@
 .job_app_table_container {
   background-color: #ffffff;
   border-radius: 8px;
-  padding: 10px; /* Reduced padding */
+  padding: 10px;
   color: #2d3748;
-  overflow-x: auto; /* Added for horizontal scrolling on mobile */
+  overflow-x: auto;
 }
 
 .job_app_table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px; /* Smaller base font size */
-  min-width: 500px; /* Ensures table remains scrollable on mobile */
+  font-size: 12px;
+  min-width: 500px;
 }
 
 .job_app_table th,
 .job_app_table td {
-  padding: 8px; /* Reduced padding */
+  padding: 8px;
   text-align: left;
   border-bottom: 1px solid #e2e8f0;
 }
@@ -72,10 +74,10 @@
   background-color: #e53e3e;
   color: white;
   border: none;
-  padding: 4px 8px; /* Reduced padding */
+  padding: 4px 8px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 11px; /* Smaller font */
+  font-size: 11px;
   transition: background-color 0.3s;
 }
 
@@ -83,11 +85,71 @@
   background-color: #c53030;
 }
 
+.job_app_remove_button[disabled] {
+  background-color: #e11d48;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.job_app_remove_button[disabled]:hover {
+  background-color: #e11d48;
+}
+
 .job_app_footer {
   margin-top: 15px;
   text-align: right;
-  font-size: 11px; /* Smaller font */
+  font-size: 11px;
   color: #4a5568;
+}
+
+/* Status styles */
+.statusApplied {
+  color: #007bff;
+}
+
+.statusWithdrawn {
+  color: #dc3545;
+}
+
+.statusUnderReview {
+  color: #ffc107;
+}
+
+.statusSelected {
+  color: #28a745;
+}
+
+.statusNotSelected {
+  color: #6c757d;
+}
+
+.statusBox {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  color: white;
+  text-align: center;
+}
+
+.statusApplied {
+  background-color: #007bff;
+}
+
+.statusWithdrawn {
+  background-color: #dc3545;
+}
+
+.statusUnderReview {
+  background-color: #ffc107;
+}
+
+.statusSelected {
+  background-color: #28a745;
+}
+
+.statusNotSelected {
+  background-color: #6c757d;
 }
 
 /* Media Queries for Mobile Responsiveness */
@@ -95,7 +157,7 @@
   .job_app_container {
       padding: 10px;
       margin-top: 160px;
-      margin-bottom: 8 0px;
+      margin-bottom: 80px;
   }
 
   .job_app_header h1 {
@@ -122,9 +184,13 @@
   }
 
   .job_app_footer {
-      text-align: center; /* Center align on mobile */
+      text-align: center;
       font-size: 10px;
   }
+  .statusBox {
+    padding: 3px 6px;
+    font-size: 10px;
+}
 }
 
 @media screen and (max-width: 480px) {

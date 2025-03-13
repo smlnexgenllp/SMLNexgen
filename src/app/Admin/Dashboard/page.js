@@ -45,8 +45,14 @@ export default function Dashboard() {
         <Link href="/Admin/JobApplications" className={styles.dashboardBox} data-text="View Applications">
           Job Applications
         </Link>
-        <Link href="/Admin/Jobs" className={styles.dashboardBox} data-text="View Job-Postings">
+        <Link href="/Admin/JobPostings" className={styles.dashboardBox} data-text="View Job-Postings">
           Job Postings
+        </Link>
+        <Link href="/Admin/JobAlerts" className={styles.dashboardBox} data-text="View Job-Alerts">
+          Job alerts
+        </Link>
+        <Link href="/Admin/Users" className={styles.dashboardBox} data-text="View Users">
+          Users
         </Link>
       </div>
     </div>

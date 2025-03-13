@@ -19,17 +19,20 @@
   justify-content: center;
 }
 
-/* Grid Layout */
+/* Grid Layout - Changed to 3-2 arrangement */
 .dashboardGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 70px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Box Styling */
 .dashboardBox {
-  width: 250px;
-  height: 200px;
+  width: 220px;
+  height: 180px;
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -47,7 +50,7 @@
 
 /* Hover effect */
 .dashboardBox:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
@@ -66,6 +69,7 @@
   white-space: nowrap;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  z-index: 10;
 }
 
 /* Show pop-up text on hover */
@@ -90,23 +94,6 @@
 
 .logoutButton:hover {
   background-color: #c9302c;
-}
-
-/* Back Link (not used in this snippet, included for completeness) */
-.backLink {
-  display: inline-block;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  padding: 8px 16px;
-  background-color: #f4f4f4;
-  text-decoration: none;
-  color: #333;
-  border-radius: 4px;
-}
-
-.backLink:hover {
-  background-color: #ddd;
 }
 
 /* Media Query for Tablets (max-width: 768px) */

@@ -1,0 +1,166 @@
+.cardContainer {
+  position: relative;
+  min-width: 300px;
+  width: max-content;
+  max-width: 100%;
+  z-index: 999;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.stepIndicator {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+.closeButton:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.content {
+  color: rgb(51, 51, 51);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.navigationContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.prevButton {
+  background-color: rgb(24, 24, 27);
+  color: white;
+}
+
+.prevButton:hover {
+  background-color: rgb(39, 39, 42);
+}
+
+.nextButton {
+  background-color: rgb(24, 24, 27);
+  color: white;
+  margin-left: auto;
+}
+
+.nextButton:hover {
+  background-color: rgb(39, 39, 42);
+}
+
+.finishButton {
+  background-color: rgb(24, 24, 27);
+  color: white;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.finishButton:hover {
+  background-color: rgb(39, 39, 42);
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 480px) {
+  .cardContainer {
+    width: 100%;
+    padding: 16px;
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .content {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .navigationContainer {
+    gap: 8px;
+  }
+
+  .button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .navigationContainer {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header {
+    margin-bottom: 12px;
+  }
+
+  .stepIndicator {
+    font-size: 12px;
+  }
+
+  .closeButton {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+  }
+}

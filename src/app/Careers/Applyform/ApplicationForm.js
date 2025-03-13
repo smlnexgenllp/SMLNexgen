@@ -1,27 +1,51 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation"; // Add this import
+import { useSearchParams } from "next/navigation";
 import styles from "./Applyform.module.css";
 
 const ApplicationForm = () => {
   const searchParams = useSearchParams();
-  const jobId = searchParams.get("jobId"); // Get jobId from URL
-  const jobTitle = searchParams.get("jobTitle"); // Add this line after jobId
+  const jobId = searchParams.get("jobId");
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [fileURL, setFileURL] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [user, setUser] = useState(null);
+  const [role, setRole] = useState(""); // State for role
 
-  // Cleanup file URL on component unmount
+  // Fetch user info from localStorage
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    setUser(storedUser);
+    // console.log(storedUser);
+  }, []);
+
+  // Revoke file URL when component unmounts or fileURL changes
   useEffect(() => {
     return () => {
       if (fileURL) URL.revokeObjectURL(fileURL);
     };
   }, [fileURL]);
 
+  // Fetch job details to auto-fill the role field
+  useEffect(() => {
+    if (jobId) {
+      fetch("http://192.168.0.197:5000/api/jobs")
+        .then((res) => res.json())
+        .then((data) => {
+          const job = data.find((job) => job.id === parseInt(jobId));
+          if (job) {
+            setRole(job.title);
+          }
+        })
+        .catch((error) => console.error("Error fetching job details:", error));
+    }
+  }, [jobId]);
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file && file.type === "application/pdf") {
-      if (fileURL) URL.revokeObjectURL(fileURL); // Cleanup previous URL
+      if (fileURL) URL.revokeObjectURL(fileURL);
       setSelectedFile(file);
       setFileURL(URL.createObjectURL(file));
     } else {
@@ -33,8 +57,7 @@ const ApplicationForm = () => {
     setSelectedFile(null);
     if (fileURL) URL.revokeObjectURL(fileURL);
     setFileURL(null);
-    const fileInput = document.getElementById("resume");
-    if (fileInput) fileInput.value = "";
+    document.getElementById("resume").value = "";
   };
 
   const handleSubmit = async (e) => {
@@ -42,13 +65,15 @@ const ApplicationForm = () => {
     setIsSubmitting(true);
     try {
       const formData = new FormData(e.target);
-      const response = await fetch("http://192.168.0.197:5000/api/applications", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "http://192.168.0.197:5000/api/applications",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
       if (response.ok) {
         alert("Application submitted successfully!");
-        // Optionally, reset the form or redirect
         setSelectedFile(null);
         setFileURL(null);
         e.target.reset();
@@ -77,9 +102,9 @@ const ApplicationForm = () => {
               name="name"
               required
               placeholder="Your Name"
+              defaultValue={user ? user.fullName : ""}
             />
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="email">Email Address</label>
             <input
@@ -88,9 +113,9 @@ const ApplicationForm = () => {
               name="email"
               required
               placeholder="xyz@example.com"
+              defaultValue={user ? user.email : ""}
             />
           </div>
-
           <div className={styles.formGroup}>
             <label htmlFor="phone">Phone Number</label>
             <input
@@ -99,22 +124,21 @@ const ApplicationForm = () => {
               name="phone"
               required
               placeholder="+91 (923) 000-0000"
+              defaultValue={user ? user.phone : ""}
             />
           </div>
-
           <div className={styles.formGroup}>
-            <label htmlFor="position">Position</label>
+            <label htmlFor="position">Role</label>
             <input
               type="text"
               id="position"
               name="position"
               required
-              defaultValue={jobTitle || ""}
-              placeholder="Select Position"
+              value={role}
+              readOnly // Role field is now read-only
             />
           </div>
         </div>
-
         <div className={styles.formGroup}>
           <label htmlFor="experience">Professional Experience</label>
           <textarea
@@ -125,7 +149,6 @@ const ApplicationForm = () => {
             placeholder="Tell us about your relevant experience..."
           ></textarea>
         </div>
-
         <div className={styles.formGroup}>
           <label htmlFor="resume">Resume/CV</label>
           <input
@@ -137,7 +160,6 @@ const ApplicationForm = () => {
             onChange={handleFileChange}
           />
         </div>
-
         {selectedFile && (
           <div className={styles.filePreview}>
             <p>
@@ -164,7 +186,6 @@ const ApplicationForm = () => {
             </div>
           </div>
         )}
-
         <button
           type="submit"
           className={styles.submitBtn}
