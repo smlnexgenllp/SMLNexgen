@@ -72,7 +72,7 @@ export default function Home() {
             <p className={styles.sectionText}>
               At SML NexGen, we believe in pushing boundaries and developing next-generation solutions that redefine industries and drive meaningful innovation. Our mission is to create cutting-edge technology and services that empower businesses and individuals to thrive in a rapidly evolving digital world.
 
-              We are a team of passionate professionals who bring expertise, creativity, and a commitment to excellence in everything we do. Our collaborative and dynamic work environment fosters innovation, continuous learning, and personal growth. Whether you're an experienced professional or just starting your career, we provide the tools, resources, and opportunities to help you succeed.
+              We are a team of passionate professionals who bring expertise, creativity, and a commitment to excellence in everything we do. Our collaborative and dynamic work environment fosters innovation, continuous learning, and personal growth. Whether you&apos;re an experienced professional or just starting your career, we provide the tools, resources, and opportunities to help you succeed.
 
               At SML NexGen, your ideas matter. Your skills are valued. Your growth is prioritized. Join us in shaping the future—where innovation meets ambition, and challenges turn into opportunities. Explore a career with us and be part of something extraordinary.
             </p>
