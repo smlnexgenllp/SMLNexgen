@@ -10,7 +10,7 @@ import SocialMedia from "./SocialMedia";
 import WordAnimation from "@/components/GlowingText";
 gsap.registerPlugin(ScrollTrigger);
 
-const Hero = () => {
+const Hero = ({ onBookNow }) => {
   const [currentText, setCurrentText] = useState(0);
   const [slideDirection, setSlideDirection] = useState("next");
   const heroRef = useRef(null);
@@ -21,7 +21,7 @@ const Hero = () => {
   const texts = [
     "SML NexGen LLP - AI-driven software, Cloud Solution & IT Consulting.",
     "Future-Proof your business with innovative technology.",
-    "Contact us Today!. Let's explore together."
+    "Contact us Today!. Let's explore together.",
   ];
 
   // Auto-change text slider every 3 seconds
@@ -32,11 +32,15 @@ const Hero = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, [currentText, texts.length]); // ✅ Add texts.length
-  
 
   // Animate the overlays as the hero section is scrolled
   useEffect(() => {
-    if (!heroRef.current || !bottomRef.current || !leftRef.current || !rightRef.current)
+    if (
+      !heroRef.current ||
+      !bottomRef.current ||
+      !leftRef.current ||
+      !rightRef.current
+    )
       return;
 
     const tl = gsap.timeline({
@@ -64,25 +68,31 @@ const Hero = () => {
     }
   };
 
-
   return (
     <div className={styles.heroWrapper} ref={heroRef}>
-       <video autoPlay loop muted className={styles.backgroundVideo}>
-        <source src="/bg-video.mp4" type="video/mp4" loading = "lazy"/>
+      <video autoPlay loop muted playsInline className={styles.backgroundVideo}>
+        <source src="/bg-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video> 
+      </video>
       {/* <SocialMedia theme="dark"/> */}
       <section className={styles.hero}>
         <div className={styles.text}>
           <h1>DISCOVER</h1>
-          <WordAnimation /> 
+          <WordAnimation />
           {/* <h1>SMLNEXGEN LLP</h1> */}
 
           <div className={styles.textContainer}>
-            <FiChevronLeft className={styles.arrow} onClick={() => changeText("prev")} />
+            <FiChevronLeft
+              className={styles.arrow}
+              onClick={() => changeText("prev")}
+            />
             <div className={styles.sliderWrapper}>
               <div
-                className={`${styles.textSlider} ${slideDirection === "next" ? styles.slideNext : styles.slidePrev}`}
+                className={`${styles.textSlider} ${
+                  slideDirection === "next"
+                    ? styles.slideNext
+                    : styles.slidePrev
+                }`}
                 style={{ transform: `translateX(-${currentText * 100}%)` }}
               >
                 {texts.map((text, index) => (
@@ -92,12 +102,14 @@ const Hero = () => {
                 ))}
               </div>
             </div>
-            <FiChevronRight className={styles.arrow} onClick={() => changeText("next")} />
+            <FiChevronRight
+              className={styles.arrow}
+              onClick={() => changeText("next")}
+            />
           </div>
-          {/* Updated Contact Button with Smooth Scroll */}
-          <Link href="/Home/Contact">
-          <button className={styles.button}>Contact Us</button>
-          </Link>
+          <button className={styles.button} onClick={onBookNow}>
+            Book Now
+          </button>
         </div>
       </section>
 

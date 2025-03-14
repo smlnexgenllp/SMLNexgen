@@ -70,12 +70,11 @@ export default function Home() {
             <h2 className={styles.sectionTitle}>Let&apos;s Grow Together</h2>
             <div className={styles.contentDivider}></div>
             <p className={styles.sectionText}>
-              At SML NexGen, we believe in pushing boundaries and creating
-              next-generation solutions that drive innovation. We are a team of
-              passionate professionals committed to excellence, creativity, and
-              continuous learning. If you&apos;re looking for an exciting career
-              where your ideas matter, your skills are valued, and your growth
-              is prioritized, you&apos;ve come to the right place.
+              At SML NexGen, we believe in pushing boundaries and developing next-generation solutions that redefine industries and drive meaningful innovation. Our mission is to create cutting-edge technology and services that empower businesses and individuals to thrive in a rapidly evolving digital world.
+
+              We are a team of passionate professionals who bring expertise, creativity, and a commitment to excellence in everything we do. Our collaborative and dynamic work environment fosters innovation, continuous learning, and personal growth. Whether you're an experienced professional or just starting your career, we provide the tools, resources, and opportunities to help you succeed.
+
+              At SML NexGen, your ideas matter. Your skills are valued. Your growth is prioritized. Join us in shaping the future—where innovation meets ambition, and challenges turn into opportunities. Explore a career with us and be part of something extraordinary.
             </p>
             <div className={styles.ctaButton}>
               <span>Explore Opportunities</span>
@@ -87,8 +86,8 @@ export default function Home() {
               <Image
                 src="/grow.jpg"
                 alt="Grow Together"
-                width={600}
-                height={400}
+                width={900}
+                height={500}
                 className={styles.sectionImage}
               />
             </div>
@@ -107,8 +106,8 @@ export default function Home() {
               <Image
                 src="/Careers/why.png"
                 alt="Why SMLNEXGEN"
-                width={600}
-                height={400}
+                width={800}
+                height={500}
                 className={styles.sectionImage}
               />
             </div>
@@ -117,15 +116,15 @@ export default function Home() {
             <h2 className={styles.sectionTitle}>Why SMLNEXGEN?</h2>
             <div className={styles.contentDivider}></div>
             <p className={styles.sectionText}>
-              Life at SML NexGen is about innovation, teamwork, and growth. We
-              work together to create a space where everyone can succeed. We
-              welcome new ideas and support each other as a team. Learning is
-              important to us, so we offer training, workshops, and mentorship.
-              Hard work is always appreciated and rewarded. We value diversity
-              because different ideas make us better. We also make time for fun
-              with team outings and activities. With flexible work options, we
-              help maintain a good work-life balance, making SML NexGen a great
-              place to work.
+              At SML NexGen, we focus on innovation, teamwork, and growth. We
+              welcome new ideas and use the latest technology to stay ahead.
+              Working together is key to our success, helping everyone do their
+              best. We support learning through training, workshops, and
+              mentorship to help careers grow. Hard work is always noticed, and
+              we celebrate achievements. We value diversity, as different ideas
+              bring creativity. Our workplace is fun with team outings and
+              activities. With flexible work options, we ensure a good work-life
+              balance, making SML NexGen a great place to grow and succeed.
             </p>
             <div className={styles.benefitsList}>
               <div className={styles.benefitItem}>
@@ -159,15 +158,15 @@ export default function Home() {
             <h2 className={styles.sectionTitle}>Life at SMLNEXGEN</h2>
             <div className={styles.contentDivider}></div>
             <p className={styles.sectionText}>
-              At SML NexGen, we focus on innovation, teamwork, and growth. We
-              welcome new ideas and use the latest technology to stay ahead.
-              Working together is key to our success, helping everyone do their
-              best. We support learning through training, workshops, and
-              mentorship to help careers grow. Hard work is always noticed, and
-              we celebrate achievements. We value diversity, as different ideas
-              bring creativity. Our workplace is fun with team outings and
-              activities. With flexible work options, we ensure a good work-life
-              balance, making SML NexGen a great place to grow and succeed.
+              Life at SML NexGen is about innovation, teamwork, and growth. We
+              work together to create a space where everyone can succeed. We
+              welcome new ideas and support each other as a team. Learning is
+              important to us, so we offer training, workshops, and mentorship.
+              Hard work is always appreciated and rewarded. We value diversity
+              because different ideas make us better. We also make time for fun
+              with team outings and activities. With flexible work options, we
+              help maintain a good work-life balance, making SML NexGen a great
+              place to work.
             </p>
             <div className={styles.lifestyleGrid}>
               <div className={styles.lifestyleItem}>
@@ -259,7 +258,7 @@ export default function Home() {
             src="/hiring.jpg"
             alt="Hiring Process"
             width={600}
-            height={400}
+            height={500}
           />
         </div>
 

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -140px;
+  margin-top: -180px;
   /* Adjust this value to move it up/down */
 }
 .contactPage {
@@ -157,6 +157,7 @@
   width: 100%;
   max-width: 1200px;
   margin-top: 80px; /* Adjust spacing as needed */
+  z-index: 5;
 }
 
 .mapContainer iframe {

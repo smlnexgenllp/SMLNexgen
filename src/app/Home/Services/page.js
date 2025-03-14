@@ -2,13 +2,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import ServiceSection from './scroll';
+import Scroll from './scroll';
 import InputModal from './InputModal';
 import PreviewModal from './PreviewModal';
 import PreviewModalCustomSoftware from './PreviewModalCustomSoftware';
 import PreviewModalMobileApp from './PreviewModalMobileApp';
 import styles from './services.module.css';
-import WhyChooseMe from "./ServiceFeatures";
+import ServicesCards from "./ServiceFeatures";
 export default function Services() {
     const [isInputModalOpen, setIsInputModalOpen] = useState(false);
     const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
@@ -75,11 +75,11 @@ export default function Services() {
     ];
 
     return (
-        <div id="services" className={styles.services}>
-            <ServiceSection />
-            <WhyChooseMe />
+        <div id="services">
+            <Scroll />
+            <ServicesCards />
              
-            <div className={styles.negativeMargin}>
+            <div className={styles.MarginTop}>
 
 
                 <motion.div

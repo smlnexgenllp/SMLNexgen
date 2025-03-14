@@ -80,11 +80,12 @@ const Navbar = () => {
       `}
     >
       <div className={styles.logo}>
-        <a href="/Careers">
+        <a href="/Home">
           <Image src="/sml-logo.png" alt="logo" width={120} height={40} />
         </a>
       </div>
       <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`}>
+        <a href="/Careers">Home</a>
         <a href="/Careers/Apply">Apply Now</a>
         <a href="/Careers/RecruitmentFraud">Recruitment fraud alert</a>
 

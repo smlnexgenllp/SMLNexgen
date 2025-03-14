@@ -2,9 +2,9 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import styles from './page.module.css';
+import styles from './scroll.module.css';
 
-export default function ServiceSection() {
+export default function Scroll() {
   useEffect(() => {
     // Set defaults: light theme, animate, snap, scrollbar, no debug
     const root = document.documentElement;
@@ -81,8 +81,7 @@ export default function ServiceSection() {
     }
   }, []);
   return (
-    <>
-    <div className={styles.localContainer}>
+    <div>
       <header className={styles.localHeader}>
         <div className={styles.box}>
           <p className={styles.text}>Our services...</p>
@@ -102,11 +101,7 @@ export default function ServiceSection() {
             ))}
           </ul>
         </section>
-        <section className={styles.localSectionLast}>
-          {/* Add content for the last section if needed */}
-        </section>
       </main>
     </div>
-    </>
   );
 }

@@ -1,15 +1,6 @@
-/* Main Services Container */
-/* .services {
-  background: #0a0a0a;
-  min-height: 100vh;
-  overflow: hidden;
-  position: relative;
-} */
-
-/* Negative Margin for Overlap */
-.negativeMargin {
-  /* margin-top: -600px; */
-  padding: 50px 0;
+.MarginTop {
+  /* padding: 50px 0; */
+  margin-top: 60px;
 }
 
 /* Demo Button Styling */

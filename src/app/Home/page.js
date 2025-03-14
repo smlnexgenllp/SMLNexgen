@@ -25,8 +25,8 @@ export default function Home() {
 
   return (
     <main>
-      {/* {showPopup && <BookMyService onClose={() => setShowPopup(false)} />} */}
-      <Hero />  
+      {showPopup && <BookMyService onClose={() => setShowPopup(false)} />}
+      <Hero onBookNow={() => setShowPopup(true)} /> 
       <Insights />
       <OurProjects />
       <LogoGrid />

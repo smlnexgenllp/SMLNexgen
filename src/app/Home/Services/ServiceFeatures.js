@@ -27,9 +27,9 @@ const sections = [
   }
 ];
 
-export default function WhyChooseMe() {
+export default function ServicesCards() {
   return (
-    <section className="pt-10 pb-1 bg-transparent -mt-80">
+    <section className="pt-10 pb-1 bg-transparent mt-24">
  {/* Adjusted padding to move content up */}
       <div className="container mx-auto px-6">
         <div className="text-center mb-8"> {/* Reduced margin-bottom to move closer */}

@@ -1,7 +1,6 @@
 //layout.js
 
 import "./globals.css";
-import LayoutWrapper from "./LayoutWrapper";
 import ShadowCursor from "@/components/Cursor/index";
 import Navbar from "@/components/Navbar";
 import SocialMedia from "@/components/SocialMedia";
@@ -85,14 +84,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        <LayoutWrapper>
           <Navbar />
           <ShadowCursor />
           <SocialMedia />
           {children}
           <ChatbotComponent />
           <Footer />
-        </LayoutWrapper>
       </body>
     </html>
   );

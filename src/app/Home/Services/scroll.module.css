@@ -1,3 +1,15 @@
+/* Header styles */
+.localHeader {
+  /* min-height: 100vh; */
+  margin-top: -90px;
+  display: flex;
+  place-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding-inline: 5rem;
+}
+
+
 .box {
   /* CSS Variables scoped to the component */
   --color: #1e293b;
@@ -46,6 +58,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+  font-size: 1.25rem; /* Base font size */
   font-weight: 900;
 }
 
@@ -246,20 +259,8 @@
   font-weight: 600;
 }
 
-.localSectionLast {
-  min-height: 100vh;
-  display: flex;
-  place-items: center;
-  width: 100%;
-  justify-content: center;
-}
-
-.localSectionLast h2 {
-  --font-level: 6;
-}
-
 .localMain {
-  /* margin-top: -150px; */
+  margin-top: -270px;
   /* margin-left: 10px; */
   width: 100%;
 }
@@ -288,16 +289,6 @@
   color: #0000;
 }
 
-/* Header styles */
-.localHeader {
-  /* min-height: 100vh; */
-  /* margin-top: -150px; */
-  display: flex;
-  place-items: center;
-  box-sizing: border-box;
-  width: 100%;
-  padding-inline: 5rem;
-}
 
 /* Utility classes */
 .localFluid {
@@ -327,9 +318,7 @@
 @media (max-width: 768px) {
   .box {
     margin-left: 6rem !important; /* Reduce left margin on mobile */
-  }
-  .localHeader .text {
-    font-size: 5px !important; /* Reduce the size of 'Our services...' */
+    
   }
 
   .localSectionFirst {
@@ -339,7 +328,6 @@
   .localSectionFirst h2,
   .localH2 {
     font-size: 30px !important; /* Reduce the size of the main heading 'we can...' */
-    /* margin-right: 1rem;  */
     margin-left: -1.5rem !important; /* Reduce left margin on mobile */
   }
 
@@ -348,6 +336,7 @@
   }
 
   .text {
-    font-size: 24px !important; /* Reduce other text sizes */
+    font-size: 0.5rem !important; /* Larger font size for mobile */  
+    word-break: break-word;
   }
 }

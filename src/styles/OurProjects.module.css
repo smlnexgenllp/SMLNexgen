@@ -1,13 +1,14 @@
 .container {
-  padding-top: 60px; /* Adjust this value as needed */
+   /* Adjust this value as needed */
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
   --font-sans: 'Rubik', sans-serif;
   --font-serif: 'Cardo', serif;
+  margin-top: -10px;
 }
 
 .heading {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bold;
   text-align: center;
   margin-bottom: 2rem;
@@ -122,6 +123,7 @@
   .card::after {
     transform: translateY(0);
   }
+ 
   
   .content {
     transform: translateY(calc(100% - 4.5rem));
@@ -177,12 +179,8 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
 .container {
-  padding-top: 40px; /* Adjusted for mobile */
-}
-
-.heading {
-  font-size: 24px; /* Smaller font size for mobile */
-  margin-bottom: 1rem; /* Reduced margin for mobile */
+  padding-top: 1px; /* Adjusted for mobile */
+  margin-top: -120px;
 }
 
 .pageContent {
@@ -220,6 +218,6 @@
 /* For very small screens */
 @media (max-width: 480px) {
 .heading {
-  font-size: 20px; /* Even smaller for very small screens */
+  font-size: 30px; /* Even smaller for very small screens */
 }
 }

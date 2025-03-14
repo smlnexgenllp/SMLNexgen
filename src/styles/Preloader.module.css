@@ -15,11 +15,11 @@
   transition: opacity 0.8s ease;
 }
 
-.preloader.fade-out {
+.preloader.fadeOut {
   opacity: 0;
 }
 
-.ide-container {
+.ideContainer {
   width: 90%;
   max-width: 800px;
   height: 80%;
@@ -44,7 +44,7 @@
   }
 }
 
-.ide-header {
+.ideHeader {
   display: flex;
   align-items: center;
   padding: 8px 12px;
@@ -52,7 +52,7 @@
   border-bottom: 1px solid #313244;
 }
 
-.window-controls {
+.windowControls {
   display: flex;
   gap: 8px;
   margin-right: 12px;
@@ -74,7 +74,7 @@
 .minimize { background-color: #f1fa8c; }
 .maximize { background-color: #50fa7b; }
 
-.ide-title {
+.ideTitle {
   color: #cdd6f4;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
@@ -82,21 +82,21 @@
   flex-grow: 1;
 }
 
-.ide-status {
+.ideStatus {
   display: flex;
   align-items: center;
   gap: 6px;
   flex-shrink: 0;
 }
 
-.status-indicator {
+.statusIndicator {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background-color: #45475a;
 }
 
-.status-indicator.active {
+.statusIndicator.active {
   background-color: #f5c2e7;
   box-shadow: 0 0 8px rgba(245, 194, 231, 0.5);
   animation: pulse 1.5s infinite;
@@ -108,19 +108,19 @@
   100% { opacity: 0.7; }
 }
 
-.status-text {
+.statusText {
   color: #a6adc8;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
 }
 
-.ide-body {
+.ideBody {
   display: flex;
   flex-direction: column;
   height: calc(100% - 33px);
 }
 
-.editor-pane {
+.editorPane {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -128,13 +128,13 @@
   overflow: hidden;
 }
 
-.file-tabs {
+.fileTabs {
   display: flex;
   background-color: #1e1e2e;
   border-bottom: 1px solid #313244;
 }
 
-.file-tab {
+.fileTab {
   padding: 6px 12px;
   color: #a6adc8;
   font-family: 'Inter', sans-serif;
@@ -144,16 +144,16 @@
   transition: background-color 0.2s ease;
 }
 
-.file-tab.active {
+.fileTab.active {
   background-color: #44475a;
   color: #f8f8f2;
 }
 
-.file-tab:hover:not(.active) {
+.fileTab:hover:not(.active) {
   background-color: #313244;
 }
 
-.code-body {
+.codeBody {
   flex: 1;
   padding: 12px;
   overflow-y: auto;
@@ -164,11 +164,11 @@
   -ms-overflow-style: none; /* IE and Edge */
 }
 
-.code-body::-webkit-scrollbar {
+.codeBody::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
 }
 
-pre {
+.codeBody pre {
   margin: 0;
   color: #f8f8f2;
   font-family: 'JetBrains Mono', monospace;
@@ -198,7 +198,7 @@ pre {
   50% { opacity: 0; }
 }
 
-.terminal-pane {
+.terminalPane {
   height: 40%;
   min-height: 180px;
   display: flex;
@@ -207,7 +207,7 @@ pre {
   background-color: #1e1e2e;
 }
 
-.terminal-header {
+.terminalHeader {
   padding: 6px 12px;
   background-color: #191a21;
   border-bottom: 1px solid #313244;
@@ -216,19 +216,19 @@ pre {
   align-items: center;
 }
 
-.terminal-title {
+.terminalTitle {
   color: #cdd6f4;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 500;
 }
 
-.terminal-controls {
+.terminalControls {
   display: flex;
   gap: 12px;
 }
 
-.terminal-control {
+.terminalControl {
   color: #7f849c;
   font-family: 'Inter', sans-serif;
   font-size: 11px;
@@ -236,11 +236,11 @@ pre {
   transition: color 0.2s ease;
 }
 
-.terminal-control:hover {
+.terminalControl:hover {
   color: #cdd6f4;
 }
 
-.terminal-body {
+.terminalBody {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -249,7 +249,7 @@ pre {
   background-color: #1e1e2e;
 }
 
-.terminal-logs-container {
+.terminalLogsContainer {
   position: relative;
   flex: 1;
   overflow: hidden;
@@ -259,7 +259,7 @@ pre {
   background-color: rgba(30, 30, 46, 0.5);
 }
 
-.terminal-logs {
+.terminalLogs {
   position: absolute;
   top: 0;
   left: 0;
@@ -274,11 +274,11 @@ pre {
   -ms-overflow-style: none; /* IE and Edge */
 }
 
-.terminal-logs::-webkit-scrollbar {
+.terminalLogs::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
 }
 
-.log-line {
+.logLine {
   color: #bac2de;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
@@ -293,49 +293,49 @@ pre {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.log-line.prompt {
+.prompt {
   color: #89b4fa;
   margin-bottom: 4px;
   font-weight: 600;
 }
 
-.log-line.command {
+.command {
   color: #cdd6f4;
   font-weight: 500;
 }
 
-.log-line.success {
+.success {
   color: #a6e3a1;
 }
 
-.log-line.info {
+.info {
   color: #89dceb;
   font-size: 11px;
   padding-left: 12px;
   opacity: 0.85;
 }
 
-.log-line.highlight {
+.highlight {
   color: #fab387;
   font-weight: 600;
 }
 
-.log-line.error {
+.error {
   color: #f38ba8;
 }
 
-.prompt-active {
+.promptActive {
   display: flex;
   align-items: center;
   margin-top: 6px;
 }
 
-.prompt-caret {
+.promptCaret {
   color: #89b4fa;
   margin-right: 8px;
 }
 
-.prompt-blink {
+.promptBlink {
   display: inline-block;
   width: 8px;
   height: 14px;
@@ -343,7 +343,7 @@ pre {
   animation: blink 1s infinite;
 }
 
-.progress-container {
+.progressContainer {
   display: flex;
   align-items: center;
   padding: 8px 0;
@@ -352,14 +352,14 @@ pre {
   flex-shrink: 0;
 }
 
-.progress-label {
+.progressLabel {
   color: #cdd6f4;
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   width: 120px;
 }
 
-.progress-bar {
+.progressBar {
   flex: 1;
   height: 6px;
   background-color: rgba(205, 214, 244, 0.1);
@@ -368,7 +368,7 @@ pre {
   overflow: hidden;
 }
 
-.progress-fill {
+.progressFill {
   height: 100%;
   background: linear-gradient(to right, #89b4fa, #cba6f7);
   width: 0%;
@@ -377,7 +377,7 @@ pre {
   box-shadow: 0 0 8px rgba(137, 180, 250, 0.5);
 }
 
-.progress-percentage {
+.progressPercentage {
   color: #cdd6f4;
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
@@ -386,12 +386,12 @@ pre {
 }
 
 @media (max-width: 768px) {
-  .ide-container {
+  .ideContainer {
     width: 95%;
     height: 90%;
   }
   
-  .terminal-pane {
+  .terminalPane {
     height: 45%;
   }
 }

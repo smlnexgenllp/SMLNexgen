@@ -3,11 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import Image from 'next/image';
 import styles from '../styles/Client.module.css';
-//import { Shadows_Into_Light } from "next/font/google";
-// const shadows = Shadows_Into_Light({
-//   subsets: ["latin"],
-//   weight: "400",
-// });
+
 
 const logos = [
   { id: 1, src: '/cli1.png', alt: 'Coca Cola' },
@@ -55,10 +51,10 @@ const LogoGrid = () => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-      <h1 style={{ fontSize: "34px", color: "#06038D" }}>
-        Our Partners / Our Clients
-      </h1>
-    </div>
+        <h1>
+          OUR PARTNERS / CLIENTS
+        </h1>
+      </div>
       <div className={styles.marqueeContainer}>
         <div className={styles.marquee} ref={marqueeRef}>
           {[...logos, ...logos].map((logo, index) => (

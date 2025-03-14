@@ -338,7 +338,7 @@ const CardCarousel = () => {
                 23 Aug 2024 | Cybersecurity | Business
               </p>
               <h2 className={styles.title}>
-                The Rising Importance of Cybersecurity
+                Cybersecurity’s Growing Impact
               </h2>
               <p className={styles.description}>
                 As cyber threats evolve, businesses need strong security.

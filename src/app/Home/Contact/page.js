@@ -1,7 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-
-// Import React Icons
 import { FaUser, FaComment } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { BsTelephone } from "react-icons/bs";

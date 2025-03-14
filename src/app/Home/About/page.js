@@ -238,7 +238,6 @@ const AboutUs = () => {
             <p>Customer Satisfaction</p>
           </div>
         </div>
-        {/* <Footer/> */}
       </section>
     </>
   );
