@@ -18,8 +18,8 @@ export const metadata = {
       "SMLNEXGEN LLP | Leading Digital Solutions for Web, Mobile & Marketing",
     description:
       "SMLNEXGEN LLP is a leading provider of innovative digital solutions, specializing in website development, mobile app creation, custom software, and digital marketing. Based in Hosur, Tamil Nadu, we help businesses navigate the digital landscape with ease and efficiency.",
-    url: "https://www.fechzo.online/",
-    images: [{ url: "https://www.fechzo.online/sml-logo.png" }],
+    url: "https://www.smlnexgenllp.com/",
+    images: [{ url: "https://www.smlnexgenllp.com/sml-logo.png" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -28,7 +28,7 @@ export const metadata = {
       "SMLNEXGEN LLP | Leading Digital Solutions for Web, Mobile & Marketing",
     description:
       "SMLNEXGEN LLP is a leading provider of innovative digital solutions, specializing in website development, mobile app creation, custom software, and digital marketing. Based in Hosur, Tamil Nadu, we help businesses navigate the digital landscape with ease and efficiency.",
-    images: ["https://www.fechzo.online/sml-logo.png"],
+    images: ["https://www.smlnexgenllp.com/sml-logo.png"],
   },
 };
 
@@ -37,8 +37,8 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "SMLNEXGEN LLP",
-    url: "https://www.fechzo.online/",
-    logo: "https://www.fechzo.online/sml-logo.png",
+    url: "https://www.smlnexgenllp.com/",
+    logo: "https://www.smlnexgenllp.com/sml-logo.png",
     sameAs: [
       "https://www.facebook.com/people/Smlnexgen-Portfolio/pfbid02ve9NNzpYyKSZTSqEEzTGAXpUiK4xKbN16d6238MiUdnPrnbK66BW7213LvBMFVQxl/",
       "https://x.com/smlnexgenllp",
@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
           name="keywords"
           content="SMLNEXGEN LLP, digital solutions, website development, mobile app development, custom software development, digital marketing, strategic digital marketing, SEO services, eCommerce development, mobile app design, software solutions, digital transformation, IT consulting, web design, website redesign, mobile application solutions, IT Company Hosur,IT Bengaluru, Hosur, Tamil Nadu, India"
         />
-        <link rel="canonical" href="https://www.fechzo.online/" />
+        <link rel="canonical" href="https://www.smlnexgenllp.com/" />
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
