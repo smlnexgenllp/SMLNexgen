@@ -137,7 +137,7 @@ const RegisterForm = ({ setShowLogin }) => {
       }
     });
 
-    const endpoints = ["http://192.168.0.197:5000/api/users/register"];
+    const endpoints = ["https://sml-backend-qgp6.onrender.com/api/users/register"];
 
     for (const url of endpoints) {
       try {
