@@ -64,7 +64,7 @@ const AppointmentForm = () => {
       };
       try {
         const backendUrl =
-          process.env.NEXT_PUBLIC_BACKEND_URL || "http://192.168.0.197:5000"; // Replace with your backend IP
+          process.env.NEXT_PUBLIC_BACKEND_URL || "https://sml-backend-qgp6.onrender.com"; // Replace with your backend IP
         const response = await fetch(`${backendUrl}/api/book-service`, {
           method: "POST",
           headers: {
