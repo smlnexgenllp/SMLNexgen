@@ -153,7 +153,7 @@ const AdminJobs = () => {
   const fetchJobs = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://192.168.0.197:5000/api/jobs");
+      const response = await fetch("https://sml-backend-qgp6.onrender.com/api/jobs");
       const data = await response.json();
       setJobs(data);
     } catch (error) {
@@ -236,8 +236,8 @@ const AdminJobs = () => {
     try {
       const method = editingJobId ? "PUT" : "POST";
       const url = editingJobId
-        ? `http://192.168.0.197:5000/api/jobs/${editingJobId}`
-        : "http://192.168.0.197:5000/api/jobs";
+        ? `https://sml-backend-qgp6.onrender.com/api/jobs/${editingJobId}`
+        : "https://sml-backend-qgp6.onrender.com/api/jobs";
 
       const response = await fetch(url, {
         method,
@@ -305,7 +305,7 @@ const AdminJobs = () => {
     if (!confirm("Are you sure you want to delete this job?")) return;
 
     try {
-      const response = await fetch(`http://192.168.0.197:5000/api/jobs/${id}`, {
+      const response = await fetch(`https://sml-backend-qgp6.onrender.com/api/jobs/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
