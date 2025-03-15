@@ -22,7 +22,7 @@ const JobApplicationsPage = () => {
   const fetchApplications = async () => {
     try {
       const response = await fetch(
-        "http://192.168.0.197:5000/api/applications"
+        "https://sml-backend-qgp6.onrender.com/api/applications"
       );
       const data = await response.json();
       setApplications(data);
@@ -69,7 +69,7 @@ const JobApplicationsPage = () => {
   const handleStatusChange = async (id, newStatus) => {
     try {
       const response = await fetch(
-        `http://192.168.0.197:5000/api/applications/${id}/status`,
+        `https://sml-backend-qgp6.onrender.com/api/applications/${id}/status`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -237,7 +237,7 @@ const JobApplicationsPage = () => {
 
                     <div className={styles.resumeLink}>
                       <a
-                        href={`http://192.168.0.197:5000/${app.resume}`}
+                        href={`https://sml-backend-qgp6.onrender.com/${app.resume}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.viewResumeButton}
