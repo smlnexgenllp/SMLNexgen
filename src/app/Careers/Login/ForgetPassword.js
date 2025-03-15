@@ -14,8 +14,7 @@ const ForgotPasswordForm = ({ setShowForgotPassword }) => {
   const [success, setSuccess] = useState('');
 
   const endpoints = [
-    'http://localhost:5000/api/users',
-    'http://192.168.0.197:5000/api/users',
+    'https://sml-backend-qgp6.onrender.com/api/users',
   ];
 
   const handleSendOtp = async (e) => {
