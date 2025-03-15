@@ -17,8 +17,7 @@ const LoginForm = ({ setShowLogin }) => {
     setError(null);
 
     const endpoints = [
-      'http://192.168.0.197:5000/api/users/login',
-      'http://localhost:5000/api/users/login',
+      'https://sml-backend-qgp6.onrender.com/api/users/login',
     ];
 
     // Determine if input is email or user ID based on '@' presence
