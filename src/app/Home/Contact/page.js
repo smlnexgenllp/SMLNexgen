@@ -88,10 +88,13 @@ const ContactForm = () => {
 
   return (
     <>
-      <div className={styles.montoyaTextWrapper}>
+      {/* <div className={styles.montoyaTextWrapper}>
         <MontoyaText title="REACH US" />
-      </div>
+      </div> */}
       <div id="contact" className={styles.contactPage}>
+      <div className={styles.title}>
+        REACH US
+      </div>
         <p className={styles.contactDescription}>
           Get in touch with SML NexGen LLP for AI, Cloud, and Custom Software
           solutions. Let&apos;s innovate together - Schedule a free consultation today.

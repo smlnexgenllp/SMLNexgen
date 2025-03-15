@@ -69,10 +69,13 @@ export default function Portfolio() {
     <div>
       {/* Move MontoyaText outside the container for easier positioning */}
       <div className={styles.montoyaTextWrapper}>
-      <MontoyaText title="PORTFOLIO" />
+      {/* <MontoyaText title="PORTFOLIO" /> */}
       </div>
 
       <div id="portfolio" ref={portfolioRef} className={styles.container}>
+      <div className={styles.section}>
+        <h2>PORTFOLIO</h2>
+       
         <div className={styles.boxColumnWrapper}>
           <div className={styles.boxColumn} ref={containerRef}>
             {boxes.map((box, index) => (
@@ -94,6 +97,7 @@ export default function Portfolio() {
                 <p className={styles.boxText}>{box.description}</p>
               </div>
             ))}
+             </div>
           </div>
         </div>
       </div>

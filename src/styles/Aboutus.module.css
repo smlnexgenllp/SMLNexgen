@@ -16,13 +16,25 @@
   text-align: center;
   width: 100%;
   margin-inline: auto;
-  margin-top: -380px;
-  
   position: relative;
   max-width: 100%;
+  margin-top: 190px;
   /* overflow-x: hidden; */
 }
-
+.section h1{
+  font-family: "Six Caps", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: #06038D;
+  text-align: center;
+  font-size: 115px;
+  font-weight: lighter;
+  padding: 10px;
+  letter-spacing: 10px;
+  
+}
 .section h2 {
   font-size: 32px;
   font-weight: 700;
@@ -219,27 +231,6 @@
 
 /* Mobile View Adjustments */
 @media (max-width: 768px) {
-  .montoyaTextWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: -200px;
-    /* Adjust this value to move it up/down */
-  }
-  .section {
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    padding-block: min(20vh, 6rem);
-    text-align: center;
-    width: 100%;
-    margin-inline: auto;
-    margin-top: -390px;
-    
-    position: relative;
-    max-width: 100%;
-    /* overflow-x: hidden; */
-  }
   .section h2 {
     font-size: 32px;
   }

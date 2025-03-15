@@ -11,8 +11,7 @@
   flex-direction: column; /* Stack elements in a vertical order */
   align-items: center;
   justify-content: center;
-  
-  margin-top: -240px;
+  margin-top: 70px;
  
 }
 
@@ -65,13 +64,19 @@
 }
 
 /* Title */
-/* .title {
+.title {
+  font-family: "Six Caps", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
   color: #06038D;
-  font-size: 32px;
-  font-weight: bold;
   text-align: center;
-  margin-top: 10px;
-} */
+  font-size: 115px;
+  font-weight: lighter;
+  padding: 10px;
+  letter-spacing: 10px;
+}
 
 /* Input Fields */
 .inputWrapper {
@@ -170,6 +175,7 @@
 
 /* Responsive Design */
 @media (max-width: 900px) {
+  
   .contactContainer {
     flex-direction: column;
     text-align: center;
@@ -183,8 +189,7 @@
   }
 
   .laptopContainer {
-    height: 50vh; /* Adjust height for smaller screens */
-    max-width: 100%;
+    display: none;
   }
 
   /* Map responsiveness for medium screens */
@@ -216,5 +221,14 @@
   .mapContainer iframe {
     height: 250px; /* Further reduce height for mobile */
     border-radius: 15px; /* Slightly smaller radius for smaller screens */
+  }
+}
+
+@media (max-width: 1366px) {
+  .laptopContainer {
+    display: none; /* Hides the laptop model for screens <= 1366px wide */
+  }
+  .contactContainer {
+    flex-direction: column; /* Stacks the form and other elements vertically */
   }
 }

@@ -84,7 +84,10 @@ export default function Scroll() {
     <div>
       <header className={styles.localHeader}>
         <div className={styles.box}>
-          <p className={styles.text}>Our services...</p>
+          <p className={styles.text}>
+            <span className={styles.localWord}>Our </span>
+            <span className={styles.localWord}>services...</span>
+          </p>
         </div>
       </header>
       <main className={styles.localMain}>

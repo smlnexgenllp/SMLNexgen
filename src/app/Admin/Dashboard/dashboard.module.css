@@ -7,6 +7,7 @@
   height: 100vh;
   background-color: #f8f9fa;
   position: relative;
+  padding: 20px; /* Add padding for better spacing */
 }
 
 /* Title Styling */
@@ -15,24 +16,24 @@
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 30px;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
-/* Grid Layout - Changed to 3-2 arrangement */
+/* Grid Layout - Default 3-2 arrangement */
 .dashboardGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
-  gap: 40px;
+  gap: 50px;
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
 }
 
 /* Box Styling */
 .dashboardBox {
-  width: 220px;
-  height: 180px;
+  width: 250px; /* Increased width */
+  height: 200px; /* Increased height */
   background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -98,77 +99,54 @@
 
 /* Media Query for Tablets (max-width: 768px) */
 @media (max-width: 768px) {
-  .dashboardContainer {
-    padding: 20px; /* Add padding to avoid edge-to-edge content */
-  }
-
-  .dashboardTitle {
-    font-size: 20px; /* Slightly smaller title */
-    margin-bottom: 20px;
-  }
-
   .dashboardGrid {
-    grid-template-columns: 1fr; /* Single column layout */
-    gap: 40px; /* Reduced gap */
+    grid-template-columns: repeat(2, 1fr); /* 2-column layout */
+    grid-template-rows: repeat(3, auto); /* 3-row layout */
+    gap: 40px; /* Increased gap for better spacing */
   }
 
   .dashboardBox {
-    width: 200px; /* Smaller boxes */
-    height: 150px;
-    font-size: 16px;
+    width: 100%; /* Full width for each box */
+    height: 180px; /* Increased height */
+    font-size: 18px; /* Increased font size */
   }
 
   .dashboardBox::after {
-    bottom: -35px; /* Adjust pop-up position for smaller box */
-    font-size: 12px; /* Smaller pop-up text */
+    bottom: -40px; /* Adjust pop-up position for larger box */
+    font-size: 14px; /* Larger pop-up text */
   }
 
   .logoutButton {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px; /* Smaller padding */
-    font-size: 14px;
+    top: 15px;
+    right: 15px;
+    padding: 10px 18px; /* Adjusted padding */
+    font-size: 16px;
   }
 }
 
 /* Media Query for Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-  .dashboardContainer {
-    padding: 15px;
-  }
-
-  .dashboardTitle {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-
   .dashboardGrid {
-    gap: 30px; /* Further reduced gap */
+    grid-template-columns: repeat(2, 1fr); /* 2-column layout */
+    grid-template-rows: repeat(3, auto); /* 3-row layout */
+    gap: 35px; /* Increased gap for better spacing */
   }
 
   .dashboardBox {
-    width: 150px; /* Even smaller boxes */
-    height: 120px;
-    font-size: 14px;
+    width: 100%; /* Full width for each box */
+    height: 160px; /* Increased height */
+    font-size: 16px; /* Increased font size */
   }
 
   .dashboardBox::after {
-    bottom: -30px;
-    font-size: 10px; /* Even smaller pop-up text */
-    padding: 4px 8px; /* Reduced padding for pop-up */
+    bottom: -35px; /* Adjust pop-up position for larger box */
+    font-size: 12px; /* Larger pop-up text */
   }
 
   .logoutButton {
-    top: 5px;
-    right: 5px;
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-
-  .backLink {
-    top: 5px;
-    left: 5px;
-    padding: 6px 12px;
-    font-size: 12px;
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px; /* Adjusted padding */
+    font-size: 14px;
   }
 }

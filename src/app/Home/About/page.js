@@ -65,10 +65,11 @@ const AboutUs = () => {
   return (
     <>
       <div className={styles.montoyaTextWrapper}>
-        <MontoyaText title="ABOUT US" />
+        {/* <MontoyaText title="ABOUT US" /> */}
       </div>
       <section id="about" className={styles.section}>
         <SocialMedia theme="dark" />
+        <h1>ABOUT US</h1>
         <h2 className={styles.heading}>
           Meet the Experts{" "}
           <span className={styles.blueText}>Behind SML NexGen LLP</span>

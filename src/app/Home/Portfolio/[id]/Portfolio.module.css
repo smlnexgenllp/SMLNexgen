@@ -5,6 +5,20 @@
   margin-top: -140px;
   /* Adjust this value to move it up/down */
 }
+.section h2{
+  font-family: "Six Caps", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: #06038D;
+  text-align: center;
+  font-size: 115px;
+  font-weight: lighter;
+  padding: 10px;
+  letter-spacing: 10px;
+  
+}
 
 .container {
 
@@ -17,7 +31,7 @@
   /* Reduce width for left & right cut */
 
 
-  margin: -270px auto 0 auto;
+  margin: 220px auto 0 auto;
 
 
 }
