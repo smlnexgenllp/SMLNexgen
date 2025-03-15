@@ -15,7 +15,7 @@ const ProfileView = () => {
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     if (storedUser && storedUser.email) {
-      fetch(`http://192.168.0.197:5000/api/users/getUserDetails?email=${storedUser.email}`)
+      fetch(`https://sml-backend-qgp6.onrender.com/api/users/getUserDetails?email=${storedUser.email}`)
         .then((response) => response.json())
         .then((data) => {
           setUser(data);
@@ -48,7 +48,7 @@ const ProfileView = () => {
     }
 
     try {
-      const response = await fetch(`http://192.168.0.197:5000/api/users/${storedUser.id}`, {
+      const response = await fetch(`https://sml-backend-qgp6.onrender.com/api/users/${storedUser.id}`, {
         method: "PUT",
         body: formData,
       });
