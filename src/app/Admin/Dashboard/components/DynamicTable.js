@@ -13,7 +13,7 @@ const DynamicTable = ({ dataType }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const API_BASE_URL = 'http://192.168.0.197:5000';
+  const API_BASE_URL = 'https://sml-backend-qgp6.onrender.com';
 
   // Set mounted state on client
   useEffect(() => {
