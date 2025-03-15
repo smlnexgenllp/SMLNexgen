@@ -3,7 +3,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './register.module.css';
+import styles from './login.module.css';
 import ForgotPasswordForm from '../Login/ForgetPassword';
 
 const LoginForm = ({ setShowLogin }) => {
@@ -57,6 +57,7 @@ const LoginForm = ({ setShowLogin }) => {
     }
   };
   return (
+    
     <section className={styles.section}>
       <div className={styles.wave}></div>
       {showForgotPassword ? (

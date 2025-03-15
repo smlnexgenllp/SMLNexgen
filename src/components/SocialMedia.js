@@ -14,7 +14,7 @@ const SocialMedia = () => {
       <a href="https://www.instagram.com/smlnexgen_llp?igsh=NXVtb2xhZDh4ZTl2" target="_blank" rel="noopener noreferrer">
         <FaInstagram className="text-gray-600 text-2xl hover:text-pink-500 transition duration-300" />
       </a>
-      <a href="https://www.linkedin.com/in/smlnexgen-llp/" target="_blank" rel="noopener noreferrer">
+      <a href="https://www.linkedin.com/company/smlnexgen-llp/" target="_blank" rel="noopener noreferrer">
         <FaLinkedin className="text-gray-600 text-2xl hover:text-blue-700 transition duration-300" />
       </a>
       <a href="https://wa.me/919487084117" target="_blank" rel="noopener noreferrer">

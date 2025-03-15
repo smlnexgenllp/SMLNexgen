@@ -4,14 +4,14 @@
   --e: cubic-bezier(0.19, 1, 0.22, 1);
   --font-sans: 'Rubik', sans-serif;
   --font-serif: 'Cardo', serif;
-  margin-top: -10px;
+  margin-top: 25px;
 }
 
 .heading {
   font-size: 40px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   color: #06038D;
 }
 

@@ -23,10 +23,7 @@ export default function Footer() {
     const mousePosition = new THREE.Vector3();
     const raycaster = new THREE.Raycaster();
 
-    let light1, light2, light3, light4; // Declare lights here
-
-    const noiseInput = document.getElementById("noiseInput");
-    const heightInput = document.getElementById("heightInput");
+    let light1, light2, light3, light4;
 
     const conf = {
       fov: 75,
@@ -54,24 +51,7 @@ export default function Footer() {
       window.addEventListener("resize", updateSize, false);
 
       initScene();
-      initGui();
       animate();
-    }
-
-    function initGui() {
-      noiseInput.value = 101 - conf.xyCoef;
-      heightInput.value = (conf.zCoef * 100) / 25;
-
-      noiseInput.addEventListener("input", (e) => {
-        conf.xyCoef = 101 - noiseInput.value;
-      });
-      heightInput.addEventListener("input", (e) => {
-        conf.zCoef = (heightInput.value * 25) / 100;
-      });
-
-      document.getElementById("trigger").addEventListener("click", (e) => {
-        updateLightsColors();
-      });
     }
 
     function initScene() {
@@ -168,18 +148,6 @@ export default function Footer() {
       light4.position.z = Math.cos(time * 0.8) * d;
     }
 
-    function updateLightsColors() {
-      conf.light1Color = THREE.MathUtils.randInt(0x000000, 0xffffff);
-      conf.light2Color = THREE.MathUtils.randInt(0x000000, 0xffffff);
-      conf.light3Color = THREE.MathUtils.randInt(0x000000, 0xffffff);
-      conf.light4Color = THREE.MathUtils.randInt(0x000000, 0xffffff);
-
-      light1.color.setHex(conf.light1Color);
-      light2.color.setHex(conf.light2Color);
-      light3.color.setHex(conf.light3Color);
-      light4.color.setHex(conf.light4Color);
-    }
-
     function updateSize() {
       width = window.innerWidth;
       cx = width / 2;
@@ -224,34 +192,8 @@ export default function Footer() {
     };
   }, []);
 
-  // Smooth Scroll Function for Contact Button
-  // const handleScrollToContact = (e) => {
-  //   e.preventDefault();
-  //   const contactSection = document.getElementById("contact");
-  //   if (contactSection) {
-  //     contactSection.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
-
   return (
     <div className={styles.footerContainer}>
-      {/* Controls */}
-      <div className={styles.controls}>
-        <form className={styles.controlForm}>
-          <div className={styles.controlGroup}>
-            <label htmlFor="noiseInput">Noise Coef</label>
-            <input type="range" id="noiseInput" className={styles.slider} />
-          </div>
-          <div className={styles.controlGroup}>
-            <label htmlFor="heightInput">Height Coef</label>
-            <input type="range" id="heightInput" className={styles.slider} />
-          </div>
-          <a href="#" id="trigger" className={styles.colorButton}>
-            Random Colors
-          </a>
-        </form>
-      </div>
-
       {/* Canvas */}
       <canvas ref={canvasRef} className={styles.canvas}></canvas>
 

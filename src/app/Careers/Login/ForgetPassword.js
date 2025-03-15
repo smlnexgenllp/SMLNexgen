@@ -1,7 +1,7 @@
 //ForgetPassword.js
 'use client';
 
-import styles from '../Login/register.module.css';
+import styles from './register.module.css';
 import { useState } from 'react';
 
 const ForgotPasswordForm = ({ setShowForgotPassword }) => {

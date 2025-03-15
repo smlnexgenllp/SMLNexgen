@@ -121,6 +121,10 @@
     max-height: 80px;
   }
 
+  .marqueeContainer {
+    margin-bottom: -130px; /* Adjust margin */
+  }
+
   .marquee {
     gap: 2rem; /* Reduce gap for better spacing */
     width: 250%; /* Ensures seamless scrolling */

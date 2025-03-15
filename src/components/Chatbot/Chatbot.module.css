@@ -18,18 +18,23 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+  z-index: 1;
 }
 
 /* Button Hover and Active Effect */
 .chatbotButton:hover {
   background-color: #f5f4f8;
   transform: scale(1.1);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 .chatbotButton:active {
   transform: scale(0.95);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* SVG Icon inside Button */
@@ -37,7 +42,51 @@
   width: 40px;
   height: 40px;
   fill: white;
+  transition: transform 0.3s ease;
 }
+
+.chatbotButton:hover svg {
+  transform: scale(1.1);
+}
+
+/* Pulse Effect */
+.chatbotButton::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(6, 3, 141, 0.7);
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
+
+.chatbotButton::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(6, 3, 141, 0.4);
+  z-index: -2;
+  animation: pulse 2s infinite 0.4s;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
 /* Default Styles (Light Mode) */
 .chatbotBox {
   position: fixed;
@@ -188,4 +237,14 @@
 
 .react-chatbot-kit-chat-btn-send:hover {
   background-color: #05026b !important;
+}
+
+@media (max-width: 768px) {
+  .chatbotContainer {
+    margin-top: -70px;
+    margin-right: 20px;
+    position: sticky;
+    display: flex;
+    justify-content: flex-end;
+  }
 }

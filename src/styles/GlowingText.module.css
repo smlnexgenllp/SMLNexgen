@@ -17,7 +17,7 @@
 .letter {
   cursor: pointer;
   display: inline-block;
-  font-size: 100px;
+  font-size: 90px;
   user-select: none;
   line-height: 0.8;
 }
@@ -209,3 +209,95 @@
     transform: scaleY(2);
   }
 }
+@media (max-width: 480px) {
+    .letter {
+      font-size: 22px;
+    }
+    .word {
+      gap: 4px;
+    }
+    .container {
+      padding: 10px;
+    }
+    
+    .letter:nth-child(1).active {
+      animation: balance 1.2s ease-out;
+    }
+    
+    .letter:nth-child(2).active {
+      animation: shrinkjump 0.6s ease-in-out;
+    }
+    @keyframes shrinkjump {
+      10%, 35% { transform: scale(1.2, 0.2); }
+      45%, 50% { transform: scale(1) translateY(-40px); }
+      80% { transform: scale(1); }
+    }
+    
+    .letter:nth-child(3).active {
+      animation: falling 1.5s ease-out;
+    }
+    
+    .letter:nth-child(4).active {
+      animation: rotate 0.8s ease-out;
+    }
+    
+    .letter:nth-child(5).active {
+      animation: toplong 1s linear;
+    }
+    @keyframes toplong {
+      10%, 40% { transform: translateY(-20vh) scaleY(1); }
+      90% { transform: translateY(-20vh) scaleY(2); }
+    }
+    
+    .letter:nth-child(6).active {
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    .letter:nth-child(7).active {
+      animation: shake 1s ease-in-out;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-2px); }
+    }
+    
+    .letter:nth-child(8).active {
+      animation: pulse 1s ease-in-out infinite;
+    }
+    
+    .letter:nth-child(9).active {
+      animation: flip 1.2s ease-in-out;
+    }
+    
+    .letter:nth-child(10).active {
+      animation: slideIn 0.8s ease-in-out;
+    }
+    @keyframes slideIn {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    
+    .letter:nth-child(11).active {
+      animation: spin 1.5s ease-in-out;
+    }
+    
+    .letter:nth-child(12).active {
+      animation: stretch 1.2s ease-in-out;
+    }
+    @keyframes stretch {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(1.5); }
+    }
+  }
+  
+  /* Very small screens (≤320px) */
+  @media (max-width: 320px) {
+    .letter {
+      font-size: 24px;
+    }
+    .word {
+      gap: 2px;
+    }
+  }
