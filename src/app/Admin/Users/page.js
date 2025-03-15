@@ -18,7 +18,7 @@ export default function AdminUsersPage() {
   const [usersPerPage, setUsersPerPage] = useState(10);
 
   // You might need to adjust this URL based on your environment
-  const API_BASE_URL = 'http://192.168.0.197:5000'; // or whatever port your backend is running on
+  const API_BASE_URL = 'https://sml-backend-qgp6.onrender.com'; // or whatever port your backend is running on
 
   useEffect(() => {
     fetchUsers();
