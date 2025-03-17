@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: process.env.SITE_URL || "http://192.168.0.197:3000", // Change this to your actual domain
+    siteUrl: process.env.SITE_URL || "https://www.smlnexgenllp.com/", // Change this to your actual domain
     generateRobotsTxt: true, // Generates robots.txt file
     sitemapSize: 5000, // Adjust sitemap size if necessary
     exclude: [
@@ -15,4 +15,3 @@ module.exports = {
     ],
     generateIndexSitemap: false, // Set to true if you have multiple sitemaps
   };
-  
