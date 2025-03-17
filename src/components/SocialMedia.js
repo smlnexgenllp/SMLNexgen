@@ -4,7 +4,7 @@ import { SiGmail } from "react-icons/si";
 
 const SocialMedia = () => {
   return (
-    <div className="fixed left-2 md:left-12  top-1/2 transform -translate-y-1/2 flex flex-col gap-12 z-50">
+    <div className="absolute left-2 md:left-12  top-1/2 transform -translate-y-1/2 flex flex-col gap-12 z-50">
       <a href="https://www.facebook.com/profile.php?id=61559262780126&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer">
         <FaFacebook className="text-gray-600 text-2xl hover:text-blue-500 transition duration-300" />
       </a>
