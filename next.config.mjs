@@ -7,6 +7,8 @@ const nextConfig = {
         hostname: "sml-backend-qgp6.onrender.com", // Allow images from your backend
       },
     ],
+        domains: ["unsplash.it", "www.smlnexgenllp.com"],
+
   },
 };
 
