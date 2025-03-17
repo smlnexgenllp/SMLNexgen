@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { FaUser, FaCog, FaSignOutAlt, FaBars, FaTimes } from "react-icons/fa";
 import styles from "../styles/nav.module.css";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const API_BASE_URL = 'https://sml-backend-qgp6.onrender.com';
  // Adjust the URL as needed
 
 const Navbar = () => {
