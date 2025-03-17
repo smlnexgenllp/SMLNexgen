@@ -68,7 +68,7 @@ const AboutUs = () => {
         {/* <MontoyaText title="ABOUT US" /> */}
       </div>
       <section id="about" className={styles.section}>
-        // <SocialMedia theme="dark" />
+        {/* <SocialMedia theme="dark" />*/}
         <h1>ABOUT US</h1>
         <h2 className={styles.heading}>
           Meet the Experts{" "}
