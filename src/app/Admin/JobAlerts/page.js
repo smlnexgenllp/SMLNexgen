@@ -46,7 +46,7 @@ export default function JobAlertsPage() {
         <table className={styles.table}>
           <thead>
             <tr>
-              <th>#</th>
+              <th>S.NO</th>
               <th>Email</th>
             </tr>
           </thead>
