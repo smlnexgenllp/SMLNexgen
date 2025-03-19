@@ -1,6 +1,6 @@
 /* Container that centers the entire component in the viewport */
 .pageContainer {
-  min-height: 90vh;
+  /* min-height: 90vh; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,9 +21,8 @@
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 2px;
- 
- 
-  margin-bottom: 30px;
+
+  margin-bottom: 10px;
 }
 
 /* Container for the carousel (no background) */
@@ -206,13 +205,13 @@
     color: #06038D;
     display: flex;
     justify-content: center;
-    /* padding: 2rem 0; Adjust padding for spacing */
+    padding: 2rem 0; 
     background-color: transparent;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
    
    
-    margin-top:-100px;
+    /* margin-top:-100px; */
   }
 }
