@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import Link from "next/link";
 import styles from "./page.module.css";
 
@@ -8,11 +10,20 @@ export default function JobAlertsPage() {
   const [jobAlerts, setJobAlerts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
+
+    const authToken = Cookies.get("authToken");
+
+    if (!authToken) {
+      router.push("/Admin"); // Redirect to login page if not authenticated
+      return;
+    }
+
     const fetchJobAlerts = async () => {
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://sml-backend-qgp6.onrender.com";
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "http://192.168.0.197:5000";
         const response = await fetch(`${backendUrl}/api/job-alerts`);
         if (!response.ok) {
           throw new Error("Failed to fetch job alerts");
@@ -28,7 +39,7 @@ export default function JobAlertsPage() {
     };
 
     fetchJobAlerts();
-  }, []);
+  }, [router]);
 
   return (
     <div className={styles.container}>
