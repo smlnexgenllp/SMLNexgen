@@ -2,6 +2,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import styles from './page.module.css';
 
 export default function AdminUsersPage() {
@@ -17,12 +19,19 @@ export default function AdminUsersPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [usersPerPage, setUsersPerPage] = useState(10);
 
+  const router = useRouter();
+
   // You might need to adjust this URL based on your environment
-  const API_BASE_URL = 'https://sml-backend-qgp6.onrender.com'; // or whatever port your backend is running on
+  const API_BASE_URL = 'http://192.168.0.197:5000'; // or whatever port your backend is running on
 
   useEffect(() => {
+    const authToken = Cookies.get("authToken");
+    if (!authToken) {
+      router.push("/Admin");
+      return;
+    }
     fetchUsers();
-  }, []);
+  }, [router]);
 
   const fetchUsers = async () => {
     try {
