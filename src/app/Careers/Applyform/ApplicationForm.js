@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import styles from "./Applyform.module.css";
 
 const ApplicationForm = () => {
@@ -12,6 +13,7 @@ const ApplicationForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [user, setUser] = useState(null);
   const [role, setRole] = useState(""); // State for role
+  const router = useRouter();
 
   // Fetch user info from localStorage
   useEffect(() => {
@@ -30,7 +32,7 @@ const ApplicationForm = () => {
   // Fetch job details to auto-fill the role field
   useEffect(() => {
     if (jobId) {
-      fetch("https://sml-backend-qgp6.onrender.com/api/jobs")
+      fetch("http://192.168.0.197:5000/api/jobs")
         .then((res) => res.json())
         .then((data) => {
           const job = data.find((job) => job.id === parseInt(jobId));
@@ -66,7 +68,7 @@ const ApplicationForm = () => {
     try {
       const formData = new FormData(e.target);
       const response = await fetch(
-        "https://sml-backend-qgp6.onrender.com/api/applications",
+        "http://192.168.0.197:5000/api/applications",
         {
           method: "POST",
           body: formData,
@@ -77,6 +79,7 @@ const ApplicationForm = () => {
         setSelectedFile(null);
         setFileURL(null);
         e.target.reset();
+        router.push("/Careers/MyActivity");
       } else {
         alert("Failed to submit application.");
       }
