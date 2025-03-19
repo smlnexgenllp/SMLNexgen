@@ -1,8 +1,12 @@
+// Admin/JobPostings/page.js
+
 "use client";
 
 import { useState, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import styles from "./jobpostings.module.css";
 
 const AdminJobs = () => {
@@ -27,6 +31,7 @@ const AdminJobs = () => {
   const [showIconGrid, setShowIconGrid] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [notification, setNotification] = useState({ show: false, message: "", type: "" });
+  const router = useRouter();
 
   // Expanded icon collection without categories
   const allIcons = [
@@ -147,13 +152,18 @@ const AdminJobs = () => {
 
   // Fetch jobs on mount
   useEffect(() => {
+    const authToken = Cookies.get("authToken");
+    if (!authToken) {
+      router.push("/Admin"); // Redirect to login if no token
+      return;
+    }
     fetchJobs();
-  }, []);
+  }, [router]);
 
   const fetchJobs = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("https://sml-backend-qgp6.onrender.com/api/jobs");
+      const response = await fetch("http://192.168.0.197:5000/api/jobs");
       const data = await response.json();
       setJobs(data);
     } catch (error) {
@@ -236,8 +246,8 @@ const AdminJobs = () => {
     try {
       const method = editingJobId ? "PUT" : "POST";
       const url = editingJobId
-        ? `https://sml-backend-qgp6.onrender.com/api/jobs/${editingJobId}`
-        : "https://sml-backend-qgp6.onrender.com/api/jobs";
+        ? `http://192.168.0.197:5000/api/jobs/${editingJobId}`
+        : "http://192.168.0.197:5000/api/jobs";
 
       const response = await fetch(url, {
         method,
@@ -305,7 +315,7 @@ const AdminJobs = () => {
     if (!confirm("Are you sure you want to delete this job?")) return;
 
     try {
-      const response = await fetch(`https://sml-backend-qgp6.onrender.com/api/jobs/${id}`, {
+      const response = await fetch(`http://192.168.0.197:5000/api/jobs/${id}`, {
         method: "DELETE",
       });
       if (response.ok) {
