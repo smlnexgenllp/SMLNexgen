@@ -86,7 +86,7 @@ progress[value]::-moz-progress-bar {
 
 .popup {
   position: absolute;
-  top: -30px;
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #333;
@@ -197,61 +197,61 @@ progress[value]::-moz-progress-bar {
 /* Responsive Design */
 @media (max-width: 768px) {
   .progressWithFace {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
   }
 
   .progressContainer {
-      width: 100%;
-      align-items: center;
-      text-align: center;
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
 
   .faceButtonContainer {
-      width: 100%;
-      margin-top: 20px;
+    width: 100%;
+    margin-top: 20px;
   }
 
   .face-button {
-      width: 5rem;
-      height: 5rem;
+    width: 5rem;
+    height: 5rem;
   }
 
   .eye {
-      height: 0.4rem;
-      width: 0.4rem;
+    height: 0.4rem;
+    width: 0.4rem;
   }
 
   .mouth {
-      width: 0.8rem;
-      height: 0.1rem;
+    width: 0.8rem;
+    height: 0.1rem;
   }
 }
 
 @media (max-width: 480px) {
   .progressText {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   .progressPercent {
-      font-size: 12px;
+    font-size: 12px;
   }
 
   .face-button {
-      width: 4.5rem;
-      height: 4.5rem;
+    width: 4.5rem;
+    height: 4.5rem;
   }
 
   .eye {
-      height: 0.35rem;
-      width: 0.35rem;
+    height: 0.35rem;
+    width: 0.35rem;
   }
 
   .mouth {
-      width: 0.7rem;
-      height: 0.1rem;
+    width: 0.7rem;
+    height: 0.1rem;
   }
 }
 
