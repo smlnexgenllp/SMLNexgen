@@ -9,7 +9,8 @@
   height: 100%;
   margin-top: 30px;
 }
-.title h1{
+
+.title h1 {
   font-size: 40px;
   font-weight: bold;
   text-align: center;
@@ -19,7 +20,6 @@
 
 /* Marquee Wrapper */
 .marqueeContainer {
-  margin-bottom: -80px;
   padding: 10px;
   overflow: hidden;
   white-space: nowrap;
@@ -109,7 +109,7 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .title h1{
+  .title h1 {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
@@ -119,10 +119,6 @@
   .logogrid__img {
     max-width: 100px; /* Reduce size */
     max-height: 80px;
-  }
-
-  .marqueeContainer {
-    margin-bottom: -130px; /* Adjust margin */
   }
 
   .marquee {
@@ -143,14 +139,16 @@
 }
 
 @media (max-width: 480px) {
-  .titleLetter {
-    font-size: 60px;
-    padding: 3px;
+  .title h1 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #06038D;
   }
 
   .logogrid__img {
-    max-width: 100px;
-    max-height: 80px;
+    max-width: 80px;
+    max-height: 60px;
   }
 
   .marquee {
