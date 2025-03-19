@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Cookies from "js-cookie";
 import ImageCropper from '../ImageCropper'; // Adjust the import path as needed
 import styles from '../../page.module.css';
 
@@ -25,55 +26,60 @@ export default function EditUserPage({ params }) {
   const [showCropper, setShowCropper] = useState(false);
 
   // API base URL
-  const API_BASE_URL = 'https://sml-backend-qgp6.onrender.com';
+  const API_BASE_URL = 'http://192.168.0.197:5000';
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        setLoading(true);
-        const response = await fetch(`${API_BASE_URL}/api/users/`, {
-          credentials: 'include',
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const users = await response.json();
-        const user = users.find(u => u.id === userId);
-
-        if (!user) {
-          throw new Error('User not found');
-        }
-
-        setFormData({
-          fullName: user.fullName,
-          email: user.email,
-          phone: user.phone,
-          address: user.address,
-          gender: user.gender,
-        });
-
-        if (user.profilePic) {
-          setProfilePicPreview(`${API_BASE_URL}${user.profilePic}`);
-        }
-
-        setError(null);
-      } catch (err) {
-        setError('Failed to fetch user: ' + err.message);
-        console.error('Error fetching user:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
+    const authToken = Cookies.get("authToken");
+    if (!authToken) {
+      router.push("/Admin");
+      return;
+    }
     if (userId) {
       fetchUser();
     }
-  }, [userId, API_BASE_URL]);
+  }, [userId, router]);
+
+  const fetchUser = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`${API_BASE_URL}/api/users/`, {
+        credentials: 'include',
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const users = await response.json();
+      const user = users.find(u => u.id === userId);
+
+      if (!user) {
+        throw new Error('User not found');
+      }
+
+      setFormData({
+        fullName: user.fullName,
+        email: user.email,
+        phone: user.phone,
+        address: user.address,
+        gender: user.gender,
+      });
+
+      if (user.profilePic) {
+        setProfilePicPreview(`${API_BASE_URL}${user.profilePic}`);
+      }
+
+      setError(null);
+    } catch (err) {
+      setError('Failed to fetch user: ' + err.message);
+      console.error('Error fetching user:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
