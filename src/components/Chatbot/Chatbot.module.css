@@ -241,9 +241,7 @@
 
 @media (max-width: 768px) {
   .chatbotContainer {
-    margin-top: -70px;
-    margin-right: 20px;
-    position: sticky;
+    position: fixed;
     display: flex;
     justify-content: flex-end;
   }
