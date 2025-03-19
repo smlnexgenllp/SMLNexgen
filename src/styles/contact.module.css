@@ -174,6 +174,22 @@
 }
 
 /* Responsive Design */
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 80px; /* Adjust title size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .title{
+    font-size: 60px;
+    letter-spacing: 5px;
+
+  }
+}
+
+
 @media (max-width: 900px) {
   
   .contactContainer {
