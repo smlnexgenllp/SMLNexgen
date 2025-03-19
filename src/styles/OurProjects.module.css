@@ -4,14 +4,14 @@
   --e: cubic-bezier(0.19, 1, 0.22, 1);
   --font-sans: 'Rubik', sans-serif;
   --font-serif: 'Cardo', serif;
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 .heading {
   font-size: 40px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   color: #06038D;
 }
 
@@ -180,12 +180,12 @@
 @media (max-width: 768px) {
 .container {
   padding-top: 1px; /* Adjusted for mobile */
-  margin-top: -80px;
+  /* margin-top: -120px; */
 }
 
 .pageContent {
   grid-template-columns: 1fr; /* Single column layout for mobile */
-  gap: 1rem; /* Reduced gap for mobile */
+  /* gap: 1rem; Reduced gap for mobile */
   padding: 1.5rem; /* Reduced padding for mobile */
 }
 
