@@ -4,7 +4,14 @@ export function middleware(req) {
   const authToken = req.cookies.get('authToken');
 
   // Define protected routes
-  const protectedRoutes = ['/Admin/Dashboard'];
+  const protectedRoutes = [
+    '/Admin/Dashboard',
+    '/Admin/JobAlerts',
+    '/Admin/JobApplications',
+    '/Admin/JobPostings',
+    '/Admin/Users',
+    '/Admin/Users/Edit',
+    ];
 
   // If user is not authenticated, redirect to login page
   if (protectedRoutes.includes(req.nextUrl.pathname) && !authToken) {
