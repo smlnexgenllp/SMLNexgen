@@ -201,7 +201,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 50px;
-  margin-bottom: -200px;
+  /* margin-bottom: -200px; */
   width: 100%;
   padding: 20px;
   text-align: center;
@@ -231,6 +231,9 @@
 
 /* Mobile View Adjustments */
 @media (max-width: 768px) {
+  .section h1{
+    font-size: 80px;
+  }
   .section h2 {
     font-size: 32px;
   }
@@ -282,6 +285,11 @@
 
 /* Extra Small Devices */
 @media (max-width: 480px) {
+  .section h1{
+    font-size: 60px;
+    letter-spacing: 5px;
+
+  }
   .section h2 {
     font-size: 28px;
   }
