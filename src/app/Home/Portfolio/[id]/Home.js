@@ -11,7 +11,7 @@ const contentData = {
     title: "Expert Web Development for Your Business Needs",
     description: "At SMLNEXGEN LLP, we specialize in creating dynamic and responsive websites that drive engagement and conversion.",
     section1: [
-      { imgSrc: "/Portfolio/id901.webp", title: "Custom Web Development", desc: "Transform your online presence with our custom web development services, designed to create stunning, high-performance websites that engage users and drive results." },
+      { imgSrc: "/Portfolio/id901.webp", title: "Custom Web Development", desc: "Transform your online presence with custom web development for stunning, high-performance websites that engage users." },
       { imgSrc: "/Portfolio/id902.webp", title: "Front-End Development", desc: "Enhance user interaction with our front-end development services, designed to create seamless, responsive, and visually engaging experiences." },
       { imgSrc: "/Portfolio/id903.webp", title: "Back-End Development", desc: " We design secure, high-performance architectures that ensure seamless data processing, efficient APIs, and smooth system integrations." }
     ],
@@ -21,7 +21,7 @@ const contentData = {
       { imgSrc: "/Portfolio/cu3.png", title: "Responsive Web Design", desc: "Ensure your website looks great on all devices with our responsive designs." },
       { imgSrc: "/Portfolio/cu4.webp", title: "UI/UX Design", desc: "Create visually stunning and user-friendly interfaces that captivate your audience." },
       { imgSrc: "/Portfolio/cu9.png", title: "Web Hosting", desc: "Reliable hosting solutions with high uptime and fast performance." },
-      { imgSrc: "/Portfolio/cu6.png", title: "Web Security", desc: "Protect your website with our advanced security solutions." }
+      { imgSrc: "/Portfolio/cu6.png", title: "Web Security", desc: "Protect your website and data with our advanced security solutions." }
     ]
   },
   "2": {
