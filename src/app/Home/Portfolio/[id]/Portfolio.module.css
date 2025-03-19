@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: -140px;
-  /* Adjust this value to move it up/down */
+  margin-top: -140px; /* Adjust this value to move it up/down */
 }
-.section h2{
+
+.section h2 {
   font-family: "Six Caps", sans-serif;
   display: flex;
   justify-content: center;
@@ -17,28 +17,19 @@
   font-weight: lighter;
   padding: 10px;
   letter-spacing: 10px;
-  
 }
 
 .container {
-
   position: relative;
   z-index: 10;
   background-color: transparent;
-  /* Ensure visibility */
   overflow: hidden;
-  width: 85%;
-  /* Reduce width for left & right cut */
-
-
+  width: 85%; /* Reduce width for left & right cut */
   margin: 220px auto 0 auto;
-
-
 }
 
-
 .boxColumnWrapper {
-  border-radius: 20px 20px 20px 20px;
+  border-radius: 20px;
   overflow: hidden;
   width: 100%;
 }
@@ -64,13 +55,11 @@
   height: 320px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  flex-shrink: 0;
-  /* Prevent shrinking */
+  flex-shrink: 0; /* Prevent shrinking */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 .box.active {
@@ -92,4 +81,57 @@
   margin: 0 auto;
   max-width: 100%;
   height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+
+  .box {
+    width: 260px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section h2 {
+    font-size: 80px;
+  }
+
+  .container {
+    width: 95%;
+    /* margin-top: 180px; */
+  }
+
+  .box {
+    width: 240px;
+    height: 280px;
+  }
+
+  .boxText {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section h2 {
+    font-size: 60px;
+    letter-spacing: 5px;
+  }
+
+  .container {
+    width: 100%;
+    /* margin-top: 150px; */
+  }
+
+  .box {
+    width: 220px;
+    height: 260px;
+  }
+
+  .boxText {
+    font-size: 9px;
+  }
 }
