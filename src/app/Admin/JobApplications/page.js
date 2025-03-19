@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import Link from "next/link";
 import styles from "./applications.module.css";
 
@@ -10,10 +12,17 @@ const JobApplicationsPage = () => {
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("All");
   const [sortBy, setSortBy] = useState("newest");
+  const router = useRouter();
 
   useEffect(() => {
+    const authToken = Cookies.get("authToken");
+
+    if (!authToken) {
+      router.push("/Admin"); // Redirect to login if no token
+      return;
+    }
     fetchApplications();
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     filterApplications();
@@ -22,7 +31,7 @@ const JobApplicationsPage = () => {
   const fetchApplications = async () => {
     try {
       const response = await fetch(
-        "https://sml-backend-qgp6.onrender.com/api/applications"
+        "http://192.168.0.197:5000/api/applications"
       );
       const data = await response.json();
       setApplications(data);
@@ -69,7 +78,7 @@ const JobApplicationsPage = () => {
   const handleStatusChange = async (id, newStatus) => {
     try {
       const response = await fetch(
-        `https://sml-backend-qgp6.onrender.com/api/applications/${id}/status`,
+        `http://192.168.0.197:5000/api/applications/${id}/status`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -237,7 +246,7 @@ const JobApplicationsPage = () => {
 
                     <div className={styles.resumeLink}>
                       <a
-                        href={`https://sml-backend-qgp6.onrender.com/${app.resume}`}
+                        href={`http://192.168.0.197:5000/${app.resume}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.viewResumeButton}
