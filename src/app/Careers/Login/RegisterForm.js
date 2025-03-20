@@ -137,7 +137,7 @@ const RegisterForm = ({ setShowLogin }) => {
       }
     });
 
-    const endpoints = ["https://sml-backend-qgp6.onrender.com/api/users/register"];
+    const endpoints = ["https://api.smlnexgenllp.com/api/users/register"];
 
     for (const url of endpoints) {
       try {
