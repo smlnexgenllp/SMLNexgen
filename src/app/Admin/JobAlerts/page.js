@@ -23,7 +23,7 @@ export default function JobAlertsPage() {
 
     const fetchJobAlerts = async () => {
       try {
-        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://sml-backend-qgp6.onrender.com";
+        const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://api.smlnexgenllp.com";
         const response = await fetch(`${backendUrl}/api/job-alerts`);
         if (!response.ok) {
           throw new Error("Failed to fetch job alerts");
