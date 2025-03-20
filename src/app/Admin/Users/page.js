@@ -22,7 +22,7 @@ export default function AdminUsersPage() {
   const router = useRouter();
 
   // You might need to adjust this URL based on your environment
-  const API_BASE_URL = 'https://sml-backend-qgp6.onrender.com'; // or whatever port your backend is running on
+  const API_BASE_URL = 'https://api.smlnexgenllp.com'; // or whatever port your backend is running on
 
   useEffect(() => {
     const authToken = Cookies.get("authToken");
