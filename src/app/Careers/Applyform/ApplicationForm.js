@@ -32,7 +32,7 @@ const ApplicationForm = () => {
   // Fetch job details to auto-fill the role field
   useEffect(() => {
     if (jobId) {
-      fetch("https://sml-backend-qgp6.onrender.com/api/jobs")
+      fetch("https://api.smlnexgenllp.com/api/jobs")
         .then((res) => res.json())
         .then((data) => {
           const job = data.find((job) => job.id === parseInt(jobId));
@@ -68,7 +68,7 @@ const ApplicationForm = () => {
     try {
       const formData = new FormData(e.target);
       const response = await fetch(
-        "https://sml-backend-qgp6.onrender.com/api/applications",
+        "https://api.smlnexgenllp.com/api/applications",
         {
           method: "POST",
           body: formData,
