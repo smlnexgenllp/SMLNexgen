@@ -16,7 +16,7 @@ const MyActivity = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`https://sml-backend-qgp6.onrender.com/api/applications/user/${user.email}`)
+      fetch(`https://api.smlnexgenllp.com/api/applications/user/${user.email}`)
         .then((response) => response.json())
         .then((data) => setApplications(data))
         .catch((error) => console.error("Error fetching applications:", error));
@@ -26,7 +26,7 @@ const MyActivity = () => {
   const handleWithdraw = async (id) => {
     try {
       const response = await fetch(
-        `https://sml-backend-qgp6.onrender.com/api/applications/${id}/withdraw`,
+        `https://api.smlnexgenllp.com/api/applications/${id}/withdraw`,
         {
           method: "PUT",
         }
