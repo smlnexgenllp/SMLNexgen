@@ -17,7 +17,7 @@ const LoginForm = ({ setShowLogin }) => {
     setError(null);
 
     const endpoints = [
-      'https://sml-backend-qgp6.onrender.com/api/users/login',
+      'https://api.smlnexgenllp.com/api/users/login',
     ];
 
     // Determine if input is email or user ID based on '@' presence
