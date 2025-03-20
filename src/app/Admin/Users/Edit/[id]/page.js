@@ -26,7 +26,7 @@ export default function EditUserPage({ params }) {
   const [showCropper, setShowCropper] = useState(false);
 
   // API base URL
-  const API_BASE_URL = 'https://sml-backend-qgp6.onrender.com';
+  const API_BASE_URL = 'https://api.smlnexgenllp.com';
 
   useEffect(() => {
     const authToken = Cookies.get("authToken");
