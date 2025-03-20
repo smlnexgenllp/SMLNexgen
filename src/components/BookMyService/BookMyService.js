@@ -83,7 +83,7 @@ export default function BookMyService({ onClose }) {
     
   
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://sml-backend-qgp6.onrender.com';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://api.smlnexgenllp.com';
       const response = await fetch(`${backendUrl}/api/book-service`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
