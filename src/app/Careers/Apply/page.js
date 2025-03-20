@@ -24,7 +24,7 @@ const Openings = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch("https://sml-backend-qgp6.onrender.com/api/jobs");
+        const response = await fetch("https://api.smlnexgenllp.com/api/jobs");
         const data = await response.json();
         setJobs(data);
       } catch (error) {
@@ -40,7 +40,7 @@ const Openings = () => {
       return;
     }
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://sml-backend-qgp6.onrender.com';
+      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://api.smlnexgenllp.com';
       const response = await fetch(`${backendUrl}/api/job-alerts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
