@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import SocialMedia from "@/components/SocialMedia";
 import Footer from "@/components/Footer/Footer";
 import ChatbotComponent from "@/components/Chatbot/Chatbot";
+import CookieConsent from "@/components/CookieConsent"; 
 
 export const metadata = {
   title: "Custom Software & AI Solution | SML NexGen",
@@ -90,6 +91,7 @@ export default function RootLayout({ children }) {
           {children}
           <ChatbotComponent />
           <Footer />
+          <CookieConsent />
       </body>
     </html>
   );
