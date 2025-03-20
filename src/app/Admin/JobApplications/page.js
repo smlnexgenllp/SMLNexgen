@@ -31,7 +31,7 @@ const JobApplicationsPage = () => {
   const fetchApplications = async () => {
     try {
       const response = await fetch(
-        "https://sml-backend-qgp6.onrender.com/api/applications"
+        "https://api.smlnexgenllp.com/api/applications"
       );
       const data = await response.json();
       setApplications(data);
@@ -78,7 +78,7 @@ const JobApplicationsPage = () => {
   const handleStatusChange = async (id, newStatus) => {
     try {
       const response = await fetch(
-        `https://sml-backend-qgp6.onrender.com/api/applications/${id}/status`,
+        `https://api.smlnexgenllp.com/api/applications/${id}/status`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -246,7 +246,7 @@ const JobApplicationsPage = () => {
 
                     <div className={styles.resumeLink}>
                       <a
-                        href={`https://sml-backend-qgp6.onrender.com/${app.resume}`}
+                        href={`https://api.smlnexgenllp.com/${app.resume}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.viewResumeButton}
