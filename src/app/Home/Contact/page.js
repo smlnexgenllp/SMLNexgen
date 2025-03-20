@@ -59,7 +59,7 @@ const ContactForm = () => {
       };
 
       try {
-        const response = await fetch('http://3.110.45.103:5000/api/contact', {
+        const response = await fetch('http://api.smlnexgenllp.com/api/contact', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
