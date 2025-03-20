@@ -14,7 +14,7 @@ const ForgotPasswordForm = ({ setShowForgotPassword }) => {
   const [success, setSuccess] = useState('');
 
   const endpoints = [
-    'https://sml-backend-qgp6.onrender.com/api/users',
+    'https://api.smlnexgenllp.com/api/users',
   ];
 
   const handleSendOtp = async (e) => {
