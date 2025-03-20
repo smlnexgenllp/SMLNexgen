@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "sml-backend-qgp6.onrender.com", // Allow images from your backend
+        hostname: "https://api.smlnexgenllp.com", // Allow images from your backend
       },
     ],
         domains: ["unsplash.it", "www.smlnexgenllp.com"],
