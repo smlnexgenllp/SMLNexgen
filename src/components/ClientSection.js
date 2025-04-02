@@ -6,11 +6,13 @@ import styles from '../styles/Client.module.css';
 
 
 const logos = [
-  { id: 1, src: '/cli1.png', alt: 'Coca Cola' },
-  { id: 2, src: '/cli3.png', alt: 'Google' },
-  { id: 3, src: '/cli4.jpeg', alt: 'AirBnB' },
-  { id: 4, src: '/cli16.png', alt: 'Spotify' },
-  { id: 5, src: '/cli15.png', alt: 'Guinness' },
+  { id: 1, src: '/cli1.png', alt: 'Akash Krish' },
+  { id: 2, src: '/cli2.png', alt: 'SML Fabricators' },
+  { id: 3, src: '/cli3.jpeg', alt: 'Sri Hari Agri Tech' },
+  { id: 4, src: '/cli4.png', alt: 'Pla' },
+  { id: 5, src: '/cli5.png', alt: 'Rayan Wires' },
+  { id: 6, src: '/cli6.png', alt: 'Helping Mitra' },
+  { id: 7, src: '/cli7.png', alt: 'Sri Atista Vinayakar Jewellers' },
 ];
 
 const LogoGrid = () => {
