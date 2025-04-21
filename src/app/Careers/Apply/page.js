@@ -15,7 +15,6 @@ const Openings = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [alertEmail, setAlertEmail] = useState("");
 
-
   const wrapperRef = useRef(null);
 
   const router = useRouter();
@@ -40,7 +39,8 @@ const Openings = () => {
       return;
     }
     try {
-      const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://api.smlnexgenllp.com';
+      const backendUrl =
+        process.env.NEXT_PUBLIC_BACKEND_URL || "https://api.smlnexgenllp.com";
       const response = await fetch(`${backendUrl}/api/job-alerts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -59,7 +59,6 @@ const Openings = () => {
     }
   };
 
-
   // Handle navigation to application form with job ID
   const handleApplyClick = (jobId) => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -70,11 +69,10 @@ const Openings = () => {
     }
   };
 
-
   // Compute filtered jobs based on search input
   const searchWords = searchTerm.trim().toLowerCase().split(/\s+/);
-  const filteredJobs = jobs.filter(job =>
-    searchWords.every(word => job.title.toLowerCase().includes(word))
+  const filteredJobs = jobs.filter((job) =>
+    searchWords.every((word) => job.title.toLowerCase().includes(word))
   );
 
   // Add shadow to header on scroll
@@ -116,7 +114,9 @@ const Openings = () => {
       </div>
       <div className={styles.page}>
         <div
-          className={`${styles.wrapper} ${isDetailView ? styles.detailPage : ""}`}
+          className={`${styles.wrapper} ${
+            isDetailView ? styles.detailPage : ""
+          }`}
           ref={wrapperRef}
         >
           <div className={styles.searchMenu}>
@@ -145,7 +145,10 @@ const Openings = () => {
                   value={alertEmail}
                   onChange={(e) => setAlertEmail(e.target.value)}
                 />
-                <button className={styles.searchButtons} onClick={handleJobAlertSubmit}>
+                <button
+                  className={styles.searchButtons}
+                  onClick={handleJobAlertSubmit}
+                >
                   Create Job Alerts
                 </button>
               </div>
@@ -155,14 +158,22 @@ const Openings = () => {
                   {filteredJobs.map((job) => (
                     <div
                       key={job.id}
-                      className={`${styles.simplifiedJobCard} ${selectedJob && selectedJob.id === job.id
-                        ? styles.selected
-                        : ""
-                        }`}
+                      className={`${styles.simplifiedJobCard} ${
+                        selectedJob && selectedJob.id === job.id
+                          ? styles.selected
+                          : ""
+                      }`}
                       onClick={() => handleJobClick(job)}
                     >
                       <div className={styles.jobCardHeader}>
-                        <div className={styles.simplifiedLogo}><Icon icon={job.logo} width="24" height="24" style={{ color: job.bgColor || "#000" }} /></div>
+                        <div className={styles.simplifiedLogo}>
+                          <Icon
+                            icon={job.logo}
+                            width="24"
+                            height="24"
+                            style={{ color: job.bgColor || "#000" }}
+                          />
+                        </div>
                       </div>
                       <div className={styles.jobCardTitle}>{job.title}</div>
                     </div>
@@ -186,7 +197,12 @@ const Openings = () => {
                         onClick={() => handleJobClick(job)}
                       >
                         <div className={styles.jobCardHeader}>
-                          <Icon icon={job.logo} width="48" height="48" style={{ color: job.bgColor || "#000" }} />
+                          <Icon
+                            icon={job.logo}
+                            width="48"
+                            height="48"
+                            style={{ color: job.bgColor || "#000" }}
+                          />
                           <div className={styles.menuDot}></div>
                         </div>
                         <div className={styles.jobCardTitle}>{job.title}</div>
@@ -239,7 +255,7 @@ const Openings = () => {
                         <div className={styles.jobCardTitle}>
                           {selectedJob ? selectedJob.title : ""}
                         </div>
-                        <div className={styles.jobAction}>
+                        {/* <div className={styles.jobAction}>
                           <svg
                             className={styles.heart}
                             xmlns="http://www.w3.org/2000/svg"
@@ -266,13 +282,11 @@ const Openings = () => {
                             <circle cx="18" cy="19" r="3" />
                             <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
                           </svg>
-                        </div>
+                        </div> */}
                       </div>
-                      // <div className={styles.jobSubtitleWrapper}>
-                      //   <div className={styles.posted}>
-                      //     Posted 8 days ago{" "}
-                      //   </div>
-                      // </div>
+                      {/* <div className={styles.jobSubtitleWrapper}>
+                        <div className={styles.posted}>Posted 8 days ago </div>
+                      </div> */}
                       <div className={styles.explainBar}>
                         <div className={styles.explainContents}>
                           <div className={styles.explainTitle}>Experience</div>
@@ -287,20 +301,26 @@ const Openings = () => {
                           </div>
                         </div>
                         <div className={styles.explainContents}>
-                          <div className={styles.explainTitle}>Employee Type</div>
+                          <div className={styles.explainTitle}>
+                            Employee Type
+                          </div>
                           <div className={styles.explainSubtitle}>
                             {selectedJob ? selectedJob.details.time : ""}
                           </div>
                         </div>
                         <div className={styles.explainContents}>
-                          <div className={styles.explainTitle}>Offer Salary</div>
+                          <div className={styles.explainTitle}>
+                            Offer Salary
+                          </div>
                           <div className={styles.explainSubtitle}>
                             {selectedJob ? selectedJob.details.salary : ""}
                           </div>
                         </div>
                       </div>
                       <div className={styles.overviewText}>
-                        <div className={styles.overviewTextHeader}>Overview</div>
+                        <div className={styles.overviewTextHeader}>
+                          Overview
+                        </div>
                         <div className={styles.overviewTextSubheader}>
                           {selectedJob ? selectedJob.details.overview : ""}
                         </div>
@@ -311,12 +331,18 @@ const Openings = () => {
                         </div>
                         {selectedJob &&
                           selectedJob.details.description.map((item, index) => (
-                            <div key={index} className={styles.overviewTextItem}>
+                            <div
+                              key={index}
+                              className={styles.overviewTextItem}
+                            >
                               {item}
                             </div>
                           ))}
                       </div>
-                      <button className={styles.cardButtons} onClick={() => handleApplyClick(selectedJob.id)}>
+                      <button
+                        className={styles.cardButtons}
+                        onClick={() => handleApplyClick(selectedJob.id)}
+                      >
                         Apply Now
                       </button>
                     </div>
