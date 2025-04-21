@@ -268,11 +268,11 @@ const Openings = () => {
                           </svg>
                         </div>
                       </div>
-                      <div className={styles.jobSubtitleWrapper}>
-                        <div className={styles.posted}>
-                          Posted 8 days ago{" "}
-                        </div>
-                      </div>
+                      // <div className={styles.jobSubtitleWrapper}>
+                      //   <div className={styles.posted}>
+                      //     Posted 8 days ago{" "}
+                      //   </div>
+                      // </div>
                       <div className={styles.explainBar}>
                         <div className={styles.explainContents}>
                           <div className={styles.explainTitle}>Experience</div>
