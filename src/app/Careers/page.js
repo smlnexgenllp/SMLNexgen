@@ -3,6 +3,7 @@ import { useEffect } from "react";
 // import CareerSections from './CareerSections'; // Import the new component
 import styles from "./styles/career.module.css";
 import Image from "next/image";
+import Link from 'next/link';
 
 const ScrollIcon = () => {
   const handleClick = () => {
@@ -77,7 +78,9 @@ export default function Home() {
               At SML NexGen, your ideas matter. Your skills are valued. Your growth is prioritized. Join us in shaping the future—where innovation meets ambition, and challenges turn into opportunities. Explore a career with us and be part of something extraordinary.
             </p>
             <div className={styles.ctaButton}>
-              <span>Explore Opportunities</span>
+              <Link href="/Careers/Apply">
+                  <span>Explore Opportunities</span>
+              </Link>
               <i className="fas fa-arrow-right"></i>
             </div>
           </div>
