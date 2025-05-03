@@ -1,4 +1,4 @@
-//layout.js
+// layout.js
 
 import "./globals.css";
 import ShadowCursor from "@/components/Cursor/index";
@@ -6,7 +6,10 @@ import Navbar from "@/components/Navbar";
 import SocialMedia from "@/components/SocialMedia";
 import Footer from "@/components/Footer/Footer";
 import ChatbotComponent from "@/components/Chatbot/Chatbot";
-import CookieConsent from "@/components/CookieConsent"; 
+import CookieConsent from "@/components/CookieConsent";
+import Script from "next/script";
+import * as gtag from "@/lib/gtag";
+import Analytics from "@/components/Analytics/Analytics"; 
 
 export const metadata = {
   title: "Custom Software & AI Solution | SML NexGen",
@@ -43,7 +46,7 @@ export default function RootLayout({ children }) {
     sameAs: [
       "https://www.facebook.com/people/Smlnexgen-Portfolio/pfbid02ve9NNzpYyKSZTSqEEzTGAXpUiK4xKbN16d6238MiUdnPrnbK66BW7213LvBMFVQxl/",
       "https://x.com/smlnexgenllp",
-      "https://www.linkedin.com/company/smlnexgen-llp", // Update with real slug
+      "https://www.linkedin.com/company/smlnexgen-llp",
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -85,13 +88,34 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-          <Navbar />
-          <ShadowCursor />
-          <SocialMedia />
-          {children}
-          <ChatbotComponent />
-          <Footer />
-          <CookieConsent />
+        {/* Google Analytics Scripts */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gtag.GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+
+        <Navbar />
+        <ShadowCursor />
+        <SocialMedia />
+        <Analytics />
+        {children}
+        <ChatbotComponent />
+        <Footer />
+        <CookieConsent />
       </body>
     </html>
   );
