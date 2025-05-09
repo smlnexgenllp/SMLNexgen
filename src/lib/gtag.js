@@ -1,6 +1,6 @@
 // src/lib/gtag.js
 
-export const GA_TRACKING_ID = 'G-47LEDXH1XQ';
+export const GA_TRACKING_ID = 'G-EHM1T2ZLZW';
 
 // Log the pageview with their URL
 export const pageview = (url) => {
