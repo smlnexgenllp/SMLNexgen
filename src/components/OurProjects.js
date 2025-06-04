@@ -15,9 +15,9 @@ const cards = [
     image: '/fechzo.png'
   },
   {
-    title: 'AkashKrish Toyota',
-    copy: "We developed a comprehensive web platform for AkashKrish Toyota.",
-    image: '/toyota.png'
+    title: 'Venkatesh Interiors',
+    copy: "We developed a comprehensive web platform for Venkatesh Interiors.",
+    image: '/VenkateshInterior.png'
   },
   {
     title: 'Mr.Solver',
