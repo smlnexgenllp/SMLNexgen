@@ -6,7 +6,7 @@ import styles from '../styles/Client.module.css';
 
 
 const logos = [
-  { id: 1, src: '/VI_logo.png', alt: 'Venkatesh Interior' },
+  { id: 1, src: '/VI_logo.jpg', alt: 'Venkatesh Interior' },
   { id: 2, src: '/cli2.png', alt: 'SML Fabricators' },
   { id: 3, src: '/cli3.jpeg', alt: 'Sri Hari Agri Tech' },
   { id: 4, src: '/cli4.png', alt: 'Pla' },
