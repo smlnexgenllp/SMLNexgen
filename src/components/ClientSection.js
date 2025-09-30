@@ -4,7 +4,6 @@ import gsap from 'gsap';
 import Image from 'next/image';
 import styles from '../styles/Client.module.css';
 
-
 const logos = [
   { id: 1, src: '/VI_logo.jpg', alt: 'Venkatesh Interior' },
   { id: 2, src: '/cli2.png', alt: 'SML Fabricators' },
@@ -25,12 +24,17 @@ const LogoGrid = () => {
   const marqueeRef = useRef(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
+  // Duplicate logos enough times for smooth scroll
+  const repeatedLogos = [...logos, ...logos, ...logos]; 
+
   useEffect(() => {
     const marquee = marqueeRef.current;
-    const duration = window.innerWidth < 768 ? 20 : 10; // Adjust speed for mobile
+    if (!marquee) return;
+
+    const duration = window.innerWidth < 768 ? 25 : 12; // slower on mobile
 
     gsap.to(marquee, {
-      x: "-100%",
+      x: `-${marquee.scrollWidth / 3}px`, // scroll the width of original logos
       duration: duration,
       ease: 'linear',
       repeat: -1,
@@ -51,7 +55,6 @@ const LogoGrid = () => {
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') closeModal();
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
@@ -59,19 +62,18 @@ const LogoGrid = () => {
   return (
     <div className={styles.container}>
       <div className={styles.title}>
-        <h1>
-          OUR PARTNERS / CLIENTS
-        </h1>
+        <h1>OUR PARTNERS / CLIENTS</h1>
       </div>
+
       <div className={styles.marqueeContainer}>
         <div className={styles.marquee} ref={marqueeRef}>
-          {[...logos, ...logos].map((logo, index) => (
+          {repeatedLogos.map((logo, index) => (
             <Image
               key={index}
               src={logo.src}
               alt={logo.alt}
-              width={100} // Adjusted for mobile
-              height={60}
+              width={180}
+              height={100}
               className={styles.logogrid__img}
               onClick={() => handleImageClick(logo.src)}
               unoptimized
@@ -82,8 +84,17 @@ const LogoGrid = () => {
 
       {selectedImage && (
         <div className={styles.modal} onClick={closeModal}>
-          <span className={styles.closeButton} onClick={closeModal}>&times;</span>
-          <Image src={selectedImage} alt="Zoomed" width={600} height={400} className={styles.modalImage} unoptimized />
+          <span className={styles.closeButton} onClick={closeModal}>
+            &times;
+          </span>
+          <Image
+            src={selectedImage}
+            alt="Zoomed"
+            width={600}
+            height={400}
+            className={styles.modalImage}
+            unoptimized
+          />
         </div>
       )}
     </div>
