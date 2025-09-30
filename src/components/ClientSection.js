@@ -18,7 +18,7 @@ const logos = [
   { id: 10, src: '/cli10.png', alt: 'HC' },
   { id: 11, src: '/cli11.png', alt: 'JPK Interio' },
   { id: 12, src: '/cli12.png', alt: 'Auto Mark' },
-  
+  { id: 13, src: '/cli13.png', alt: 'Tapams' },
 ];
 
 const LogoGrid = () => {
