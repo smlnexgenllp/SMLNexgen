@@ -13,6 +13,12 @@ const logos = [
   { id: 5, src: '/cli5.png', alt: 'Rayan Wires' },
   { id: 6, src: '/cli6.png', alt: 'Helping Mitra' },
   { id: 7, src: '/cli7.png', alt: 'Sri Atista Vinayakar Jewellers' },
+  { id: 8, src: '/cli8.png', alt: 'Kerovit By kajaria' },
+  { id: 9, src: '/cli9.png', alt: 'Loki Enterprises' },
+  { id: 10, src: '/cli10.png', alt: HC' },
+  { id: 11, src: '/cli11.png', alt: 'JPK Interio' },
+  { id: 12, src: '/cli12.png', alt: 'Auto Mark' },
+  
 ];
 
 const LogoGrid = () => {
